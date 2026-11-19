@@ -276,11 +276,9 @@ html.has-custom-cursor :is(input, textarea, select, [contenteditable="true"]) {
 @keyframes mask-open {
   from {
     clip-path: inset(14% 10% 14% 10% round 24px);
-    opacity: 0.4;
   }
   to {
     clip-path: inset(0 0 0 0 round 12px);
-    opacity: 1;
   }
 }
 @keyframes drift {

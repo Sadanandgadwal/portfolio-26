@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ScrollProgress } from "@/components/layout/scroll-progress";
 import { CustomCursor } from "@/components/motion/custom-cursor";
+import { MotionProvider } from "@/components/motion/motion-provider";
 import { portfolio } from "@/lib/content";
 import { themeInitScript } from "@/lib/theme";
 import "./globals.css";
@@ -65,7 +66,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skip to content
         </a>
-        {children}
+        <MotionProvider>{children}</MotionProvider>
         <ScrollProgress />
         <CustomCursor />
       </body>

@@ -52,7 +52,7 @@ export function Hero({ hero, personal }: HeroProps) {
         </h1>
 
         <div className="mt-10 grid items-start gap-14 md:mt-14 lg:grid-cols-12 lg:gap-10">
-          <div className="grid gap-6 lg:col-span-4 lg:pt-6">
+          <div className="grid gap-6 lg:col-span-5 lg:pt-6 xl:col-span-4">
             <p className="animate-fade-up text-title font-medium" style={delay(400)}>
               {personal.roles.join(" / ")}
             </p>
@@ -79,7 +79,7 @@ export function Hero({ hero, personal }: HeroProps) {
             </div>
           </div>
 
-          <div className="animate-rise lg:col-span-8" style={delay(650)}>
+          <div className="animate-rise lg:col-span-7 xl:col-span-8" style={delay(650)}>
             <HeroMockup data={hero.mockup} />
           </div>
         </div>

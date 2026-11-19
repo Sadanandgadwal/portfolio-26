@@ -19,15 +19,15 @@ type SiteHeaderProps = {
 
 function Brand({ name, shortName, href }: { name: string; shortName: string; href: string }) {
   return (
-    <a
-      href={href}
-      className="group/brand flex items-center gap-2.5 rounded-full pr-2"
-      aria-label={`${name}, back to top`}
-    >
-      <span className="grid size-9 place-items-center rounded-full bg-foreground font-mono text-xs font-medium text-background transition-transform duration-300 ease-out-expo group-hover/brand:rotate-[-8deg]">
+    <a href={href} className="group/brand flex items-center gap-2.5 rounded-full pr-2">
+      <span
+        aria-hidden
+        className="grid size-9 place-items-center rounded-full bg-foreground font-mono text-xs font-medium text-background transition-transform duration-300 ease-out-expo group-hover/brand:rotate-[-8deg]"
+      >
         {shortName || name.slice(0, 2)}
       </span>
-      <span className="text-sm font-medium tracking-tight transition-opacity duration-300 max-lg:hidden lg:group-data-scrolled/header:hidden">
+      {/* sr-only (not display:none) when collapsed, so the link's name always equals the visible name. */}
+      <span className="text-sm font-medium tracking-tight transition-opacity duration-300 max-lg:sr-only lg:group-data-scrolled/header:sr-only">
         {name}
       </span>
     </a>

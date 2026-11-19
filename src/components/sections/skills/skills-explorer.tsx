@@ -170,7 +170,10 @@ export function SkillsExplorer({ categories, projectTitles }: SkillsExplorerProp
                 )}
                 <span className="relative">{chip.name}</span>
                 <span
-                  className={cn("relative font-mono text-xs", active ? "opacity-70" : "opacity-60")}
+                  className={cn(
+                    "relative font-mono text-xs",
+                    active ? "opacity-80" : "text-muted-foreground",
+                  )}
                 >
                   {String(chip.count).padStart(2, "0")}
                 </span>

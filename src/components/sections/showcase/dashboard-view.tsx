@@ -38,7 +38,7 @@ export function DashboardView({ orders, onViewAll }: DashboardViewProps) {
   return (
     <div className="grid gap-4">
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <h4 className="text-lg font-semibold tracking-tight">Overview</h4>
+        <h3 className="text-lg font-semibold tracking-tight">Overview</h3>
         <div
           role="radiogroup"
           aria-label="Region"
@@ -118,9 +118,9 @@ export function DashboardView({ orders, onViewAll }: DashboardViewProps) {
 
         <section aria-labelledby="recent-orders" className="rounded-xl border bg-surface">
           <div className="flex items-center justify-between px-4 pt-4">
-            <h5 id="recent-orders" className="text-sm text-muted-foreground">
+            <h4 id="recent-orders" className="text-sm text-muted-foreground">
               Recent orders
-            </h5>
+            </h4>
             <Button variant="link" size="sm" onClick={onViewAll} className="text-xs">
               View all <ArrowRight aria-hidden className="size-3.5" />
             </Button>

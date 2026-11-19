@@ -2,7 +2,8 @@
 
 import { useId, useRef, useState, type FormEvent } from "react";
 import { CircleCheck } from "lucide-react";
-import { z } from "zod";
+// zod/mini: tree-shakable build for the browser (full zod stays server-side for content).
+import { z } from "zod/mini";
 import { Button } from "@/components/ui/button";
 import { Combobox } from "@/components/ui/combobox";
 import { DatePicker } from "@/components/ui/date-picker";
@@ -24,14 +25,16 @@ const LABELS: Record<Field, string> = {
 
 const schemaFor = (countries: string[]) =>
   z.object({
-    company: z.string().trim().min(2, "Company name is required."),
+    company: z.string().check(z.trim(), z.minLength(2, "Company name is required.")),
     email: z.email("Enter a valid billing email."),
-    country: z.string().refine((c) => countries.includes(c), "Choose a country from the list."),
-    start: z
+    country: z
       .string()
-      .min(1, "Pick a contract start date.")
-      .refine((d) => !d || !isWeekend(d), "Contracts can only start on a weekday."),
-    notes: z.string().max(NOTES_MAX, `Keep notes under ${NOTES_MAX} characters.`),
+      .check(z.refine((c) => countries.includes(c), "Choose a country from the list.")),
+    start: z.string().check(
+      z.minLength(1, "Pick a contract start date."),
+      z.refine((d) => !d || !isWeekend(d), "Contracts can only start on a weekday."),
+    ),
+    notes: z.string().check(z.maxLength(NOTES_MAX, `Keep notes under ${NOTES_MAX} characters.`)),
   });
 
 type CustomerFormViewProps = { countries: string[]; defaultMonth: string };
@@ -108,7 +111,7 @@ export function CustomerFormView({ countries, defaultMonth }: CustomerFormViewPr
       aria-label="New customer"
       className="grid gap-4 rounded-xl border bg-surface p-4 @xl/app:p-6"
     >
-      <h4 className="text-lg font-semibold tracking-tight">New customer</h4>
+      <h3 className="text-lg font-semibold tracking-tight">New customer</h3>
 
       {submitted && errorList.length > 0 && (
         <div

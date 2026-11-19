@@ -58,7 +58,7 @@ export default function DesignSystemPage() {
   return (
     <main id="main">
       <Container className="flex items-center justify-between py-6">
-        <p className="font-mono text-sm">DESIGN.md / preview</p>
+        <h1 className="font-mono text-sm">DESIGN.md / preview</h1>
         <ThemeToggle />
       </Container>
 

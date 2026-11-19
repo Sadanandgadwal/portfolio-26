@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { About } from "@/components/sections/about/about";
@@ -30,6 +31,8 @@ export default function Home() {
   } = portfolio;
 
   // Sections render only when they have content; the nav mirrors what is on the page.
+  // Below-the-fold interactive sections get their own <Suspense> boundary so React hydrates them
+  // separately (selective hydration) instead of in one long main-thread task.
   const rendered = [
     "home",
     "about",
@@ -52,13 +55,23 @@ export default function Home() {
       <main id="main">
         <Hero hero={hero} personal={personal} />
         <About about={about} />
-        <Skills skills={skills} projects={projects.items} />
+        <Suspense>
+          <Skills skills={skills} projects={projects.items} />
+        </Suspense>
         <Experience experience={experience} />
-        <Projects projects={projects} skills={skills} />
+        <Suspense>
+          <Projects projects={projects} skills={skills} />
+        </Suspense>
         <Education education={education} />
-        <Playground playground={playground} />
-        <Showcase showcase={showcase} />
-        <Contact contact={contact} personal={personal} resume={resume} socials={socials} />
+        <Suspense>
+          <Playground playground={playground} />
+        </Suspense>
+        <Suspense>
+          <Showcase showcase={showcase} />
+        </Suspense>
+        <Suspense>
+          <Contact contact={contact} personal={personal} resume={resume} socials={socials} />
+        </Suspense>
       </main>
       <SiteFooter personal={personal} footer={footer} socials={socials} />
     </>

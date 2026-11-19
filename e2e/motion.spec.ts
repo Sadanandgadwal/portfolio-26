@@ -82,3 +82,19 @@ test("project card → case study runs a view transition (shared-element morph)"
   );
   expect(errors).toEqual([]);
 });
+
+test("reduced motion: JS (Motion) animations jump to their end state", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/");
+  // Hero chart bars normally grow in after ~0.9s; with reduced motion they are full height at once.
+  const bar = page
+    .getByRole("button", { name: /^Mon: / })
+    .locator("span")
+    .nth(0);
+  await page.waitForTimeout(150);
+  const scale = await bar.evaluate((el) => {
+    const t = getComputedStyle(el).transform;
+    return t === "none" ? 1 : new DOMMatrix(t).d;
+  });
+  expect(scale).toBe(1);
+});

@@ -34,6 +34,8 @@ All content lives in **`src/data/portfolio.json`**. It is validated against `src
 | `npm run format` / `format:check` | Prettier                                                                                   |
 | `npm test`                        | Vitest unit and component tests                                                            |
 | `npm run test:e2e`                | Playwright against the production build (run `npm run build` first) at 390, 768 and 1440px |
+| `npm run audit:a11y`              | axe-core accessibility scans in a real browser (run `npm run build` first)                 |
+| `npm run audit:lighthouse`        | Lighthouse report for a server already running on :3000 (`npm start`)                      |
 | `npm run check`                   | Typecheck, lint, format check and unit tests                                               |
 
 ## Structure

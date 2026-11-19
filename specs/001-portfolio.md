@@ -27,8 +27,8 @@ A premium, interactive portfolio for Sadanand Gadwal that demonstrates frontend 
 | 7   | Playground & UI showcase | ✅     |
 | 8   | Contact & footer         | ✅     |
 | 9   | Motion polish            | ✅     |
-| 10  | Responsive & performance | ⏳     |
-| 11  | SEO, testing, deployment |        |
+| 10  | Responsive & performance | ✅     |
+| 11  | SEO, testing, deployment | ✅     |
 
 ## Open inputs (owner: Sadanand)
 

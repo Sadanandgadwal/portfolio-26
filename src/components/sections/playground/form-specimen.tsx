@@ -2,7 +2,8 @@
 
 import { useEffect, useId, useRef, useState, type FormEvent } from "react";
 import { CircleCheck } from "lucide-react";
-import { z } from "zod";
+// zod/mini: tree-shakable build for the browser (full zod stays server-side for content).
+import { z } from "zod/mini";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -19,9 +20,9 @@ type Field = keyof Values;
 
 const schemaFor = (roles: string[]) =>
   z.object({
-    name: z.string().trim().min(2, "Enter at least 2 characters."),
+    name: z.string().check(z.trim(), z.minLength(2, "Enter at least 2 characters.")),
     email: z.email("Enter a valid email address."),
-    role: z.string().refine((r) => roles.includes(r), "Choose a role."),
+    role: z.string().check(z.refine((r) => roles.includes(r), "Choose a role.")),
   });
 
 const EMPTY: Values = { name: "", email: "", role: "" };

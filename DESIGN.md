@@ -143,6 +143,8 @@ Rules:
 
 Tailwind defaults: `sm` 640, `md` 768, `lg` 1024, `xl` 1280, `2xl` 1536. QA viewports: **390** (mobile), **768** (tablet), **1440** (desktop), plus 1280 (laptop).
 
+**Verified:** no horizontal overflow at 360/390/768/1024/1280/1440 across all pages (`e2e/responsive.spec.ts`). The hero splits 5/7 at `lg` and 4/8 at `xl`.
+
 ## 12. Theme
 
 - `.dark` class on `<html>` switches token sets (`@custom-variant dark`).
@@ -162,9 +164,32 @@ Tailwind defaults: `sm` 640, `md` 768, `lg` 1024, `xl` 1280, `2xl` 1536. QA view
 - Every image has meaningful `alt` text, or `alt=""` if decorative. Icons are `aria-hidden` and icon-only buttons have `aria-label`.
 - Touch targets are ≥ 44×44px.
 - Hover-only information always has a focus or tap equivalent.
+- **Verified:** axe-core (WCAG 2.0/2.1/2.2 A/AA plus best practices) reports zero violations on the home, case-study and design-system pages in both themes, desktop and mobile (`npm run audit:a11y`). Lighthouse Accessibility is 100.
+- **Link names match visible text** (WCAG 2.5.3): the brand link has no `aria-label`, and its collapsed name is `sr-only`, not `display:none`.
+- **Reduced motion has two layers:** CSS (scroll-driven effects off) and `MotionConfig reducedMotion="user"` (Motion transforms jump to the end), plus the hydration-safe hook for markup decisions.
 
 ## 14. Content rules
 
 - Edit only `src/data/portfolio.json`. Components receive slices through props.
 - Empty string or empty array means "not provided" and is hidden in the UI. Never ship invented placeholders.
 - Assets live in `/public` and are referenced by absolute path in the JSON.
+
+## 15. Performance budget and results
+
+| Page                    | Device                         | Perf | A11y | Best practices | SEO | LCP       | CLS | TBT     |
+| ----------------------- | ------------------------------ | ---- | ---- | -------------- | --- | --------- | --- | ------- |
+| `/`                     | Desktop                        | 100  | 100  | 100            | 100 | 0.3 s     | 0   | 70 ms   |
+| `/`                     | Mobile (Lighthouse throttling) | ~87  | 100  | 100            | 100 | 1.2–1.5 s | 0   | ~510 ms |
+| `/projects/kns-connect` | Desktop                        | 100  | 100  | 100            | 100 | 0.3 s     | 0   | 20 ms   |
+| `/projects/kns-connect` | Mobile                         | 88   | 100  | 100            | 100 | 0.9 s     | 0   | 490 ms  |
+
+What's in place:
+
+- Static prerendering.
+- CSS-only scroll motion.
+- `<Suspense>` hydration boundaries around below-the-fold interactive sections (selective hydration). This cut mobile TBT from 890ms to about 510ms.
+- `zod/mini` in client forms, with full Zod kept server-side.
+- Lazy video previews.
+- AVIF/WebP images.
+
+Known limit: mobile TBT is dominated by hydrating the demo-heavy Playground and Showcase. Deferring them further would mean `ssr: false` plus mounting on scroll, which trades away server-rendered HTML and adds anchor/CLS risk.

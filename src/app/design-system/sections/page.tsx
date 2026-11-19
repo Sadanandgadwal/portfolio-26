@@ -28,9 +28,9 @@ export default function SectionPreviewsPage() {
     <>
       <main id="main">
         <Container className="flex items-center justify-between gap-4 py-6">
-          <p className="flex items-center gap-3 font-mono text-sm">
+          <h1 className="flex items-center gap-3 font-mono text-sm font-normal">
             DESIGN.md / sections <Badge dot>Fixture data</Badge>
-          </p>
+          </h1>
           <ThemeToggle />
         </Container>
         <About about={{ ...portfolio.about, stats: fixtureStats }} />
