@@ -1,27 +1,26 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   AnimatePresence,
   motion,
   useMotionValue,
-  useReducedMotion,
   useSpring,
   useTransform,
   type MotionValue,
 } from "motion/react";
 import { Check, Search } from "lucide-react";
 import { BrowserFrame } from "@/components/ui/browser-frame";
-import { FINE_POINTER_QUERY, useMediaQuery } from "@/hooks/use-media-query";
+import {
+  FINE_POINTER_QUERY,
+  useMediaQuery,
+  usePrefersReducedMotion,
+} from "@/hooks/use-media-query";
 import type { HeroMockup as HeroMockupData } from "@/lib/content";
 import { cn } from "@/lib/utils";
+import { MockupChart, MockupTable } from "./hero-mockup-widgets";
 
 const SPRING = { stiffness: 90, damping: 18, mass: 0.6 };
-const STATUS_DOT = {
-  success: "bg-foreground",
-  pending: "bg-signal",
-  neutral: "bg-border-strong",
-} as const;
 
 /** Pointer position normalised to -1…1 across the viewport, smoothed. Static when disabled. */
 function usePointerParallax(enabled: boolean) {
@@ -48,7 +47,7 @@ function useDepth(v: MotionValue<number>, depth: number) {
 }
 
 export function HeroMockup({ data, className }: { data: HeroMockupData; className?: string }) {
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = usePrefersReducedMotion();
   const finePointer = useMediaQuery(FINE_POINTER_QUERY);
   const pointer = usePointerParallax(finePointer && !reduceMotion);
 
@@ -61,18 +60,10 @@ export function HeroMockup({ data, className }: { data: HeroMockupData; classNam
 
   const [activeNav, setActiveNav] = useState(0);
   const [query, setQuery] = useState("");
-  const [hoveredBar, setHoveredBar] = useState<number | null>(null);
   const [modalOpen, setModalOpen] = useState(true);
   const [toast, setToast] = useState(false);
   const toastTimer = useRef<number | undefined>(undefined);
   useEffect(() => () => window.clearTimeout(toastTimer.current), []);
-
-  const rows = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    return q ? data.table.rows.filter((r) => r.name.toLowerCase().includes(q)) : data.table.rows;
-  }, [data.table.rows, query]);
-
-  const maxPoint = Math.max(...data.chart.points.map((p) => p.value), 1);
 
   const confirm = () => {
     setModalOpen(false);
@@ -170,108 +161,8 @@ export function HeroMockup({ data, className }: { data: HeroMockupData; classNam
               </ul>
 
               <div className="grid flex-1 gap-2 lg:grid-cols-[1fr_1.15fr]">
-                {/* Chart */}
-                <figure className="flex flex-col rounded-lg border bg-surface p-2.5">
-                  <figcaption className="text-muted-foreground">{data.chart.title}</figcaption>
-                  <div
-                    className="relative mt-2 flex h-28 flex-1 items-end gap-1.5"
-                    onPointerLeave={() => setHoveredBar(null)}
-                  >
-                    {data.chart.points.map((p, i) => (
-                      <button
-                        key={p.label}
-                        type="button"
-                        aria-label={`${p.label}: ${p.value}`}
-                        onPointerEnter={() => setHoveredBar(i)}
-                        onFocus={() => setHoveredBar(i)}
-                        onBlur={() => setHoveredBar(null)}
-                        className="group/bar relative flex h-full flex-1 flex-col items-center justify-end gap-1"
-                      >
-                        <AnimatePresence>
-                          {hoveredBar === i && (
-                            <motion.span
-                              initial={{ opacity: 0, y: 4 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              exit={{ opacity: 0 }}
-                              className="absolute -top-1 z-10 rounded bg-foreground px-1.5 py-0.5 font-mono text-[10px] text-background"
-                            >
-                              {p.value}
-                            </motion.span>
-                          )}
-                        </AnimatePresence>
-                        <motion.span
-                          className={cn(
-                            "w-full origin-bottom rounded-sm transition-colors",
-                            hoveredBar === null || hoveredBar === i
-                              ? "bg-foreground"
-                              : "bg-border-strong",
-                          )}
-                          style={{ height: `${(p.value / maxPoint) * 78}%` }}
-                          initial={reduceMotion ? false : { scaleY: 0 }}
-                          animate={{ scaleY: 1 }}
-                          transition={{
-                            duration: 0.8,
-                            delay: 0.9 + i * 0.05,
-                            ease: [0.16, 1, 0.3, 1],
-                          }}
-                        />
-                        <span className="font-mono text-[9px] text-muted-foreground">
-                          {p.label[0]}
-                        </span>
-                      </button>
-                    ))}
-                  </div>
-                </figure>
-
-                {/* Table */}
-                <div className="hidden overflow-hidden rounded-lg border bg-surface sm:block">
-                  <table className="w-full table-fixed">
-                    <thead>
-                      <tr className="border-b text-left text-muted-foreground">
-                        {data.table.columns.map((c, i) => (
-                          <th
-                            key={c}
-                            scope="col"
-                            className={cn(
-                              "px-2.5 py-2 font-normal",
-                              i === 1 && "w-[76px]",
-                              i === 2 && "w-[84px] text-right",
-                            )}
-                          >
-                            {c}
-                          </th>
-                        ))}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {rows.map((r) => (
-                        <tr
-                          key={r.name}
-                          className="border-b transition-colors last:border-0 hover:bg-subtle"
-                        >
-                          <td className="truncate px-2.5 py-2">{r.name}</td>
-                          <td className="px-2.5 py-2">
-                            <span className="inline-flex items-center gap-1.5">
-                              <span
-                                aria-hidden
-                                className={cn("size-1.5 rounded-full", STATUS_DOT[r.status])}
-                              />
-                              {r.statusLabel}
-                            </span>
-                          </td>
-                          <td className="px-2.5 py-2 text-right font-mono">{r.amount}</td>
-                        </tr>
-                      ))}
-                      {rows.length === 0 && (
-                        <tr>
-                          <td colSpan={3} className="px-2.5 py-6 text-center text-muted-foreground">
-                            No results for “{query}”
-                          </td>
-                        </tr>
-                      )}
-                    </tbody>
-                  </table>
-                </div>
+                <MockupChart chart={data.chart} reduceMotion={reduceMotion} />
+                <MockupTable table={data.table} query={query} />
               </div>
             </div>
           </div>

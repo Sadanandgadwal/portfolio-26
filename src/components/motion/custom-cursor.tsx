@@ -1,8 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useMotionValue, useReducedMotion, useSpring } from "motion/react";
-import { FINE_POINTER_QUERY, useMediaQuery } from "@/hooks/use-media-query";
+import { motion, useMotionValue, useSpring } from "motion/react";
+import {
+  FINE_POINTER_QUERY,
+  useMediaQuery,
+  usePrefersReducedMotion,
+} from "@/hooks/use-media-query";
 
 /** Elements opt in with data-cursor="view" | "interact" | "explore". */
 const LABELS: Record<string, string> = { view: "View", interact: "Interact", explore: "Explore" };
@@ -16,7 +20,7 @@ const SIZES = { dot: 10, link: 44, label: 84, hidden: 10 } as const;
 /** Desktop-only cursor follower. Never rendered on touch devices or with reduced motion. */
 export function CustomCursor() {
   const finePointer = useMediaQuery(FINE_POINTER_QUERY);
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = usePrefersReducedMotion();
   const enabled = finePointer && !reduceMotion;
 
   const x = useMotionValue(-100);

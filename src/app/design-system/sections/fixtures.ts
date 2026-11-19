@@ -71,3 +71,81 @@ export const fixtureStats: Portfolio["about"]["stats"] = [
   { label: "Fixture percent", value: 98.5, prefix: "", suffix: "%" },
   { label: "Fixture count", value: 1500, prefix: "", suffix: "" },
 ];
+
+const fixtureProjectBase = {
+  role: "Fixture role",
+  longDescription: "",
+  features: [] as string[],
+  challenges: [] as string[],
+  solutions: [] as string[],
+  results: [] as string[],
+  featured: false,
+};
+
+/** Media are screenshots/recordings of this portfolio's own UI (public/fixtures). */
+export const fixtureProjects: Portfolio["projects"] = {
+  ...portfolio.projects,
+  items: [
+    {
+      ...fixtureProjectBase,
+      slug: "fixture-erp-dashboard",
+      title: "Fixture ERP Dashboard",
+      category: "Fixture · Web app",
+      year: "2026",
+      featured: true,
+      description:
+        "Fixture description: an interactive operations dashboard with charts, filters and tables.",
+      longDescription:
+        "Fixture long description. Real case studies describe the problem, the users, constraints and the approach taken.",
+      technologies: ["React.js", "TypeScript", "Tailwind CSS", "Chart.js"],
+      features: [
+        "Fixture feature: searchable data table",
+        "Fixture feature: interactive chart",
+        "Fixture feature: modal workflow",
+      ],
+      challenges: ["Fixture challenge: keeping a dense UI readable."],
+      solutions: ["Fixture solution: a strict type scale and spacing system."],
+      results: ["Fixture result placeholder."],
+      media: {
+        cover: "/fixtures/dashboard-cover.webp",
+        coverAlt: "Fixture: dashboard overview with stats, chart and orders table",
+        preview: "/fixtures/dashboard-preview.webm",
+        previewType: "video",
+        screenshots: [
+          { src: "/fixtures/dashboard-dark.webp", alt: "Fixture: dashboard in dark theme" },
+          { src: "/fixtures/skills-light.webp", alt: "Fixture: skills explorer" },
+        ],
+      },
+      links: { live: "https://example.com/", github: "" },
+    },
+    {
+      ...fixtureProjectBase,
+      slug: "fixture-design-system",
+      title: "Fixture Design System",
+      category: "Fixture · Design system",
+      year: "2025",
+      description:
+        "Fixture description: tokens, primitives and a living style guide in both themes.",
+      technologies: ["React.js", "Tailwind CSS"],
+      media: {
+        cover: "/fixtures/styleguide-tall.webp",
+        coverAlt: "Fixture: full-length style guide page",
+        preview: "",
+        previewType: "none",
+        screenshots: [],
+      },
+      links: { live: "", github: "" },
+    },
+    {
+      ...fixtureProjectBase,
+      slug: "fixture-no-media",
+      title: "Fixture Without Media",
+      category: "Fixture · API",
+      year: "2024",
+      description: "Fixture description: a project with no images renders a typographic frame.",
+      technologies: ["Node.js", "Express.js", "MongoDB"],
+      media: { cover: "", coverAlt: "", preview: "", previewType: "none", screenshots: [] },
+      links: { live: "", github: "" },
+    },
+  ],
+};

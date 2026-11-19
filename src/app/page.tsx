@@ -3,6 +3,7 @@ import { About } from "@/components/sections/about/about";
 import { Education } from "@/components/sections/education/education";
 import { Experience } from "@/components/sections/experience/experience";
 import { Hero } from "@/components/sections/hero/hero";
+import { Projects } from "@/components/sections/projects/projects";
 import { Skills } from "@/components/sections/skills/skills";
 import { portfolio, visibleNavItems } from "@/lib/content";
 
@@ -16,6 +17,7 @@ export default function Home() {
     "skills",
     experience.items.length > 0 && "experience",
     (education.items.length > 0 || education.certifications.length > 0) && "education",
+    projects.items.length > 0 && "projects",
   ].filter((id): id is string => Boolean(id));
 
   return (
@@ -31,6 +33,7 @@ export default function Home() {
         <About about={about} />
         <Skills skills={skills} projects={projects.items} />
         <Experience experience={experience} />
+        <Projects projects={projects} skills={skills} />
         <Education education={education} />
       </main>
     </>

@@ -1,8 +1,10 @@
 import { describe, expect, it } from "vitest";
 import raw from "@/data/portfolio.json";
 import { getVisibleSocials, parsePortfolio, portfolio, visibleNavItems } from "./index";
+import type { PortfolioInput } from "./schema";
 
-const clone = () => structuredClone(raw) as Record<string, any>; // eslint-disable-line @typescript-eslint/no-explicit-any
+/** Mutable copy typed as schema *input* (optional fields may be omitted). */
+const clone = () => structuredClone(raw) as unknown as PortfolioInput; // raw JSON widens enums to string
 
 describe("portfolio.json", () => {
   it("passes schema validation", () => {
@@ -19,7 +21,7 @@ describe("portfolio.json", () => {
 describe("parsePortfolio", () => {
   it("rejects missing required fields with a readable path", () => {
     const data = clone();
-    delete data.personal.name;
+    delete (data.personal as Partial<PortfolioInput["personal"]>).name;
     expect(() => parsePortfolio(data)).toThrow(/personal\.name/);
   });
 

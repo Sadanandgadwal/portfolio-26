@@ -40,11 +40,7 @@ export function SectionHeader({
 }: SectionHeaderProps) {
   return (
     <header className={cn("mb-12 grid max-w-3xl gap-4 md:mb-16", className)}>
-      {eyebrow && (
-        <p className="font-mono text-xs tracking-[0.2em] text-muted-foreground uppercase">
-          {eyebrow}
-        </p>
-      )}
+      {eyebrow && <p className="label-mono">{eyebrow}</p>}
       <h2 id={sectionHeadingId(sectionId)} className="text-headline font-semibold">
         {heading}
       </h2>

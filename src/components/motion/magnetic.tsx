@@ -1,8 +1,12 @@
 "use client";
 
 import { useRef, type PointerEvent, type ReactNode } from "react";
-import { motion, useReducedMotion, useSpring } from "motion/react";
-import { FINE_POINTER_QUERY, useMediaQuery } from "@/hooks/use-media-query";
+import { motion, useSpring } from "motion/react";
+import {
+  FINE_POINTER_QUERY,
+  useMediaQuery,
+  usePrefersReducedMotion,
+} from "@/hooks/use-media-query";
 import { cn } from "@/lib/utils";
 
 const SPRING = { stiffness: 220, damping: 16, mass: 0.4 };
@@ -18,7 +22,7 @@ type MagneticProps = {
 export function Magnetic({ children, strength = 0.3, className }: MagneticProps) {
   const ref = useRef<HTMLDivElement>(null);
   const finePointer = useMediaQuery(FINE_POINTER_QUERY);
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = usePrefersReducedMotion();
   const enabled = finePointer && !reduceMotion;
   const x = useSpring(0, SPRING);
   const y = useSpring(0, SPRING);

@@ -6,7 +6,7 @@ import { formatDateRange } from "@/lib/format";
 
 type EducationProps = { education: Portfolio["education"] };
 
-const columnLabel = "mb-2 font-mono text-xs tracking-[0.2em] text-muted-foreground uppercase";
+const columnLabel = "mb-2 label-mono";
 
 /** Renders nothing when there are neither degrees nor certifications. */
 export function Education({ education }: EducationProps) {

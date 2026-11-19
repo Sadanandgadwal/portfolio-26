@@ -1,7 +1,8 @@
 "use client";
 
 import { useRef, useState, type MouseEvent } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
+import { usePrefersReducedMotion } from "@/hooks/use-media-query";
 import { Dialog, VisuallyHidden } from "radix-ui";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { IconButton } from "@/components/ui/icon-button";
@@ -41,7 +42,7 @@ type MobileMenuProps = {
 export function MobileMenu({ items, activeHref, brand, footer }: MobileMenuProps) {
   const [open, setOpen] = useState(false);
   const pendingHref = useRef<string | null>(null);
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = usePrefersReducedMotion();
 
   // Close first, then scroll once the scroll lock is released.
   const onNavigate = (e: MouseEvent<HTMLAnchorElement>, href: string) => {

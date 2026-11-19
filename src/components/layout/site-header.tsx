@@ -13,12 +13,14 @@ type SiteHeaderProps = {
   shortName: string;
   roles: string[];
   items: NavLink[];
+  /** Brand link target; "/#home" on sub-pages. */
+  homeHref?: string;
 };
 
-function Brand({ name, shortName }: { name: string; shortName: string }) {
+function Brand({ name, shortName, href }: { name: string; shortName: string; href: string }) {
   return (
     <a
-      href="#home"
+      href={href}
       className="group/brand flex items-center gap-2.5 rounded-full pr-2"
       aria-label={`${name}, back to top`}
     >
@@ -32,7 +34,7 @@ function Brand({ name, shortName }: { name: string; shortName: string }) {
   );
 }
 
-export function SiteHeader({ name, shortName, roles, items }: SiteHeaderProps) {
+export function SiteHeader({ name, shortName, roles, items, homeHref = "#home" }: SiteHeaderProps) {
   const scrolled = useScrolled(24);
   const sectionIds = items.filter((i) => i.href.startsWith("#")).map((i) => i.href.slice(1));
   const activeId = useActiveSection(sectionIds);
@@ -51,7 +53,7 @@ export function SiteHeader({ name, shortName, roles, items }: SiteHeaderProps) {
           "group-data-scrolled/header:max-w-3xl group-data-scrolled/header:border-border group-data-scrolled/header:bg-background/75 group-data-scrolled/header:shadow-md group-data-scrolled/header:backdrop-blur-xl",
         )}
       >
-        <Brand name={name} shortName={shortName} />
+        <Brand name={name} shortName={shortName} href={homeHref} />
 
         <nav aria-label="Primary" className="max-md:hidden">
           <LayoutGroup id="primary-nav">
@@ -89,12 +91,8 @@ export function SiteHeader({ name, shortName, roles, items }: SiteHeaderProps) {
           <MobileMenu
             items={items}
             activeHref={activeHref}
-            brand={<Brand name={name} shortName={shortName} />}
-            footer={
-              <p className="font-mono text-xs tracking-[0.2em] text-muted-foreground uppercase">
-                {roles.join(" / ")}
-              </p>
-            }
+            brand={<Brand name={name} shortName={shortName} href={homeHref} />}
+            footer={<p className="label-mono">{roles.join(" / ")}</p>}
           />
         </div>
       </div>

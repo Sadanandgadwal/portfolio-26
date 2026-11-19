@@ -59,9 +59,7 @@ export function Experience({ experience }: ExperienceProps) {
 
                   {item.achievements.length > 0 && (
                     <div className="grid gap-3 rounded-xl border bg-surface p-5">
-                      <h4 className="font-mono text-xs tracking-[0.2em] text-muted-foreground uppercase">
-                        Highlights
-                      </h4>
+                      <h4 className="label-mono">Highlights</h4>
                       <ul className="grid gap-2">
                         {item.achievements.map((a) => (
                           <li

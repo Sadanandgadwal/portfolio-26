@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { animate, useInView, useReducedMotion } from "motion/react";
+import { animate, useInView } from "motion/react";
+import { usePrefersReducedMotion } from "@/hooks/use-media-query";
 
 type AnimatedNumberProps = {
   value: number;
@@ -27,7 +28,7 @@ export function AnimatedNumber({
 }: AnimatedNumberProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "0px 0px -15% 0px" });
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = usePrefersReducedMotion();
   const decimals = Number.isInteger(value) ? 0 : (String(value).split(".")[1]?.length ?? 0);
   const final = `${prefix}${format(value, decimals)}${suffix}`;
 

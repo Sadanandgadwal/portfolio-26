@@ -21,7 +21,7 @@ npm run dev                       # http://localhost:3000
 
 ## Editing content
 
-All content lives in **`src/data/portfolio.json`**. It is validated against `src/lib/content/schema.ts` and the build fails with readable errors if the file is invalid. Empty strings or empty arrays mean "not provided" and are hidden in the UI. Put assets in `public/` and reference them by absolute path (`/images/projects/x.webp`).
+All content lives in **`src/data/portfolio.json`**. It is validated against `src/lib/content/schema.ts` and the build fails with readable errors if the file is invalid. Empty strings or empty arrays mean "not provided" and are hidden in the UI. Put assets in `public/` and reference them by absolute path (`/images/projects/x.webp`). Project previews: set `media.preview` to a `.webm`/`.mp4` (`previewType: "video"`) or `.gif` (`"gif"`). Prefer 16:9 WebP covers about 1600px wide. `public/fixtures/` holds preview-only fixture media (screens of this site) and can be deleted together with `src/app/design-system/`.
 
 ## Scripts
 
@@ -42,7 +42,8 @@ All content lives in **`src/data/portfolio.json`**. It is validated against `src
 src/
   app/                 routes, layout, global styles and tokens
   components/ui/       shadcn/ui primitives (token-styled)
-  app/design-system/   living style guide + /sections fixture previews (noindex)
+  app/projects/[slug]/ case-study pages (static, from JSON)
+  app/design-system/   living style guide + /sections and /projects fixture previews (noindex)
   components/layout/   SiteHeader, MobileMenu, Container, Section, SectionHeader
   components/icons/    TechIcon registry (simple-icons + Lucide)
   components/motion/   CustomCursor, Magnetic, AnimatedNumber

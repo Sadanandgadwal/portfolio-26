@@ -6,12 +6,17 @@ import { afterEach, vi } from "vitest";
 declare global {
   interface Window {
     __prefersDark?: boolean;
+    __reduceMotion?: boolean;
   }
 }
 Object.defineProperty(window, "matchMedia", {
   writable: true,
   value: vi.fn((query: string) => ({
-    matches: query.includes("dark") ? !!window.__prefersDark : false,
+    matches: query.includes("dark")
+      ? !!window.__prefersDark
+      : query.includes("reduce")
+        ? !!window.__reduceMotion
+        : false,
     media: query,
     onchange: null,
     addEventListener: vi.fn(),
@@ -36,6 +41,7 @@ afterEach(() => {
   cleanup();
   localStorage.clear();
   window.__prefersDark = false;
+  window.__reduceMotion = false;
   document.documentElement.className = "";
   document.documentElement.style.colorScheme = "";
 });

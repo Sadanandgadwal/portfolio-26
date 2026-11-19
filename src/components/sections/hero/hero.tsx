@@ -31,11 +31,7 @@ export function Hero({ hero, personal }: HeroProps) {
 
       <Container>
         <div className="flex animate-fade-up flex-wrap items-center gap-3" style={delay(100)}>
-          {hero.eyebrow && (
-            <p className="font-mono text-xs tracking-[0.2em] text-muted-foreground uppercase">
-              {hero.eyebrow}
-            </p>
-          )}
+          {hero.eyebrow && <p className="label-mono">{hero.eyebrow}</p>}
           {personal.availability && <Badge dot>{personal.availability}</Badge>}
           {personal.location && (
             <p className="font-mono text-xs text-muted-foreground">{personal.location}</p>

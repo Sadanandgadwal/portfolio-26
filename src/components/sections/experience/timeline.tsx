@@ -1,13 +1,14 @@
 "use client";
 
 import { useRef, useState, type ReactNode } from "react";
-import { motion, useMotionValueEvent, useReducedMotion, useScroll, useSpring } from "motion/react";
+import { motion, useMotionValueEvent, useScroll, useSpring } from "motion/react";
+import { usePrefersReducedMotion } from "@/hooks/use-media-query";
 import { cn } from "@/lib/utils";
 
 /** Vertical timeline whose line fills as the visitor scrolls through it. */
 export function Timeline({ children, className }: { children: ReactNode; className?: string }) {
   const ref = useRef<HTMLOListElement>(null);
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = usePrefersReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start 70%", "end 55%"] });
   const scaleY = useSpring(scrollYProgress, { stiffness: 140, damping: 30, mass: 0.3 });
 

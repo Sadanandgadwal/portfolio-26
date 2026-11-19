@@ -194,6 +194,11 @@
   color-scheme: dark;
 }
 
+/* Mono uppercase eyebrow/label (DESIGN.md §4 "Label / meta"). */
+@utility label-mono {
+  @apply font-mono text-xs tracking-[0.2em] text-muted-foreground uppercase;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

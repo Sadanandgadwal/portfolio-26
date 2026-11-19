@@ -21,3 +21,14 @@ export function useMediaQuery(query: string): boolean {
     () => false,
   );
 }
+
+export const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
+
+/**
+ * Hydration-safe reduced-motion preference. Unlike motion's `useReducedMotion`, the first client
+ * render matches the server (false), so preference-dependent markup never causes a hydration
+ * mismatch; it updates right after hydration.
+ */
+export function usePrefersReducedMotion(): boolean {
+  return useMediaQuery(REDUCED_MOTION_QUERY);
+}

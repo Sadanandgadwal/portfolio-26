@@ -48,7 +48,7 @@ const BUTTON_VARIANTS = [
 function Row({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="grid gap-4 border-t py-8 md:grid-cols-[12rem_1fr]">
-      <p className="font-mono text-xs tracking-[0.2em] text-muted-foreground uppercase">{label}</p>
+      <p className="label-mono">{label}</p>
       <div className="flex flex-wrap items-center gap-3">{children}</div>
     </div>
   );
@@ -90,9 +90,7 @@ export default function DesignSystemPage() {
               Body large. Interfaces should feel as good as they work, with clear hierarchy,
               generous space and motion that explains.
             </p>
-            <p className="font-mono text-xs tracking-[0.2em] text-muted-foreground uppercase">
-              Mono label · 2026
-            </p>
+            <p className="label-mono">Mono label · 2026</p>
           </div>
         </Row>
 

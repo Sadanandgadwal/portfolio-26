@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, LayoutGroup, motion, useReducedMotion } from "motion/react";
+import { AnimatePresence, LayoutGroup, motion } from "motion/react";
+import { usePrefersReducedMotion } from "@/hooks/use-media-query";
 import { TechIcon } from "@/components/icons/tech-icon";
 import { Badge } from "@/components/ui/badge";
 import type { Skill, SkillCategory } from "@/lib/content";
@@ -28,7 +29,7 @@ function SkillDetail({
   projectTitles: Record<string, string>;
   onSelect: (s: Selection) => void;
 }) {
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = usePrefersReducedMotion();
   const related = skill.relatedProjects.map((slug) => projectTitles[slug]).filter(Boolean);
   const siblings = category.items.filter((s) => s.name !== skill.name);
 
@@ -48,9 +49,7 @@ function SkillDetail({
               <TechIcon name={skill.icon} label={skill.name} className="size-7 text-(--brand)" />
             </span>
             <div>
-              <p className="font-mono text-xs tracking-[0.2em] text-muted-foreground uppercase">
-                {category.name}
-              </p>
+              <p className="label-mono">{category.name}</p>
               <p className="mt-1 text-title font-semibold" data-testid="skill-detail-name">
                 {skill.name}
               </p>
@@ -63,9 +62,7 @@ function SkillDetail({
 
           {related.length > 0 && (
             <div className="grid gap-2">
-              <p className="font-mono text-xs tracking-[0.2em] text-muted-foreground uppercase">
-                Used in
-              </p>
+              <p className="label-mono">Used in</p>
               <ul className="flex flex-wrap gap-1.5">
                 {related.map((title) => (
                   <li key={title}>
@@ -78,9 +75,7 @@ function SkillDetail({
 
           {siblings.length > 0 && (
             <div className="grid gap-2 border-t pt-5">
-              <p className="font-mono text-xs tracking-[0.2em] text-muted-foreground uppercase">
-                Works alongside
-              </p>
+              <p className="label-mono">Works alongside</p>
               <ul className="flex flex-wrap gap-1.5">
                 {siblings.map((s) => (
                   <li key={s.name}>
@@ -105,7 +100,7 @@ function SkillDetail({
 
 /** Interactive, filterable technology map. Hover/focus/tap a tile to inspect it. */
 export function SkillsExplorer({ categories, projectTitles }: SkillsExplorerProps) {
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = usePrefersReducedMotion();
   const [filter, setFilter] = useState<string>(ALL);
   const [selection, setSelection] = useState<Selection>({
     categoryId: categories[0].id,
@@ -204,7 +199,7 @@ export function SkillsExplorer({ categories, projectTitles }: SkillsExplorerProp
               >
                 <h3
                   id={`skills-cat-${category.id}`}
-                  className="mb-4 flex items-baseline gap-3 font-mono text-xs tracking-[0.2em] text-muted-foreground uppercase"
+                  className="mb-4 flex items-baseline gap-3 label-mono"
                 >
                   {category.name}
                   <span className="h-px flex-1 bg-border" aria-hidden />
