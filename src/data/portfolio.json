@@ -633,7 +633,225 @@
   "showcase": {
     "eyebrow": "Enterprise UI",
     "heading": "Built for complex, data-heavy products.",
-    "description": "Dashboard, ERP and form patterns. All data shown is sample data for demonstration."
+    "description": "Dashboard, ERP and form patterns. All data shown is sample data for demonstration.",
+    "sampleLabel": "Sample data",
+    "appName": "Orbit ERP",
+    "orders": [
+      {
+        "id": "SO-2040",
+        "customer": "Harbor Supply",
+        "region": "North",
+        "date": "2026-11-01",
+        "total": 180.0,
+        "status": "paid"
+      },
+      {
+        "id": "SO-2039",
+        "customer": "Cobalt Studio",
+        "region": "West",
+        "date": "2026-11-28",
+        "total": 299.5,
+        "status": "pending"
+      },
+      {
+        "id": "SO-2038",
+        "customer": "Vantage Print",
+        "region": "East",
+        "date": "2026-11-27",
+        "total": 419.0,
+        "status": "shipped"
+      },
+      {
+        "id": "SO-2037",
+        "customer": "Atlas Foods",
+        "region": "South",
+        "date": "2026-11-26",
+        "total": 537.0,
+        "status": "paid"
+      },
+      {
+        "id": "SO-2036",
+        "customer": "Summit Tools",
+        "region": "North",
+        "date": "2026-11-25",
+        "total": 656.5,
+        "status": "cancelled"
+      },
+      {
+        "id": "SO-2035",
+        "customer": "Lumen Labs",
+        "region": "West",
+        "date": "2026-11-24",
+        "total": 776.0,
+        "status": "shipped"
+      },
+      {
+        "id": "SO-2034",
+        "customer": "Meridian Health",
+        "region": "East",
+        "date": "2026-11-23",
+        "total": 894.0,
+        "status": "paid"
+      },
+      {
+        "id": "SO-2033",
+        "customer": "Bluepeak Energy",
+        "region": "South",
+        "date": "2026-11-22",
+        "total": 1013.5,
+        "status": "pending"
+      },
+      {
+        "id": "SO-2032",
+        "customer": "Northline Freight",
+        "region": "North",
+        "date": "2026-11-21",
+        "total": 1133.0,
+        "status": "paid"
+      },
+      {
+        "id": "SO-2031",
+        "customer": "Oakridge Retail",
+        "region": "West",
+        "date": "2026-11-20",
+        "total": 1251.0,
+        "status": "pending"
+      },
+      {
+        "id": "SO-2030",
+        "customer": "Pinecrest",
+        "region": "East",
+        "date": "2026-10-19",
+        "total": 1370.5,
+        "status": "shipped"
+      },
+      {
+        "id": "SO-2029",
+        "customer": "Brightwave",
+        "region": "South",
+        "date": "2026-10-18",
+        "total": 1490.0,
+        "status": "paid"
+      },
+      {
+        "id": "SO-2028",
+        "customer": "Harbor Supply",
+        "region": "North",
+        "date": "2026-10-17",
+        "total": 1608.0,
+        "status": "cancelled"
+      },
+      {
+        "id": "SO-2027",
+        "customer": "Cobalt Studio",
+        "region": "West",
+        "date": "2026-10-16",
+        "total": 1727.5,
+        "status": "shipped"
+      },
+      {
+        "id": "SO-2026",
+        "customer": "Vantage Print",
+        "region": "East",
+        "date": "2026-10-15",
+        "total": 1847.0,
+        "status": "paid"
+      },
+      {
+        "id": "SO-2025",
+        "customer": "Atlas Foods",
+        "region": "South",
+        "date": "2026-10-14",
+        "total": 1965.0,
+        "status": "pending"
+      },
+      {
+        "id": "SO-2024",
+        "customer": "Summit Tools",
+        "region": "North",
+        "date": "2026-10-13",
+        "total": 2084.5,
+        "status": "paid"
+      },
+      {
+        "id": "SO-2023",
+        "customer": "Lumen Labs",
+        "region": "West",
+        "date": "2026-10-12",
+        "total": 2204.0,
+        "status": "pending"
+      },
+      {
+        "id": "SO-2022",
+        "customer": "Meridian Health",
+        "region": "East",
+        "date": "2026-10-11",
+        "total": 2322.0,
+        "status": "shipped"
+      },
+      {
+        "id": "SO-2021",
+        "customer": "Bluepeak Energy",
+        "region": "South",
+        "date": "2026-10-10",
+        "total": 2441.5,
+        "status": "paid"
+      },
+      {
+        "id": "SO-2020",
+        "customer": "Northline Freight",
+        "region": "North",
+        "date": "2026-10-09",
+        "total": 2561.0,
+        "status": "cancelled"
+      },
+      {
+        "id": "SO-2019",
+        "customer": "Oakridge Retail",
+        "region": "West",
+        "date": "2026-10-08",
+        "total": 2679.0,
+        "status": "shipped"
+      },
+      {
+        "id": "SO-2018",
+        "customer": "Pinecrest",
+        "region": "East",
+        "date": "2026-10-07",
+        "total": 198.5,
+        "status": "paid"
+      },
+      {
+        "id": "SO-2017",
+        "customer": "Brightwave",
+        "region": "South",
+        "date": "2026-10-06",
+        "total": 318.0,
+        "status": "pending"
+      }
+    ],
+    "countries": [
+      "Australia",
+      "Brazil",
+      "Canada",
+      "France",
+      "Germany",
+      "India",
+      "Indonesia",
+      "Ireland",
+      "Italy",
+      "Japan",
+      "Mexico",
+      "Netherlands",
+      "New Zealand",
+      "Singapore",
+      "South Africa",
+      "Spain",
+      "Sweden",
+      "United Arab Emirates",
+      "United Kingdom",
+      "United States"
+    ]
   },
   "contact": {
     "eyebrow": "Contact",

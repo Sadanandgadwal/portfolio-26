@@ -1,17 +1,13 @@
 import { z } from "zod";
-
-/** Empty string = "not provided yet". Lets placeholders live in JSON without failing validation. */
-const optionalText = z.string().trim().default("");
-const optionalUrl = z.union([z.url(), z.literal("")]).default("");
-const optionalEmail = z.union([z.email(), z.literal("")]).default("");
-/** Asset path inside /public (e.g. "/images/projects/foo.webp") or empty. */
-const assetPath = z
-  .union([z.string().regex(/^\/[\w\-./]+$/, "Must be an absolute /public path"), z.literal("")])
-  .default("");
-/** In-page anchor ("#about"), site path ("/projects/x") or absolute URL. */
-const href = z.string().regex(/^(#[\w-]*|\/[\w\-./#]*|https?:\/\/.+|mailto:.+)$/, "Invalid href");
-
-const linkSchema = z.object({ label: z.string().min(1), href });
+import {
+  assetPath,
+  linkSchema,
+  optionalEmail,
+  optionalText,
+  optionalUrl,
+  sectionHeader,
+} from "./fields";
+import { heroMockupSchema, playgroundSchema, showcaseSchema } from "./sample-schemas";
 
 export const socialPlatforms = [
   "github",
@@ -109,94 +105,6 @@ const projectSchema = z.object({
   links: z.object({ live: optionalUrl, github: optionalUrl }).prefault({}),
 });
 
-/** Sample data for the interactive hero browser mockup. Clearly labelled as sample in the UI. */
-const heroMockupSchema = z.object({
-  sampleLabel: z.string().min(1),
-  url: z.string().min(1),
-  appName: z.string().min(1),
-  title: z.string().min(1),
-  navItems: z.array(z.string().min(1)).min(1),
-  searchPlaceholder: z.string().min(1),
-  primaryAction: z.string().min(1),
-  stats: z
-    .array(z.object({ label: z.string().min(1), value: z.string().min(1), delta: optionalText }))
-    .min(1)
-    .max(3),
-  chart: z.object({
-    title: z.string().min(1),
-    points: z.array(z.object({ label: z.string().min(1), value: z.number().nonnegative() })).min(2),
-  }),
-  table: z.object({
-    columns: z.tuple([z.string(), z.string(), z.string()]),
-    rows: z
-      .array(
-        z.object({
-          name: z.string().min(1),
-          status: z.enum(["success", "pending", "neutral"]),
-          statusLabel: z.string().min(1),
-          amount: z.string().min(1),
-        }),
-      )
-      .min(1),
-  }),
-  modal: z.object({
-    title: z.string().min(1),
-    description: z.string().min(1),
-    fieldLabel: z.string().min(1),
-    fieldValue: z.string().min(1),
-    confirm: z.string().min(1),
-    cancel: z.string().min(1),
-  }),
-});
-
-const sectionHeader = {
-  eyebrow: optionalText,
-  heading: z.string().min(1),
-  description: optionalText,
-};
-
-/** Sample data for the Frontend Playground. Labelled as sample in the UI. */
-const playgroundSchema = z
-  .object({
-    ...sectionHeader,
-    sampleLabel: z.string().min(1),
-    form: z.object({ roles: z.array(z.string().min(1)).min(2) }),
-    table: z.object({
-      rows: z
-        .array(
-          z.object({
-            id: z.string().min(1),
-            name: z.string().min(1),
-            email: z.email(),
-            team: z.string().min(1),
-            status: z.enum(["active", "invited", "suspended"]),
-            lastActive: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
-          }),
-        )
-        .min(1),
-    }),
-    tabs: z
-      .array(z.object({ id: z.string().min(1), label: z.string().min(1), body: z.string().min(1) }))
-      .min(2),
-    chart: z.object({
-      labels: z.array(z.string().min(1)).min(7),
-      series: z
-        .array(
-          z.object({
-            id: z.string().min(1),
-            label: z.string().min(1),
-            prefix: optionalText,
-            values: z.array(z.number().nonnegative()),
-          }),
-        )
-        .min(1),
-    }),
-  })
-  .refine((p) => p.chart.series.every((s) => s.values.length === p.chart.labels.length), {
-    message: "Every chart series needs one value per label",
-    path: ["chart", "series"],
-  });
-
 export const portfolioSchema = z
   .object({
     site: z.object({
@@ -245,7 +153,7 @@ export const portfolioSchema = z
     }),
     projects: z.object({ ...sectionHeader, items: z.array(projectSchema).default([]) }),
     playground: playgroundSchema,
-    showcase: z.object({ ...sectionHeader }),
+    showcase: showcaseSchema,
     contact: z.object({
       ...sectionHeader,
       cta: z.object({ label: z.string().min(1) }),
@@ -292,6 +200,8 @@ export type Hero = Portfolio["hero"];
 export type HeroMockup = Hero["mockup"];
 export type Playground = Portfolio["playground"];
 export type PlaygroundRow = Playground["table"]["rows"][number];
+export type Showcase = Portfolio["showcase"];
+export type ShowcaseOrder = Showcase["orders"][number];
 export type About = Portfolio["about"];
 export type Stat = z.infer<typeof statSchema>;
 export type Skill = z.infer<typeof skillSchema>;

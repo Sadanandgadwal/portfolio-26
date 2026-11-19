@@ -42,3 +42,10 @@ export function formatDuration(start: string, end: string): string {
   );
   return parts.join(" ");
 }
+
+const usd = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
+
+/** "$1,234.50" — fixed locale so server and client render identically. */
+export function formatCurrency(value: number): string {
+  return usd.format(value);
+}

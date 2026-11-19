@@ -53,6 +53,8 @@ src/
   data/portfolio.json  single content source
   lib/content/         Zod schema, types and validated loader
   lib/data-table.ts    pure search/filter/sort/paginate
+  lib/calendar.ts      UTC date-grid helpers for the date picker
+  lib/showcase/        order KPIs, region totals, status transitions
   lib/chart.ts         chart scales and paths
   lib/format.ts        locale-independent date range/duration formatting
   lib/theme.ts         theme resolution and no-flash init script

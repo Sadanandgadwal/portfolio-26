@@ -5,12 +5,23 @@ import { Experience } from "@/components/sections/experience/experience";
 import { Hero } from "@/components/sections/hero/hero";
 import { Playground } from "@/components/sections/playground/playground";
 import { Projects } from "@/components/sections/projects/projects";
+import { Showcase } from "@/components/sections/showcase/showcase";
 import { Skills } from "@/components/sections/skills/skills";
 import { portfolio, visibleNavItems } from "@/lib/content";
 
 export default function Home() {
-  const { personal, navigation, hero, about, skills, experience, education, projects, playground } =
-    portfolio;
+  const {
+    personal,
+    navigation,
+    hero,
+    about,
+    skills,
+    experience,
+    education,
+    projects,
+    playground,
+    showcase,
+  } = portfolio;
 
   // Sections render only when they have content; the nav mirrors what is on the page.
   const rendered = [
@@ -39,6 +50,7 @@ export default function Home() {
         <Projects projects={projects} skills={skills} />
         <Education education={education} />
         <Playground playground={playground} />
+        <Showcase showcase={showcase} />
       </main>
     </>
   );

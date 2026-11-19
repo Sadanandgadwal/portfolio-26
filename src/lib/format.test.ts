@@ -34,3 +34,11 @@ describe("formatDuration", () => {
     expect(formatDuration("2022-05", "2021-01")).toBe("");
   });
 });
+
+describe("formatCurrency", () => {
+  it("formats USD with a fixed locale", async () => {
+    const { formatCurrency } = await import("./format");
+    expect(formatCurrency(1234.5)).toBe("$1,234.50");
+    expect(formatCurrency(0)).toBe("$0.00");
+  });
+});
