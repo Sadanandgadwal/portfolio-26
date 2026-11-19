@@ -233,6 +233,17 @@ html.has-custom-cursor :is(input, textarea, select, [contenteditable="true"]) {
   cursor: text !important;
 }
 
+/* Scroll-driven reveal: pure CSS, no JS. Unsupported browsers simply show content. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: fade-up linear both;
+      animation-timeline: view();
+      animation-range: entry 5% entry 45%;
+    }
+  }
+}
+
 /* Theme switch: view-transition cross-fade (preferred) or color-transition fallback. */
 ::view-transition-old(root),
 ::view-transition-new(root) {

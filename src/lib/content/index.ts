@@ -22,3 +22,12 @@ export function getVisibleSocials(socials: Social[]): Social[] {
 }
 
 export type * from "./schema";
+
+/** Only link to sections that are actually rendered on the page. */
+export function visibleNavItems<T extends { href: string }>(
+  items: T[],
+  renderedIds: Iterable<string>,
+): T[] {
+  const ids = new Set(renderedIds);
+  return items.filter((i) => !i.href.startsWith("#") || ids.has(i.href.slice(1)));
+}

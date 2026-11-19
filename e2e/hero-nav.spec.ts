@@ -51,8 +51,12 @@ test.describe("navigation", () => {
   test("skip link reaches main content", async ({ page }) => {
     test.skip(isMobile(), "keyboard flow on desktop/tablet");
     await page.goto("/");
-    await page.keyboard.press("Tab");
     const skip = page.getByRole("link", { name: "Skip to content" });
+    await expect(skip).not.toBeInViewport(); // hidden until focused
+    await page.mouse.wheel(0, 1500);
+    await expect(skip).not.toBeInViewport();
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await page.keyboard.press("Tab");
     await expect(skip).toBeFocused();
     await expect(skip).toBeVisible();
   });

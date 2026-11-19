@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import raw from "@/data/portfolio.json";
-import { getVisibleSocials, parsePortfolio, portfolio } from "./index";
+import { getVisibleSocials, parsePortfolio, portfolio, visibleNavItems } from "./index";
 
 const clone = () => structuredClone(raw) as Record<string, any>; // eslint-disable-line @typescript-eslint/no-explicit-any
 
@@ -66,5 +66,16 @@ describe("getVisibleSocials", () => {
       { platform: "medium", label: "Medium", url: "" },
     ]);
     expect(result.map((s) => s.platform)).toEqual(["github"]);
+  });
+});
+
+describe("visibleNavItems", () => {
+  it("drops in-page links to sections that are not rendered, keeps external links", () => {
+    const items = [
+      { label: "Home", href: "#home" },
+      { label: "Experience", href: "#experience" },
+      { label: "Blog", href: "https://example.com" },
+    ];
+    expect(visibleNavItems(items, ["home"]).map((i) => i.label)).toEqual(["Home", "Blog"]);
   });
 });

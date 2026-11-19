@@ -42,7 +42,7 @@ All content lives in **`src/data/portfolio.json`**. It is validated against `src
 src/
   app/                 routes, layout, global styles and tokens
   components/ui/       shadcn/ui primitives (token-styled)
-  app/design-system/   living style guide (noindex)
+  app/design-system/   living style guide + /sections fixture previews (noindex)
   components/layout/   SiteHeader, MobileMenu, Container, Section, SectionHeader
   components/icons/    TechIcon registry (simple-icons + Lucide)
   components/motion/   CustomCursor, Magnetic, AnimatedNumber
@@ -51,6 +51,7 @@ src/
   hooks/               client hooks (useTheme, useMediaQuery, useScrolled, useActiveSection)
   data/portfolio.json  single content source
   lib/content/         Zod schema, types and validated loader
+  lib/format.ts        locale-independent date range/duration formatting
   lib/theme.ts         theme resolution and no-flash init script
 e2e/                   Playwright specs
 specs/                 Spec Kit–style requirements and plan
