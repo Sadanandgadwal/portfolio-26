@@ -25,7 +25,7 @@ export function Experience({ experience }: ExperienceProps) {
           const duration = formatDuration(item.start, item.end);
           return (
             <TimelineEntry key={`${item.company}-${item.role}-${item.start}`}>
-              <article className="grid gap-6 lg:grid-cols-[14rem_1fr] lg:gap-10">
+              <article className="reveal grid gap-6 lg:grid-cols-[14rem_1fr] lg:gap-10">
                 <div className="grid content-start gap-1.5 font-mono text-xs text-muted-foreground">
                   {range && (
                     <p className="text-sm text-foreground">

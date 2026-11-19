@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Fragment } from "react";
 import { cn } from "@/lib/utils";
 
 export const sectionHeadingId = (sectionId: string) => `${sectionId}-heading`;
@@ -23,6 +24,24 @@ export function Section({ id, className, children, ...props }: SectionProps) {
   );
 }
 
+/**
+ * Splits text into masked words for the CSS `.reveal-words` animation. Server-rendered; the text
+ * stays a single readable string for assistive tech (spaces are real text nodes).
+ */
+export function RevealWords({ text }: { text: string }) {
+  const words = text.split(" ");
+  return words.map((word, i) => (
+    <Fragment key={`${word}-${i}`}>
+      <span className="word inline-block overflow-hidden pb-[0.08em] align-bottom">
+        <span className="inline-block" style={{ "--i": i } as React.CSSProperties}>
+          {word}
+        </span>
+      </span>
+      {i < words.length - 1 && " "}
+    </Fragment>
+  ));
+}
+
 type SectionHeaderProps = {
   sectionId: string;
   eyebrow?: string;
@@ -41,8 +60,8 @@ export function SectionHeader({
   return (
     <header className={cn("mb-12 grid max-w-3xl gap-4 md:mb-16", className)}>
       {eyebrow && <p className="label-mono">{eyebrow}</p>}
-      <h2 id={sectionHeadingId(sectionId)} className="text-headline font-semibold">
-        {heading}
+      <h2 id={sectionHeadingId(sectionId)} className="reveal-words text-headline font-semibold">
+        <RevealWords text={heading} />
       </h2>
       {description && (
         <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground">{description}</p>

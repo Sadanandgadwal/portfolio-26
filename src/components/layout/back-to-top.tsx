@@ -2,17 +2,14 @@
 
 import { ArrowUp } from "lucide-react";
 import { usePrefersReducedMotion } from "@/hooks/use-media-query";
+import { scrollToTop } from "@/lib/scroll";
 
 export function BackToTop() {
   const reduceMotion = usePrefersReducedMotion();
   return (
     <button
       type="button"
-      onClick={() => {
-        window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
-        // Move keyboard focus back to the top of the page as well.
-        document.querySelector<HTMLElement>("header a")?.focus({ preventScroll: true });
-      }}
+      onClick={() => scrollToTop(reduceMotion)}
       className="group/top inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
     >
       Back to top

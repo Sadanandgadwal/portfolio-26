@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import {
   AnimatePresence,
   motion,
+  useInView,
   useMotionValue,
   useSpring,
   useTransform,
@@ -49,7 +50,10 @@ function useDepth(v: MotionValue<number>, depth: number) {
 export function HeroMockup({ data, className }: { data: HeroMockupData; className?: string }) {
   const reduceMotion = usePrefersReducedMotion();
   const finePointer = useMediaQuery(FINE_POINTER_QUERY);
-  const pointer = usePointerParallax(finePointer && !reduceMotion);
+  // Only track the pointer while the hero is on screen (no work when scrolled away).
+  const rootRef = useRef<HTMLDivElement>(null);
+  const inView = useInView(rootRef, { margin: "100px" });
+  const pointer = usePointerParallax(finePointer && !reduceMotion && inView);
 
   const rotateY = useTransform(pointer.x, [-1, 1], [-7, 7]);
   const rotateX = useTransform(pointer.y, [-1, 1], [6, -6]);
@@ -74,6 +78,7 @@ export function HeroMockup({ data, className }: { data: HeroMockupData; classNam
 
   return (
     <div
+      ref={rootRef}
       data-cursor="interact"
       role="group"
       aria-label={`Interactive demo interface (${data.sampleLabel.toLowerCase()})`}

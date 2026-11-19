@@ -20,7 +20,7 @@ export function About({ about }: { about: AboutData }) {
 
         <div className="grid gap-14 lg:col-span-7">
           {paragraphs.length > 0 && (
-            <div className="grid gap-6 text-lg leading-relaxed text-muted-foreground md:text-xl md:leading-relaxed">
+            <div className="reveal grid gap-6 text-lg leading-relaxed text-muted-foreground md:text-xl md:leading-relaxed">
               {paragraphs.map((p, i) => (
                 <p key={i} className={i === 0 ? "text-foreground" : undefined}>
                   {p}
@@ -30,7 +30,7 @@ export function About({ about }: { about: AboutData }) {
           )}
 
           {stats.length > 0 && (
-            <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border bg-border sm:grid-cols-3">
+            <dl className="reveal grid grid-cols-2 gap-px overflow-hidden rounded-xl border bg-border sm:grid-cols-3">
               {stats.map((stat) => (
                 <div
                   key={stat.label}
@@ -50,7 +50,7 @@ export function About({ about }: { about: AboutData }) {
               {focusAreas.map((area, i) => (
                 <li
                   key={area.title}
-                  className="group/area grid grid-cols-[3rem_1fr] items-baseline gap-x-4 gap-y-1 border-t py-5 transition-colors duration-300 hover:bg-subtle/60 sm:grid-cols-[3rem_14rem_1fr] sm:py-6"
+                  className="group/area reveal grid grid-cols-[3rem_1fr] items-baseline gap-x-4 gap-y-1 border-t py-5 transition-colors duration-300 hover:bg-subtle/60 sm:grid-cols-[3rem_14rem_1fr] sm:py-6"
                 >
                   <span className="font-mono text-xs text-muted-foreground transition-transform duration-300 ease-out-expo group-hover/area:translate-x-1">
                     {String(i + 1).padStart(2, "0")}

@@ -17,7 +17,7 @@ export function Specimen({ id, index, title, description, className, children }:
     <article
       aria-labelledby={headingId}
       data-cursor="interact"
-      className={cn("flex min-w-0 flex-col rounded-2xl border bg-surface", className)}
+      className={cn("reveal flex min-w-0 flex-col rounded-2xl border bg-surface", className)}
     >
       <header className="flex items-baseline gap-3 border-b px-5 py-4">
         <span className="label-mono">{String(index).padStart(2, "0")}</span>

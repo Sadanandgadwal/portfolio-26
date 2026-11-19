@@ -131,6 +131,13 @@ Rules:
 - The hero sequence finishes in under 1.2s, and content is interactive throughout.
 - Every motion component respects `useReducedMotion()`. The global CSS also collapses durations under `prefers-reduced-motion: reduce`.
 - Custom cursor and magnetic effects are enabled only on `(hover: hover) and (pointer: fine)`.
+- **Scroll-driven, CSS-only** (`globals.css`; no JS, server-rendered, static where unsupported or under reduced motion):
+  - `.reveal`: blocks fade up as they enter (about, timeline entries, specimens, skills, showcase).
+  - `.reveal-words`: `SectionHeader`/contact headings split by `RevealWords` into masked words staggered by `--i` on a named `view-timeline`. The accessible name is unchanged.
+  - `.reveal-mask`: project media clip-path opens, then drifts ±28px (parallax).
+- **Shared-element morph:** project card frame and title → case-study hero via React `<ViewTransition name share="morph" default="none">` (450ms, mid-flight blur). Case-study title and frame skip their own entrance so they don't fight the morph.
+- **Scroll progress:** a floating "Scroll to top" button (after the first viewport) whose ring maps scroll progress via motion `pathLength`. It shares `lib/scroll.ts` with the footer button (scroll plus focus return).
+- **Performance:** hero parallax listens to the pointer only while the hero is in view. Everything animates `transform`, `opacity`, `clip-path` or `filter` only.
 
 ## 11. Breakpoints
 

@@ -1,5 +1,5 @@
 import { ArrowUpRight, Download } from "lucide-react";
-import { Section, sectionHeadingId } from "@/components/layout/section";
+import { RevealWords, Section, sectionHeadingId } from "@/components/layout/section";
 import { Magnetic } from "@/components/motion/magnetic";
 import { Button } from "@/components/ui/button";
 import { resolveSocials, type Portfolio } from "@/lib/content";
@@ -28,9 +28,9 @@ export function Contact({ contact, personal, resume, socials }: ContactProps) {
           {contact.eyebrow && <p className="label-mono">{contact.eyebrow}</p>}
           <h2
             id={sectionHeadingId("contact")}
-            className="reveal mt-4 text-[clamp(2.75rem,1.4rem+5.4vw,6.75rem)] leading-[0.95] font-semibold tracking-[-0.045em]"
+            className="reveal-words mt-4 text-[clamp(2.75rem,1.4rem+5.4vw,6.75rem)] leading-[0.95] font-semibold tracking-[-0.045em]"
           >
-            {contact.heading}
+            <RevealWords text={contact.heading} />
           </h2>
           {contact.description && (
             <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">

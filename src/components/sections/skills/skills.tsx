@@ -14,7 +14,9 @@ export function Skills({ skills, projects }: SkillsProps) {
         heading={skills.heading}
         description={skills.description}
       />
-      <SkillsExplorer categories={skills.categories} projectTitles={projectTitles} />
+      <div className="reveal">
+        <SkillsExplorer categories={skills.categories} projectTitles={projectTitles} />
+      </div>
     </Section>
   );
 }

@@ -15,7 +15,9 @@ export function Showcase({ showcase }: { showcase: ShowcaseData }) {
       <Badge dot className="-mt-6 mb-8 md:-mt-10">
         {showcase.sampleLabel}
       </Badge>
-      <ShowcaseApp data={showcase} />
+      <div className="reveal">
+        <ShowcaseApp data={showcase} />
+      </div>
     </Section>
   );
 }

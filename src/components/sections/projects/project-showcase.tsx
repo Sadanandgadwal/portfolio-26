@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, ViewTransition } from "react";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { TechIcon } from "@/components/icons/tech-icon";
@@ -49,20 +49,25 @@ function ProjectCard({
       onBlur={(e) => !e.currentTarget.contains(e.relatedTarget as Node) && setActive(false)}
       data-active={active || undefined}
     >
-      <div className={cn("lg:col-span-7", reversed && "lg:order-2")} data-testid="project-media">
-        <BrowserFrame
-          url={url}
-          className="shadow-md transition-[box-shadow,transform] duration-500 ease-out-expo group-hover/project:-translate-y-1 group-hover/project:shadow-lg"
-        >
-          <div className="aspect-video">
-            <ProjectPreview
-              project={project}
-              active={active}
-              sizes="(min-width: 1024px) 58vw, (min-width: 640px) 70vw, 86vw"
-              priority={index === 0}
-            />
-          </div>
-        </BrowserFrame>
+      <div
+        className={cn("reveal-mask lg:col-span-7", reversed && "lg:order-2")}
+        data-testid="project-media"
+      >
+        <ViewTransition name={`project-frame-${project.slug}`} share="morph" default="none">
+          <BrowserFrame
+            url={url}
+            className="shadow-md transition-[box-shadow,transform] duration-500 ease-out-expo group-hover/project:-translate-y-1 group-hover/project:shadow-lg"
+          >
+            <div className="aspect-video">
+              <ProjectPreview
+                project={project}
+                active={active}
+                sizes="(min-width: 1024px) 58vw, (min-width: 640px) 70vw, 86vw"
+                priority={index === 0}
+              />
+            </div>
+          </BrowserFrame>
+        </ViewTransition>
       </div>
 
       <div className={cn("grid content-center gap-5 lg:col-span-5", reversed && "lg:order-1")}>
@@ -79,7 +84,9 @@ function ProjectCard({
             data-cursor="view"
             className="after:absolute after:inset-0 after:z-0 focus-visible:outline-none"
           >
-            {project.title}
+            <ViewTransition name={`project-title-${project.slug}`} share="morph" default="none">
+              <span className="inline-block">{project.title}</span>
+            </ViewTransition>
           </Link>
         </h3>
 

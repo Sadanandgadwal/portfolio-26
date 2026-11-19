@@ -1,3 +1,4 @@
+import { ViewTransition } from "react";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/layout/section";
@@ -67,8 +68,10 @@ export function ProjectCaseStudy({ project, next, backHref, techIcons }: CaseStu
                 {[project.category, project.year].filter(Boolean).join(" · ")}
               </p>
             )}
-            <h1 className="animate-fade-up text-headline font-semibold [animation-delay:80ms] md:text-[clamp(2.5rem,1.5rem+4vw,5.5rem)]">
-              {project.title}
+            <h1 className="text-headline font-semibold md:text-[clamp(2.5rem,1.5rem+4vw,5.5rem)]">
+              <ViewTransition name={`project-title-${project.slug}`} share="morph" default="none">
+                <span className="inline-block">{project.title}</span>
+              </ViewTransition>
             </h1>
             <p className="max-w-2xl animate-fade-up text-lg leading-relaxed text-muted-foreground [animation-delay:160ms] md:text-xl">
               {project.description}
@@ -94,30 +97,34 @@ export function ProjectCaseStudy({ project, next, backHref, techIcons }: CaseStu
           )}
         </header>
 
-        <div className="mt-12 animate-rise [animation-delay:300ms] md:mt-16">
-          <BrowserFrame url={links.live ? new URL(links.live).host : `${project.slug}.case-study`}>
-            <div className="aspect-video">
-              {media.previewType === "video" && media.preview ? (
-                <video
-                  src={media.preview}
-                  poster={media.cover || undefined}
-                  controls
-                  muted
-                  playsInline
-                  preload="metadata"
-                  className="size-full bg-subtle object-cover object-top"
-                  aria-label={`${project.title} preview video`}
-                />
-              ) : (
-                <ProjectPreview
-                  project={project}
-                  active={false}
-                  sizes="(min-width: 1152px) 1152px, 100vw"
-                  priority
-                />
-              )}
-            </div>
-          </BrowserFrame>
+        <div className="mt-12 md:mt-16">
+          <ViewTransition name={`project-frame-${project.slug}`} share="morph" default="none">
+            <BrowserFrame
+              url={links.live ? new URL(links.live).host : `${project.slug}.case-study`}
+            >
+              <div className="aspect-video">
+                {media.previewType === "video" && media.preview ? (
+                  <video
+                    src={media.preview}
+                    poster={media.cover || undefined}
+                    controls
+                    muted
+                    playsInline
+                    preload="metadata"
+                    className="size-full bg-subtle object-cover object-top"
+                    aria-label={`${project.title} preview video`}
+                  />
+                ) : (
+                  <ProjectPreview
+                    project={project}
+                    active={false}
+                    sizes="(min-width: 1152px) 1152px, 100vw"
+                    priority
+                  />
+                )}
+              </div>
+            </BrowserFrame>
+          </ViewTransition>
         </div>
 
         <dl
