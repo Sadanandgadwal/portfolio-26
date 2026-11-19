@@ -1,0 +1,315 @@
+{
+  "site": {
+    "url": "https://sadanandgadwal.com",
+    "title": "Sadanand Gadwal — Frontend & Full Stack Developer",
+    "titleTemplate": "%s · Sadanand Gadwal",
+    "description": "Portfolio of Sadanand Gadwal, a frontend and full stack developer building fast, accessible, interactive interfaces with React, TypeScript and Node.js.",
+    "keywords": [
+      "Sadanand Gadwal",
+      "Frontend Developer",
+      "Full Stack Developer",
+      "React",
+      "TypeScript",
+      "Next.js",
+      "Node.js",
+      "Portfolio"
+    ],
+    "locale": "en_US",
+    "ogImage": "",
+    "twitterHandle": ""
+  },
+  "personal": {
+    "name": "Sadanand Gadwal",
+    "shortName": "SG",
+    "roles": ["Frontend Developer", "Full Stack Developer"],
+    "location": "",
+    "email": "",
+    "phone": "",
+    "availability": "",
+    "avatar": ""
+  },
+  "navigation": {
+    "items": [
+      { "label": "Home", "href": "#home" },
+      { "label": "About", "href": "#about" },
+      { "label": "Skills", "href": "#skills" },
+      { "label": "Experience", "href": "#experience" },
+      { "label": "Projects", "href": "#projects" },
+      { "label": "Playground", "href": "#playground" },
+      { "label": "Contact", "href": "#contact" }
+    ]
+  },
+  "hero": {
+    "eyebrow": "Portfolio",
+    "heading": "Sadanand Gadwal",
+    "statement": "I design and build fast, accessible and interactive web interfaces, from reusable component systems to data-heavy enterprise applications.",
+    "primaryCta": { "label": "View Projects", "href": "#projects" },
+    "secondaryCta": { "label": "Contact Me", "href": "#contact" }
+  },
+  "about": {
+    "eyebrow": "About",
+    "heading": "I build interfaces that feel as good as they work.",
+    "description": "",
+    "paragraphs": [
+      "I'm a frontend-focused full stack developer. I care about the details that make an interface feel effortless: clear structure, responsive layouts, smooth interactions and accessible markup.",
+      "My work spans ERP development, reusable UI component libraries, REST API integration and performance optimisation, turning complex business workflows into interfaces people can use quickly and confidently."
+    ],
+    "focusAreas": [
+      {
+        "title": "Frontend engineering",
+        "description": "Component-driven React and TypeScript interfaces."
+      },
+      {
+        "title": "ERP applications",
+        "description": "Data-dense screens, tables, forms and workflows."
+      },
+      {
+        "title": "Reusable UI",
+        "description": "Consistent, composable components that scale across products."
+      },
+      {
+        "title": "API integration",
+        "description": "Connecting interfaces to REST services with reliable state handling."
+      },
+      {
+        "title": "Performance",
+        "description": "Lean bundles, efficient rendering and fast loading."
+      }
+    ],
+    "stats": []
+  },
+  "skills": {
+    "eyebrow": "Skills",
+    "heading": "A toolkit for building complete products.",
+    "description": "",
+    "categories": [
+      {
+        "id": "frontend",
+        "name": "Frontend",
+        "description": "",
+        "items": [
+          {
+            "name": "React.js",
+            "icon": "react",
+            "description": "Component-based UI library.",
+            "relatedProjects": []
+          },
+          {
+            "name": "JavaScript",
+            "icon": "javascript",
+            "description": "The language of the web.",
+            "relatedProjects": []
+          },
+          {
+            "name": "TypeScript",
+            "icon": "typescript",
+            "description": "Typed JavaScript for safer, scalable code.",
+            "relatedProjects": []
+          },
+          {
+            "name": "HTML",
+            "icon": "html5",
+            "description": "Semantic, accessible markup.",
+            "relatedProjects": []
+          },
+          {
+            "name": "CSS",
+            "icon": "css",
+            "description": "Layout, responsive design and animation.",
+            "relatedProjects": []
+          },
+          {
+            "name": "Tailwind CSS",
+            "icon": "tailwindcss",
+            "description": "Utility-first styling.",
+            "relatedProjects": []
+          },
+          {
+            "name": "Material UI",
+            "icon": "mui",
+            "description": "React component library based on Material Design.",
+            "relatedProjects": []
+          }
+        ]
+      },
+      {
+        "id": "state-forms",
+        "name": "State Management & Forms",
+        "description": "",
+        "items": [
+          {
+            "name": "Redux",
+            "icon": "redux",
+            "description": "Predictable global state container.",
+            "relatedProjects": []
+          },
+          {
+            "name": "Redux Toolkit",
+            "icon": "redux",
+            "description": "Official, opinionated Redux tooling.",
+            "relatedProjects": []
+          },
+          {
+            "name": "Formik",
+            "icon": "formik",
+            "description": "Form state management for React.",
+            "relatedProjects": []
+          },
+          {
+            "name": "Yup",
+            "icon": "yup",
+            "description": "Schema-based form validation.",
+            "relatedProjects": []
+          }
+        ]
+      },
+      {
+        "id": "backend",
+        "name": "Backend",
+        "description": "",
+        "items": [
+          {
+            "name": "Node.js",
+            "icon": "nodedotjs",
+            "description": "JavaScript runtime for servers and tooling.",
+            "relatedProjects": []
+          },
+          {
+            "name": "Express.js",
+            "icon": "express",
+            "description": "Minimal Node.js web framework.",
+            "relatedProjects": []
+          },
+          {
+            "name": "REST APIs",
+            "icon": "api",
+            "description": "Designing and consuming HTTP APIs.",
+            "relatedProjects": []
+          }
+        ]
+      },
+      {
+        "id": "database",
+        "name": "Database",
+        "description": "",
+        "items": [
+          {
+            "name": "MongoDB",
+            "icon": "mongodb",
+            "description": "Document database.",
+            "relatedProjects": []
+          },
+          {
+            "name": "PostgreSQL",
+            "icon": "postgresql",
+            "description": "Relational SQL database.",
+            "relatedProjects": []
+          }
+        ]
+      },
+      {
+        "id": "visualization",
+        "name": "Charts & Visualization",
+        "description": "",
+        "items": [
+          {
+            "name": "Chart.js",
+            "icon": "chartdotjs",
+            "description": "Canvas-based charting library.",
+            "relatedProjects": []
+          },
+          {
+            "name": "Syncfusion Gantt Chart",
+            "icon": "gantt",
+            "description": "Project scheduling and timeline visualisation.",
+            "relatedProjects": []
+          }
+        ]
+      },
+      {
+        "id": "tools",
+        "name": "Tools",
+        "description": "",
+        "items": [
+          {
+            "name": "Git",
+            "icon": "git",
+            "description": "Version control.",
+            "relatedProjects": []
+          },
+          {
+            "name": "GitHub",
+            "icon": "github",
+            "description": "Code hosting and collaboration.",
+            "relatedProjects": []
+          },
+          {
+            "name": "Docker",
+            "icon": "docker",
+            "description": "Containerised development and deployment.",
+            "relatedProjects": []
+          },
+          {
+            "name": "VS Code",
+            "icon": "vscode",
+            "description": "Primary code editor.",
+            "relatedProjects": []
+          }
+        ]
+      }
+    ]
+  },
+  "experience": {
+    "eyebrow": "Experience",
+    "heading": "Where I've worked.",
+    "description": "",
+    "items": []
+  },
+  "education": {
+    "eyebrow": "Education",
+    "heading": "Education & certifications.",
+    "description": "",
+    "items": [],
+    "certifications": []
+  },
+  "projects": {
+    "eyebrow": "Selected work",
+    "heading": "Projects.",
+    "description": "",
+    "items": []
+  },
+  "playground": {
+    "eyebrow": "Frontend Playground",
+    "heading": "Don't take my word for it. Try it.",
+    "description": "Working UI components you can click, type into, sort and filter. All data in this section is sample data for demonstration."
+  },
+  "showcase": {
+    "eyebrow": "Enterprise UI",
+    "heading": "Built for complex, data-heavy products.",
+    "description": "Dashboard, ERP and form patterns. All data shown is sample data for demonstration."
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "heading": "Let's build something great.",
+    "description": "Have a project, role or idea in mind? I'd like to hear about it.",
+    "cta": { "label": "Start a Conversation" },
+    "copyEmailLabel": "Copy email"
+  },
+  "resume": {
+    "label": "Download Resume",
+    "file": "",
+    "updated": ""
+  },
+  "socials": [
+    { "platform": "github", "label": "GitHub", "url": "" },
+    { "platform": "linkedin", "label": "LinkedIn", "url": "" },
+    { "platform": "email", "label": "Email", "url": "" },
+    { "platform": "youtube", "label": "YouTube", "url": "" },
+    { "platform": "medium", "label": "Medium", "url": "" },
+    { "platform": "instagram", "label": "Instagram", "url": "" }
+  ],
+  "footer": {
+    "tagline": "Frontend / Full Stack Developer",
+    "note": ""
+  }
+}
