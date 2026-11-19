@@ -21,7 +21,10 @@
   "personal": {
     "name": "Sadanand Gadwal",
     "shortName": "SG",
-    "roles": ["Frontend Developer", "Full Stack Developer"],
+    "roles": [
+      "Frontend Developer",
+      "Full Stack Developer"
+    ],
     "location": "",
     "email": "",
     "phone": "",
@@ -30,21 +33,153 @@
   },
   "navigation": {
     "items": [
-      { "label": "Home", "href": "#home" },
-      { "label": "About", "href": "#about" },
-      { "label": "Skills", "href": "#skills" },
-      { "label": "Experience", "href": "#experience" },
-      { "label": "Projects", "href": "#projects" },
-      { "label": "Playground", "href": "#playground" },
-      { "label": "Contact", "href": "#contact" }
+      {
+        "label": "Home",
+        "href": "#home"
+      },
+      {
+        "label": "About",
+        "href": "#about"
+      },
+      {
+        "label": "Skills",
+        "href": "#skills"
+      },
+      {
+        "label": "Experience",
+        "href": "#experience"
+      },
+      {
+        "label": "Projects",
+        "href": "#projects"
+      },
+      {
+        "label": "Playground",
+        "href": "#playground"
+      },
+      {
+        "label": "Contact",
+        "href": "#contact"
+      }
     ]
   },
   "hero": {
     "eyebrow": "Portfolio",
     "heading": "Sadanand Gadwal",
     "statement": "I design and build fast, accessible and interactive web interfaces, from reusable component systems to data-heavy enterprise applications.",
-    "primaryCta": { "label": "View Projects", "href": "#projects" },
-    "secondaryCta": { "label": "Contact Me", "href": "#contact" }
+    "primaryCta": {
+      "label": "View Projects",
+      "href": "#projects"
+    },
+    "secondaryCta": {
+      "label": "Contact Me",
+      "href": "#contact"
+    },
+    "mockup": {
+      "sampleLabel": "Sample data",
+      "url": "app.example.com/overview",
+      "appName": "Orbit ERP",
+      "title": "Overview",
+      "navItems": [
+        "Overview",
+        "Orders",
+        "Inventory",
+        "Reports"
+      ],
+      "searchPlaceholder": "Search orders…",
+      "primaryAction": "New report",
+      "stats": [
+        {
+          "label": "Revenue",
+          "value": "$48.2k",
+          "delta": "+12.4%"
+        },
+        {
+          "label": "Orders",
+          "value": "1,284",
+          "delta": "+3.1%"
+        },
+        {
+          "label": "Avg. order",
+          "value": "$37.5",
+          "delta": "-0.8%"
+        }
+      ],
+      "chart": {
+        "title": "Weekly orders",
+        "points": [
+          {
+            "label": "Mon",
+            "value": 42
+          },
+          {
+            "label": "Tue",
+            "value": 58
+          },
+          {
+            "label": "Wed",
+            "value": 51
+          },
+          {
+            "label": "Thu",
+            "value": 74
+          },
+          {
+            "label": "Fri",
+            "value": 66
+          },
+          {
+            "label": "Sat",
+            "value": 38
+          },
+          {
+            "label": "Sun",
+            "value": 29
+          }
+        ]
+      },
+      "table": {
+        "columns": [
+          "Order",
+          "Status",
+          "Amount"
+        ],
+        "rows": [
+          {
+            "name": "#1042 · Harbor Supply",
+            "status": "success",
+            "statusLabel": "Paid",
+            "amount": "$320.00"
+          },
+          {
+            "name": "#1041 · Lumen Labs",
+            "status": "pending",
+            "statusLabel": "Pending",
+            "amount": "$1,120.00"
+          },
+          {
+            "name": "#1040 · Pinecrest",
+            "status": "success",
+            "statusLabel": "Paid",
+            "amount": "$86.40"
+          },
+          {
+            "name": "#1039 · Atlas Foods",
+            "status": "neutral",
+            "statusLabel": "Draft",
+            "amount": "$412.75"
+          }
+        ]
+      },
+      "modal": {
+        "title": "Create report",
+        "description": "Export a summary of this week's orders.",
+        "fieldLabel": "Report name",
+        "fieldValue": "Weekly summary",
+        "confirm": "Create",
+        "cancel": "Cancel"
+      }
+    }
   },
   "about": {
     "eyebrow": "About",
@@ -292,7 +427,9 @@
     "eyebrow": "Contact",
     "heading": "Let's build something great.",
     "description": "Have a project, role or idea in mind? I'd like to hear about it.",
-    "cta": { "label": "Start a Conversation" },
+    "cta": {
+      "label": "Start a Conversation"
+    },
     "copyEmailLabel": "Copy email"
   },
   "resume": {
@@ -301,12 +438,36 @@
     "updated": ""
   },
   "socials": [
-    { "platform": "github", "label": "GitHub", "url": "" },
-    { "platform": "linkedin", "label": "LinkedIn", "url": "" },
-    { "platform": "email", "label": "Email", "url": "" },
-    { "platform": "youtube", "label": "YouTube", "url": "" },
-    { "platform": "medium", "label": "Medium", "url": "" },
-    { "platform": "instagram", "label": "Instagram", "url": "" }
+    {
+      "platform": "github",
+      "label": "GitHub",
+      "url": ""
+    },
+    {
+      "platform": "linkedin",
+      "label": "LinkedIn",
+      "url": ""
+    },
+    {
+      "platform": "email",
+      "label": "Email",
+      "url": ""
+    },
+    {
+      "platform": "youtube",
+      "label": "YouTube",
+      "url": ""
+    },
+    {
+      "platform": "medium",
+      "label": "Medium",
+      "url": ""
+    },
+    {
+      "platform": "instagram",
+      "label": "Instagram",
+      "url": ""
+    }
   ],
   "footer": {
     "tagline": "Frontend / Full Stack Developer",

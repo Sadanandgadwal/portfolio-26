@@ -20,18 +20,18 @@ Avoid: gradient blobs, neon, glassmorphism stacks, repeated three-column icon ca
 
 All colors are OKLCH and neutral (chroma 0) except `signal` and `destructive`.
 
-| Token              | Light               | Dark                | Use                                                                 |
-| ------------------ | ------------------- | ------------------- | ------------------------------------------------------------------- |
-| `background`       | 0.985 (off-white)   | 0.135 (near-black)  | Page                                                                |
-| `foreground`       | 0.16                | 0.955               | Primary text, primary buttons                                       |
-| `surface`          | 1.0                 | 0.175               | Cards, mockups                                                      |
-| `surface-raised`   | 1.0                 | 0.21                | Popovers, nav when scrolled                                         |
-| `subtle`           | 0.955               | 0.20                | Section bands, hover fills                                          |
-| `muted-foreground` | 0.48                | 0.68                | Secondary text (≥ 4.5:1 on background)                              |
-| `border`           | 0.905               | white / 9%          | Hairlines                                                           |
-| `border-strong`    | 0.82                | white / 18%         | Inputs, emphasized dividers                                         |
-| `signal`           | oklch(0.62 0.19 41) | oklch(0.72 0.17 45) | Status dot, active indicators, one chart series. Never large fills. |
-| `destructive`      | red                 | red                 | Validation errors only                                              |
+| Token              | Light               | Dark                | Use                                                                                                                |
+| ------------------ | ------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `background`       | 0.985 (off-white)   | 0.135 (near-black)  | Page                                                                                                               |
+| `foreground`       | 0.16                | 0.955               | Primary text, primary buttons                                                                                      |
+| `surface`          | 1.0                 | 0.175               | Cards, mockups                                                                                                     |
+| `surface-raised`   | 1.0                 | 0.21                | Popovers, nav when scrolled                                                                                        |
+| `subtle`           | 0.955               | 0.20                | Section bands, hover fills                                                                                         |
+| `muted-foreground` | 0.48                | 0.68                | Secondary text (≥ 4.5:1 on background)                                                                             |
+| `border`           | 0.905               | white / 9%          | Hairlines                                                                                                          |
+| `border-strong`    | 0.82                | white / 18%         | Inputs, emphasized dividers                                                                                        |
+| `signal`           | oklch(0.62 0.19 41) | oklch(0.72 0.17 45) | Status dot, active indicators, one chart series. Never large fills.                                                |
+| `destructive`      | oklch(0.55 0.21 27) | oklch(0.68 0.19 24) | Validation errors and destructive actions. Text on it uses `destructive-foreground` (white in light, ink in dark). |
 
 Charts use `chart-1…4` (gray ramp) plus `chart-5` (signal).
 
@@ -70,10 +70,13 @@ Tailwind's 4px base scale.
 
 Built on shadcn/ui (radix-nova, `src/components/ui`) and restyled through tokens. Never fork colors inside components.
 
-- **Buttons:** pill (`rounded-full`), height 44px (touch target). Variants: primary (foreground fill), outline, ghost, link. Arrow icons sit at `inline-end` and animate on hover.
-- **Cards:** `surface` with a 1px `border` and `radius-xl`. Shadow only on interaction (`shadow-md` on hover/focus).
-- **Badges:** mono, `text-xs`, `border`, `radius-sm`, no fill.
-- **Icon buttons:** 40px square, ghost, with a required `aria-label`.
+- **Buttons** (`ui/button.tsx`): pill (`rounded-full`). Sizes: sm 36px (dense desktop UI only), default 44px, lg 48px. Variants: default (foreground fill), secondary, outline, ghost, destructive, link. `loading` shows a spinner, disables the button and sets `aria-busy`. An `inline-end` icon (`data-icon="inline-end"`) nudges on hover. Pressing scales to 0.98.
+- **Cards** (`ui/card.tsx`): `surface` with a 1px `border`, `radius-xl` and 24px padding (16px for `size="sm"`). `interactive` adds a 2px lift, `border-strong` and `shadow-md` on hover or focus-within. `CardTitle` renders an `h3`.
+- **Badges** (`ui/badge.tsx`): mono `text-xs`, 24px tall, `radius-sm`. Variants: outline (default), secondary (subtle fill), solid (inverted). `dot` adds a leading signal dot for status.
+- **Icon buttons** (`ui/icon-button.tsx`): 44px (36px for `sm`) round, ghost by default. `aria-label` is required by the type.
+- **Layout** (`layout/section.tsx`): `Container` (max-w-6xl with gutters), `Section` (anchor id, `aria-labelledby`, vertical rhythm, `scroll-mt-20` for the sticky nav) and `SectionHeader` (eyebrow, `h2` and description).
+- **Theme toggle** (`theme/theme-toggle.tsx`): a sun→moon SVG morph driven by the `.dark` class in CSS, so it renders correctly before hydration. Its label changes to "Switch to light/dark theme".
+- **Living style guide:** `/design-system` (noindex) renders every token and primitive in both themes.
 - **Inputs:** 44px height, `border-strong`, focus ring = `ring` at 2px. Errors use `destructive` text plus `aria-invalid`.
 - **Browser mockup:** `surface` frame with a 32px chrome bar (three 8px neutral dots plus a URL pill). Reused by the Hero, Projects and Showcase.
 
@@ -112,8 +115,10 @@ Tailwind defaults: `sm` 640, `md` 768, `lg` 1024, `xl` 1280, `2xl` 1536. QA view
 
 - `.dark` class on `<html>` switches token sets (`@custom-variant dark`).
 - Default theme follows `prefers-color-scheme`, and the user's choice persists in `localStorage`.
-- An inline `<head>` script applies the class before first paint, so there is no flash (Phase 2).
-- Theme changes animate colors with a short cross-fade. Under reduced motion they switch instantly.
+- An inline `<head>` script (`lib/theme.ts` → `themeInitScript`) applies the class before first paint, so there is no flash. `<html>` has `suppressHydrationWarning`.
+- State: `useTheme()` (`hooks/use-theme.ts`) uses `useSyncExternalStore` over the `<html>` class, so no provider is needed. It syncs across tabs via the `storage` event and follows OS changes until the user picks a theme.
+- Transition: a View Transitions cross-fade (400ms, ease-out-expo), with a 300ms color-transition fallback (`.theme-transition`).
+- Under reduced motion the theme switches instantly.
 - `color-scheme` is set per theme so native controls and scrollbars match.
 
 ## 13. Accessibility

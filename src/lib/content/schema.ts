@@ -109,6 +109,46 @@ const projectSchema = z.object({
   links: z.object({ live: optionalUrl, github: optionalUrl }).prefault({}),
 });
 
+/** Sample data for the interactive hero browser mockup. Clearly labelled as sample in the UI. */
+const heroMockupSchema = z.object({
+  sampleLabel: z.string().min(1),
+  url: z.string().min(1),
+  appName: z.string().min(1),
+  title: z.string().min(1),
+  navItems: z.array(z.string().min(1)).min(1),
+  searchPlaceholder: z.string().min(1),
+  primaryAction: z.string().min(1),
+  stats: z
+    .array(z.object({ label: z.string().min(1), value: z.string().min(1), delta: optionalText }))
+    .min(1)
+    .max(3),
+  chart: z.object({
+    title: z.string().min(1),
+    points: z.array(z.object({ label: z.string().min(1), value: z.number().nonnegative() })).min(2),
+  }),
+  table: z.object({
+    columns: z.tuple([z.string(), z.string(), z.string()]),
+    rows: z
+      .array(
+        z.object({
+          name: z.string().min(1),
+          status: z.enum(["success", "pending", "neutral"]),
+          statusLabel: z.string().min(1),
+          amount: z.string().min(1),
+        }),
+      )
+      .min(1),
+  }),
+  modal: z.object({
+    title: z.string().min(1),
+    description: z.string().min(1),
+    fieldLabel: z.string().min(1),
+    fieldValue: z.string().min(1),
+    confirm: z.string().min(1),
+    cancel: z.string().min(1),
+  }),
+});
+
 const sectionHeader = {
   eyebrow: optionalText,
   heading: z.string().min(1),
@@ -144,6 +184,7 @@ export const portfolioSchema = z
       statement: z.string().min(1),
       primaryCta: linkSchema,
       secondaryCta: linkSchema,
+      mockup: heroMockupSchema,
     }),
     about: z.object({
       ...sectionHeader,
@@ -206,6 +247,7 @@ export type Site = Portfolio["site"];
 export type Personal = Portfolio["personal"];
 export type NavLink = z.infer<typeof linkSchema>;
 export type Hero = Portfolio["hero"];
+export type HeroMockup = Hero["mockup"];
 export type About = Portfolio["about"];
 export type Stat = z.infer<typeof statSchema>;
 export type Skill = z.infer<typeof skillSchema>;
