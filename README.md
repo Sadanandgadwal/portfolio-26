@@ -4,7 +4,7 @@ Personal portfolio of **Sadanand Gadwal**, Frontend / Full Stack Developer. It i
 
 ## Stack
 
-Next.js 16 (App Router, Cache Components) · React 19 · TypeScript 5 · Tailwind CSS 4 · shadcn/ui (Radix) · Motion · Lucide · Zod 4 · Vitest + React Testing Library · Playwright · ESLint + Prettier
+Next.js 16 (App Router, Cache Components) · React 19 · TypeScript 5 · Tailwind CSS 4 · shadcn/ui (Radix) · Motion · Lucide · Simple Icons · Zod 4 · Vitest + React Testing Library · Playwright · ESLint + Prettier
 
 ## Requirements
 
@@ -44,7 +44,8 @@ src/
   components/ui/       shadcn/ui primitives (token-styled)
   app/design-system/   living style guide (noindex)
   components/layout/   SiteHeader, MobileMenu, Container, Section, SectionHeader
-  components/motion/   CustomCursor, Magnetic
+  components/icons/    TechIcon registry (simple-icons + Lucide)
+  components/motion/   CustomCursor, Magnetic, AnimatedNumber
   components/sections/ page sections (props-only, no hardcoded content)
   components/theme/    theme toggle
   hooks/               client hooks (useTheme, useMediaQuery, useScrolled, useActiveSection)
