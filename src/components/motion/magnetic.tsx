@@ -18,7 +18,8 @@ type MagneticProps = {
 export function Magnetic({ children, strength = 0.3, className }: MagneticProps) {
   const ref = useRef<HTMLDivElement>(null);
   const finePointer = useMediaQuery(FINE_POINTER_QUERY);
-  const enabled = finePointer && !useReducedMotion();
+  const reduceMotion = useReducedMotion();
+  const enabled = finePointer && !reduceMotion;
   const x = useSpring(0, SPRING);
   const y = useSpring(0, SPRING);
 

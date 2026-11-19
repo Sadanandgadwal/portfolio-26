@@ -22,6 +22,16 @@ Object.defineProperty(window, "matchMedia", {
   })),
 });
 
+// jsdom lacks IntersectionObserver and scrollIntoView.
+class IntersectionObserverStub {
+  observe = vi.fn();
+  unobserve = vi.fn();
+  disconnect = vi.fn();
+  takeRecords = vi.fn(() => []);
+}
+vi.stubGlobal("IntersectionObserver", IntersectionObserverStub);
+Element.prototype.scrollIntoView = vi.fn();
+
 afterEach(() => {
   cleanup();
   localStorage.clear();

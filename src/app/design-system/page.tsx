@@ -56,7 +56,7 @@ function Row({ label, children }: { label: string; children: React.ReactNode }) 
 
 export default function DesignSystemPage() {
   return (
-    <main>
+    <main id="main">
       <Container className="flex items-center justify-between py-6">
         <p className="font-mono text-sm">DESIGN.md / preview</p>
         <ThemeToggle />

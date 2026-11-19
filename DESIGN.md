@@ -76,6 +76,12 @@ Built on shadcn/ui (radix-nova, `src/components/ui`) and restyled through tokens
 - **Icon buttons** (`ui/icon-button.tsx`): 44px (36px for `sm`) round, ghost by default. `aria-label` is required by the type.
 - **Layout** (`layout/section.tsx`): `Container` (max-w-6xl with gutters), `Section` (anchor id, `aria-labelledby`, vertical rhythm, `scroll-mt-20` for the sticky nav) and `SectionHeader` (eyebrow, `h2` and description).
 - **Theme toggle** (`theme/theme-toggle.tsx`): a sun→moon SVG morph driven by the `.dark` class in CSS, so it renders correctly before hydration. Its label changes to "Switch to light/dark theme".
+- **Site header** (`layout/site-header.tsx`): full-width and transparent at the top. After 24px of scroll it becomes a floating `max-w-3xl` pill with `bg-background/75`, `backdrop-blur-xl`, a border and `shadow-md` (500ms ease-out-expo). The active section is tracked with an IntersectionObserver and marked by a shared-layout pill (`layoutId`).
+- **Mobile menu** (`layout/mobile-menu.tsx`): a full-screen Radix Dialog (focus trap, Esc, scroll lock via `Dialog.Overlay`) with a clip-path wipe, a staggered masked link reveal and a hamburger→X morph. It closes before scrolling to the target.
+- **Hero** (`sections/hero`): the entrance uses CSS keyframes (`animate-reveal`, `fade-up`, `rise`), so it runs before hydration. The order is grid background → eyebrow → name (per-word mask) → roles → statement → CTAs → mockup, finishing in about 1.5s.
+- **Hero mockup**: `BrowserFrame` showing a sample ERP view. It has pointer parallax and a 3D tilt (±7°), plus depth layers for the badge and modal. Everything in it works: sidebar nav, search that filters the table, chart tooltips and the modal with a confirmation toast. All of its data comes from `hero.mockup` in the JSON and is labelled "Sample data".
+- **Magnetic** (`motion/magnetic.tsx`): spring-pulls its child by 30% of the cursor offset.
+- **Custom cursor** (`motion/custom-cursor.tsx`): a 10px dot, a 44px ring over interactive elements, and an 84px labelled disc for `data-cursor="view|interact|explore"`. It hides over text inputs (native caret). Fine pointers only, and disabled under reduced motion.
 - **Living style guide:** `/design-system` (noindex) renders every token and primitive in both themes.
 - **Inputs:** 44px height, `border-strong`, focus ring = `ring` at 2px. Errors use `destructive` text plus `aria-invalid`.
 - **Browser mockup:** `surface` frame with a 32px chrome bar (three 8px neutral dots plus a URL pill). Reused by the Hero, Projects and Showcase.

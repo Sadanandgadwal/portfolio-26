@@ -73,6 +73,8 @@ export function MobileMenu({ items, activeHref, brand, footer }: MobileMenuProps
       <AnimatePresence>
         {open && (
           <Dialog.Portal forceMount>
+            {/* Radix attaches body scroll-lock to the overlay. */}
+            <Dialog.Overlay forceMount className="fixed inset-0 z-60 md:hidden" />
             <Dialog.Content
               forceMount
               asChild
@@ -90,7 +92,7 @@ export function MobileMenu({ items, activeHref, brand, footer }: MobileMenuProps
                   <Dialog.Title>Menu</Dialog.Title>
                 </VisuallyHidden.Root>
 
-                <div className="flex items-center justify-between px-3 py-2">
+                <div className="flex items-center justify-between px-2 py-1.5">
                   {brand}
                   <div className="flex items-center gap-1">
                     <ThemeToggle />
@@ -116,7 +118,11 @@ export function MobileMenu({ items, activeHref, brand, footer }: MobileMenuProps
                           )}
                           initial={reduceMotion ? false : { y: "100%" }}
                           animate={{ y: 0 }}
-                          transition={{ duration: 0.6, delay: 0.2 + i * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                          transition={{
+                            duration: 0.6,
+                            delay: 0.2 + i * 0.05,
+                            ease: [0.16, 1, 0.3, 1],
+                          }}
                         >
                           <span className="font-mono text-xs font-normal text-muted-foreground">
                             {String(i + 1).padStart(2, "0")}

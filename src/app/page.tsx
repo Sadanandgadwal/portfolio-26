@@ -1,13 +1,20 @@
-import { FoundationPreview } from "@/components/sections/foundation-preview";
-import { ThemeToggle } from "@/components/theme/theme-toggle";
+import { SiteHeader } from "@/components/layout/site-header";
+import { Hero } from "@/components/sections/hero/hero";
 import { portfolio } from "@/lib/content";
 
 export default function Home() {
+  const { personal, navigation, hero } = portfolio;
   return (
-    <main>
-      {/* Temporary placement until the Phase 3 navigation. */}
-      <ThemeToggle className="fixed top-4 right-4 z-50" />
-      <FoundationPreview hero={portfolio.hero} personal={portfolio.personal} />
-    </main>
+    <>
+      <SiteHeader
+        name={personal.name}
+        shortName={personal.shortName}
+        roles={personal.roles}
+        items={navigation.items}
+      />
+      <main id="main">
+        <Hero hero={hero} personal={personal} />
+      </main>
+    </>
   );
 }

@@ -43,10 +43,11 @@ src/
   app/                 routes, layout, global styles and tokens
   components/ui/       shadcn/ui primitives (token-styled)
   app/design-system/   living style guide (noindex)
-  components/layout/   Container, Section, SectionHeader
+  components/layout/   SiteHeader, MobileMenu, Container, Section, SectionHeader
+  components/motion/   CustomCursor, Magnetic
   components/sections/ page sections (props-only, no hardcoded content)
   components/theme/    theme toggle
-  hooks/               client hooks (useTheme)
+  hooks/               client hooks (useTheme, useMediaQuery, useScrolled, useActiveSection)
   data/portfolio.json  single content source
   lib/content/         Zod schema, types and validated loader
   lib/theme.ts         theme resolution and no-flash init script

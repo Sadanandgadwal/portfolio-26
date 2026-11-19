@@ -25,7 +25,7 @@ function Brand({ name, shortName }: { name: string; shortName: string }) {
       <span className="grid size-9 place-items-center rounded-full bg-foreground font-mono text-xs font-medium text-background transition-transform duration-300 ease-out-expo group-hover/brand:rotate-[-8deg]">
         {shortName || name.slice(0, 2)}
       </span>
-      <span className="text-sm font-medium tracking-tight transition-opacity duration-300 lg:group-data-scrolled/header:hidden max-lg:hidden">
+      <span className="text-sm font-medium tracking-tight transition-opacity duration-300 max-lg:hidden lg:group-data-scrolled/header:hidden">
         {name}
       </span>
     </a>

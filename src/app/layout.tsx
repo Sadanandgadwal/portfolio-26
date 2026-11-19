@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { CustomCursor } from "@/components/motion/custom-cursor";
 import { portfolio } from "@/lib/content";
 import { themeInitScript } from "@/lib/theme";
 import "./globals.css";
@@ -56,7 +57,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {/* Applies the stored/OS theme before first paint to prevent a flash. */}
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
-      <body className="min-h-dvh">{children}</body>
+      <body className="min-h-dvh">
+        <a
+          href="#main"
+          className="fixed top-3 left-3 z-100 -translate-y-20 rounded-full bg-foreground px-4 py-2 text-sm font-medium text-background transition-transform focus-visible:translate-y-0"
+        >
+          Skip to content
+        </a>
+        {children}
+        <CustomCursor />
+      </body>
     </html>
   );
 }

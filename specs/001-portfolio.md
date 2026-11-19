@@ -20,8 +20,8 @@ A premium, interactive portfolio for Sadanand Gadwal that demonstrates frontend 
 | --- | ------------------------ | ------ |
 | 1   | Setup & foundation       | ✅     |
 | 2   | Design system & theme    | ✅     |
-| 3   | Navigation & hero        | ⏳     |
-| 4   | About & skills           |        |
+| 3   | Navigation & hero        | ✅     |
+| 4   | About & skills           | ⏳     |
 | 5   | Experience & education   |        |
 | 6   | Projects showcase        |        |
 | 7   | Playground & UI showcase |        |

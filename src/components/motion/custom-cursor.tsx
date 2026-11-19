@@ -40,14 +40,7 @@ export function CustomCursor() {
       setState(next);
     };
 
-    const onMove = (e: PointerEvent) => {
-      if (e.pointerType !== "mouse") return;
-      x.set(e.clientX);
-      y.set(e.clientY);
-      setVisible(true);
-    };
-    const onOver = (e: PointerEvent) => {
-      const target = e.target as Element | null;
+    const classify = (target: Element | null) => {
       if (!target?.closest) return;
       if (target.closest(TEXT_ENTRY)) return update({ mode: "hidden" });
       const labelled = target.closest<HTMLElement>("[data-cursor]");
@@ -56,15 +49,26 @@ export function CustomCursor() {
       if (target.closest(INTERACTIVE)) return update({ mode: "link" });
       update({ mode: "dot" });
     };
+
+    let lastTarget: EventTarget | null = null;
+    const onMove = (e: PointerEvent) => {
+      if (e.pointerType !== "mouse") return;
+      x.set(e.clientX);
+      y.set(e.clientY);
+      setVisible(true);
+      // Classify only when the hovered element changes (covers DOM changes under a still cursor).
+      if (e.target !== lastTarget) {
+        lastTarget = e.target;
+        classify(e.target as Element | null);
+      }
+    };
     const onLeave = () => setVisible(false);
 
     window.addEventListener("pointermove", onMove, { passive: true });
-    document.addEventListener("pointerover", onOver, { passive: true });
     root.addEventListener("pointerleave", onLeave);
     return () => {
       root.classList.remove("has-custom-cursor");
       window.removeEventListener("pointermove", onMove);
-      document.removeEventListener("pointerover", onOver);
       root.removeEventListener("pointerleave", onLeave);
     };
   }, [enabled, x, y]);
