@@ -48,9 +48,13 @@ export function CustomCursor() {
       if (!target?.closest) return;
       if (target.closest(TEXT_ENTRY)) return update({ mode: "hidden" });
       const labelled = target.closest<HTMLElement>("[data-cursor]");
+      const interactive = target.closest(INTERACTIVE);
       const label = labelled && LABELS[labelled.dataset.cursor ?? ""];
-      if (label) return update({ mode: "label", label });
-      if (target.closest(INTERACTIVE)) return update({ mode: "link" });
+      // A control nested inside a labelled region gets the precise ring, not the label disc.
+      const nestedControl =
+        interactive && labelled && interactive !== labelled && labelled.contains(interactive);
+      if (label && !nestedControl) return update({ mode: "label", label });
+      if (interactive) return update({ mode: "link" });
       update({ mode: "dot" });
     };
 

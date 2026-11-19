@@ -37,6 +37,19 @@ class IntersectionObserverStub {
 vi.stubGlobal("IntersectionObserver", IntersectionObserverStub);
 Element.prototype.scrollIntoView = vi.fn();
 
+// jsdom lacks APIs used by Radix Select/Tooltip (popper sizing, pointer capture).
+vi.stubGlobal(
+  "ResizeObserver",
+  class {
+    observe = vi.fn();
+    unobserve = vi.fn();
+    disconnect = vi.fn();
+  },
+);
+Element.prototype.hasPointerCapture = () => false;
+Element.prototype.setPointerCapture = vi.fn();
+Element.prototype.releasePointerCapture = vi.fn();
+
 afterEach(() => {
   cleanup();
   localStorage.clear();

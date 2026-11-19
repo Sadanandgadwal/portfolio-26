@@ -155,6 +155,48 @@ const sectionHeader = {
   description: optionalText,
 };
 
+/** Sample data for the Frontend Playground. Labelled as sample in the UI. */
+const playgroundSchema = z
+  .object({
+    ...sectionHeader,
+    sampleLabel: z.string().min(1),
+    form: z.object({ roles: z.array(z.string().min(1)).min(2) }),
+    table: z.object({
+      rows: z
+        .array(
+          z.object({
+            id: z.string().min(1),
+            name: z.string().min(1),
+            email: z.email(),
+            team: z.string().min(1),
+            status: z.enum(["active", "invited", "suspended"]),
+            lastActive: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+          }),
+        )
+        .min(1),
+    }),
+    tabs: z
+      .array(z.object({ id: z.string().min(1), label: z.string().min(1), body: z.string().min(1) }))
+      .min(2),
+    chart: z.object({
+      labels: z.array(z.string().min(1)).min(7),
+      series: z
+        .array(
+          z.object({
+            id: z.string().min(1),
+            label: z.string().min(1),
+            prefix: optionalText,
+            values: z.array(z.number().nonnegative()),
+          }),
+        )
+        .min(1),
+    }),
+  })
+  .refine((p) => p.chart.series.every((s) => s.values.length === p.chart.labels.length), {
+    message: "Every chart series needs one value per label",
+    path: ["chart", "series"],
+  });
+
 export const portfolioSchema = z
   .object({
     site: z.object({
@@ -202,7 +244,7 @@ export const portfolioSchema = z
       certifications: z.array(certificationSchema).default([]),
     }),
     projects: z.object({ ...sectionHeader, items: z.array(projectSchema).default([]) }),
-    playground: z.object({ ...sectionHeader }),
+    playground: playgroundSchema,
     showcase: z.object({ ...sectionHeader }),
     contact: z.object({
       ...sectionHeader,
@@ -248,6 +290,8 @@ export type Personal = Portfolio["personal"];
 export type NavLink = z.infer<typeof linkSchema>;
 export type Hero = Portfolio["hero"];
 export type HeroMockup = Hero["mockup"];
+export type Playground = Portfolio["playground"];
+export type PlaygroundRow = Playground["table"]["rows"][number];
 export type About = Portfolio["about"];
 export type Stat = z.infer<typeof statSchema>;
 export type Skill = z.infer<typeof skillSchema>;

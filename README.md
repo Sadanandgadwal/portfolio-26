@@ -52,6 +52,8 @@ src/
   hooks/               client hooks (useTheme, useMediaQuery, useScrolled, useActiveSection)
   data/portfolio.json  single content source
   lib/content/         Zod schema, types and validated loader
+  lib/data-table.ts    pure search/filter/sort/paginate
+  lib/chart.ts         chart scales and paths
   lib/format.ts        locale-independent date range/duration formatting
   lib/theme.ts         theme resolution and no-flash init script
 e2e/                   Playwright specs

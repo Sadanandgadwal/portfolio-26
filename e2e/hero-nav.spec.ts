@@ -109,10 +109,11 @@ test.describe("cursor & magnetic", () => {
     await expect(cursor).toHaveAttribute("data-mode", "link");
 
     const mockup = page.getByRole("group", { name: /sample data/i });
-    const box = (await mockup.boundingBox())!;
-    await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+    await mockup.getByText("Revenue").hover(); // non-interactive area → label
     await expect(cursor).toHaveAttribute("data-mode", "label");
     await expect(cursor).toContainText(/interact/i);
+    await mockup.getByRole("button", { name: "New report" }).hover(); // nested control → ring
+    await expect(cursor).toHaveAttribute("data-mode", "link");
   });
 
   test("no custom cursor on touch devices or with reduced motion", async ({ page }) => {
