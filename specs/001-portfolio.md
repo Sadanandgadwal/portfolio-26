@@ -25,15 +25,12 @@ A premium, interactive portfolio for Sadanand Gadwal that demonstrates frontend 
 | 5   | Experience & education   | ✅     |
 | 6   | Projects showcase        | ✅     |
 | 7   | Playground & UI showcase | ✅     |
-| 8   | Contact & footer         |        |
-| 9   | Motion polish            |        |
+| 8   | Contact & footer         | ✅     |
+| 9   | Motion polish            | ⏳     |
 | 10  | Responsive & performance |        |
 | 11  | SEO, testing, deployment |        |
 
 ## Open inputs (owner: Sadanand)
 
-- Experience entries, education, certifications
-- Projects (copy, screenshots/GIFs, live/GitHub URLs)
-- Verified statistics
-- Social URLs, public email, resume PDF (`/public/resume/…`)
-- OG image, location, availability
+- Imported from the resume on 2026-11-19: experience, education, certifications, projects (3), skills, email, GitHub, LinkedIn, resume PDF.
+- Still open: project screenshots or GIFs, GitHub repo links, YouTube/Medium/Instagram URLs, availability, OG image, and whether to publish a phone number.

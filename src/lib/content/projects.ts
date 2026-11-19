@@ -16,3 +16,9 @@ export function findProject(projects: Project[], slug: string) {
   const next = projects.length > 1 ? projects[(index + 1) % projects.length] : undefined;
   return { project: projects[index], next };
 }
+
+/** True for `/projects/<slug>` paths whose slug is not a known project (used by the proxy). */
+export function isUnknownProjectPath(pathname: string, slugs: ReadonlySet<string>): boolean {
+  const match = /^\/projects\/([^/]+)\/?$/.exec(pathname);
+  return match !== null && !slugs.has(decodeURIComponent(match[1]));
+}

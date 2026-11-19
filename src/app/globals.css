@@ -249,6 +249,34 @@ html.has-custom-cursor :is(input, textarea, select, [contenteditable="true"]) {
   }
 }
 
+/* Footer signature: outline draws, then fills (reduced motion: final state). */
+.signature text {
+  fill: transparent;
+  stroke: currentColor;
+  stroke-width: 1.2;
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 1400;
+}
+.signature.is-drawn text {
+  animation: signature-draw 2.6s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+@keyframes signature-draw {
+  70% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    fill: currentColor;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .signature text {
+    fill: currentColor;
+    stroke-dashoffset: 0;
+  }
+}
+
 /* Theme switch: view-transition cross-fade (preferred) or color-transition fallback. */
 ::view-transition-old(root),
 ::view-transition-new(root) {

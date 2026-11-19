@@ -22,6 +22,7 @@ export const fixtureExperience: Portfolio["experience"] = {
       ],
       technologies: ["React.js", "TypeScript", "Redux Toolkit"],
       achievements: ["Fixture achievement placeholder."],
+      certificateUrl: "",
     },
     {
       company: "Fixture Company B",
@@ -34,6 +35,7 @@ export const fixtureExperience: Portfolio["experience"] = {
       responsibilities: ["Fixture responsibility describing ERP screens."],
       technologies: ["JavaScript", "Material UI"],
       achievements: [],
+      certificateUrl: "https://example.com/certificate",
     },
   ],
 };
@@ -147,5 +149,16 @@ export const fixtureProjects: Portfolio["projects"] = {
       media: { cover: "", coverAlt: "", preview: "", previewType: "none", screenshots: [] },
       links: { live: "", github: "" },
     },
+  ],
+};
+
+/** Fictional contact data: example.com only, never real profiles. */
+export const fixtureContact = {
+  personal: { ...portfolio.personal, email: "hello@example.com" },
+  resume: { ...portfolio.resume, file: "/fixtures/fixture-resume.pdf", updated: "Fixture date" },
+  socials: [
+    { platform: "github" as const, label: "GitHub", url: "https://example.com/github" },
+    { platform: "linkedin" as const, label: "LinkedIn", url: "https://example.com/linkedin" },
+    { platform: "email" as const, label: "Email", url: "" },
   ],
 };

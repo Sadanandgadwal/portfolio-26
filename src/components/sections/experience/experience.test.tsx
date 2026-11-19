@@ -21,6 +21,10 @@ describe("Experience", () => {
     expect(screen.getByText(current.achievements[0])).toBeInTheDocument();
     expect(screen.getByText(previous.responsibilities[0])).toBeInTheDocument();
     expect(screen.getAllByRole("list", { name: "Technologies" })).toHaveLength(2);
+    const cert = screen.getByRole("link", { name: /Certificate for Junior Developer/ });
+    expect(cert).toHaveAttribute("href", "https://example.com/certificate");
+    expect(cert).toHaveAttribute("rel", expect.stringContaining("noopener"));
+    expect(screen.getAllByRole("link")).toHaveLength(1); // only entries with a URL get a link
   });
 
   it("omits the highlights block when there are no achievements", () => {

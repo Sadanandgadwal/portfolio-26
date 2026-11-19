@@ -16,6 +16,17 @@ export function parsePortfolio(input: unknown): Portfolio {
 /** Validated portfolio content. Import from Server Components; pass slices to Client Components as props. */
 export const portfolio: Portfolio = parsePortfolio(raw);
 
+/**
+ * Fills the "email" social from `personal.email` when its URL is empty (single source of truth),
+ * then hides placeholders.
+ */
+export function resolveSocials(socials: Social[], email: string): Social[] {
+  const filled = socials.map((s) =>
+    s.platform === "email" && !s.url && email ? { ...s, url: `mailto:${email}` } : s,
+  );
+  return getVisibleSocials(filled);
+}
+
 /** Socials with a configured URL (placeholders are hidden). */
 export function getVisibleSocials(socials: Social[]): Social[] {
   return socials.filter((s) => s.url !== "");

@@ -42,10 +42,10 @@ test.describe("skills explorer", () => {
   test("category filter removes other groups and selects within the category", async ({ page }) => {
     await page.goto("/#skills");
     const skills = page.locator("#skills");
-    await skills.getByRole("button", { name: /^Database/ }).click();
+    await skills.getByRole("button", { name: /^Backend & APIs/ }).click();
     await expect(skills.getByRole("heading", { level: 3, name: "Frontend" })).toHaveCount(0);
-    await expect(skills.getByRole("heading", { level: 3, name: "Database" })).toBeVisible();
-    await expect(visibleDetail(page)).toHaveText("MongoDB");
+    await expect(skills.getByRole("heading", { level: 3, name: "Backend & APIs" })).toBeVisible();
+    await expect(visibleDetail(page)).toHaveText("Node.js");
     await skills.getByRole("button", { name: /^All/ }).click();
     await expect(skills.getByRole("heading", { level: 3 })).toHaveCount(6);
   });

@@ -22,8 +22,8 @@
     "name": "Sadanand Gadwal",
     "shortName": "SG",
     "roles": ["Frontend Developer", "Full Stack Developer"],
-    "location": "",
-    "email": "",
+    "location": "Bangalore, Karnataka",
+    "email": "sadanandgadwal@gmail.com",
     "phone": "",
     "availability": "",
     "avatar": ""
@@ -174,8 +174,8 @@
     "heading": "I build interfaces that feel as good as they work.",
     "description": "",
     "paragraphs": [
-      "I'm a frontend-focused full stack developer. I care about the details that make an interface feel effortless: clear structure, responsive layouts, smooth interactions and accessible markup.",
-      "My work spans ERP development, reusable UI component libraries, REST API integration and performance optimisation, turning complex business workflows into interfaces people can use quickly and confidently."
+      "I'm a frontend developer with 4+ years of professional experience, specialising in React.js and modern frontend technologies, and currently working as a full stack developer.",
+      "I build scalable ERP applications, complex dashboards, interactive reports and data visualisations with Chart.js and Syncfusion Gantt Chart, turn Figma designs into responsive interfaces, and work closely with backend and QA teams in Agile environments."
     ],
     "focusAreas": [
       {
@@ -199,7 +199,26 @@
         "description": "Lean bundles, efficient rendering and fast loading."
       }
     ],
-    "stats": []
+    "stats": [
+      {
+        "label": "Years of professional experience",
+        "value": 4,
+        "prefix": "",
+        "suffix": "+"
+      },
+      {
+        "label": "Featured production projects",
+        "value": 3,
+        "prefix": "",
+        "suffix": ""
+      },
+      {
+        "label": "Faster page loads on KNS Connect",
+        "value": 30,
+        "prefix": "",
+        "suffix": "%"
+      }
+    ]
   },
   "skills": {
     "eyebrow": "Skills",
@@ -215,13 +234,19 @@
             "name": "React.js",
             "icon": "react",
             "description": "Component-based UI library.",
+            "relatedProjects": ["kns-connect", "kns-website", "vilcart"]
+          },
+          {
+            "name": "Next.js",
+            "icon": "nextdotjs",
+            "description": "React framework for production web apps.",
             "relatedProjects": []
           },
           {
             "name": "JavaScript",
             "icon": "javascript",
             "description": "The language of the web.",
-            "relatedProjects": []
+            "relatedProjects": ["kns-connect", "kns-website", "vilcart"]
           },
           {
             "name": "TypeScript",
@@ -230,28 +255,59 @@
             "relatedProjects": []
           },
           {
-            "name": "HTML",
+            "name": "HTML5",
             "icon": "html5",
             "description": "Semantic, accessible markup.",
             "relatedProjects": []
           },
           {
-            "name": "CSS",
+            "name": "CSS3",
             "icon": "css",
             "description": "Layout, responsive design and animation.",
             "relatedProjects": []
           },
           {
-            "name": "Tailwind CSS",
-            "icon": "tailwindcss",
-            "description": "Utility-first styling.",
-            "relatedProjects": []
+            "name": "SCSS",
+            "icon": "sass",
+            "description": "CSS with variables, nesting and mixins.",
+            "relatedProjects": ["kns-connect", "vilcart"]
           },
+          {
+            "name": "React Router",
+            "icon": "reactrouter",
+            "description": "Client-side routing for React apps.",
+            "relatedProjects": []
+          }
+        ]
+      },
+      {
+        "id": "ui-styling",
+        "name": "UI & Styling",
+        "description": "",
+        "items": [
           {
             "name": "Material UI",
             "icon": "mui",
             "description": "React component library based on Material Design.",
-            "relatedProjects": []
+            "relatedProjects": ["kns-connect"]
+          },
+          {
+            "name": "Tailwind CSS",
+            "icon": "tailwindcss",
+            "description": "Utility-first styling.",
+            "relatedProjects": ["vilcart"]
+          },
+          {
+            "name": "Bootstrap",
+            "icon": "bootstrap",
+            "description": "Responsive CSS framework.",
+            "relatedProjects": ["kns-website"]
+          },
+          {
+            "name": "Figma",
+            "icon": "figma",
+            "description": "Design handoff to pixel-accurate UI.",
+            "relatedProjects": ["kns-connect"]
           }
         ]
       },
@@ -264,7 +320,7 @@
             "name": "Redux",
             "icon": "redux",
             "description": "Predictable global state container.",
-            "relatedProjects": []
+            "relatedProjects": ["kns-connect", "vilcart"]
           },
           {
             "name": "Redux Toolkit",
@@ -288,7 +344,7 @@
       },
       {
         "id": "backend",
-        "name": "Backend",
+        "name": "Backend & APIs",
         "description": "",
         "items": [
           {
@@ -304,28 +360,21 @@
             "relatedProjects": []
           },
           {
-            "name": "REST APIs",
-            "icon": "api",
-            "description": "Designing and consuming HTTP APIs.",
-            "relatedProjects": []
-          }
-        ]
-      },
-      {
-        "id": "database",
-        "name": "Database",
-        "description": "",
-        "items": [
-          {
             "name": "MongoDB",
             "icon": "mongodb",
             "description": "Document database.",
             "relatedProjects": []
           },
           {
-            "name": "PostgreSQL",
-            "icon": "postgresql",
-            "description": "Relational SQL database.",
+            "name": "REST APIs",
+            "icon": "api",
+            "description": "Integrating and consuming HTTP APIs.",
+            "relatedProjects": ["kns-connect"]
+          },
+          {
+            "name": "Postman",
+            "icon": "postman",
+            "description": "API testing and exploration.",
             "relatedProjects": []
           }
         ]
@@ -338,27 +387,27 @@
           {
             "name": "Chart.js",
             "icon": "chartdotjs",
-            "description": "Canvas-based charting library.",
-            "relatedProjects": []
+            "description": "Dashboards and interactive data visualisations.",
+            "relatedProjects": ["kns-connect"]
           },
           {
             "name": "Syncfusion Gantt Chart",
             "icon": "gantt",
-            "description": "Project scheduling and timeline visualisation.",
-            "relatedProjects": []
+            "description": "Project schedules, dependencies and timelines.",
+            "relatedProjects": ["kns-connect"]
           }
         ]
       },
       {
         "id": "tools",
-        "name": "Tools",
+        "name": "Tools & Hosting",
         "description": "",
         "items": [
           {
             "name": "Git",
             "icon": "git",
             "description": "Version control.",
-            "relatedProjects": []
+            "relatedProjects": ["kns-connect", "kns-website", "vilcart"]
           },
           {
             "name": "GitHub",
@@ -367,15 +416,27 @@
             "relatedProjects": []
           },
           {
-            "name": "Docker",
-            "icon": "docker",
-            "description": "Containerised development and deployment.",
-            "relatedProjects": []
-          },
-          {
             "name": "VS Code",
             "icon": "vscode",
             "description": "Primary code editor.",
+            "relatedProjects": []
+          },
+          {
+            "name": "Vercel",
+            "icon": "vercel",
+            "description": "Frontend hosting and deployments.",
+            "relatedProjects": []
+          },
+          {
+            "name": "Netlify",
+            "icon": "netlify",
+            "description": "Static hosting and deployments.",
+            "relatedProjects": []
+          },
+          {
+            "name": "Linux",
+            "icon": "linux",
+            "description": "Development and server environment.",
             "relatedProjects": []
           }
         ]
@@ -386,20 +447,208 @@
     "eyebrow": "Experience",
     "heading": "Where I've worked.",
     "description": "",
-    "items": []
+    "items": [
+      {
+        "company": "Digital Think Technologies LLP",
+        "role": "Full Stack Developer",
+        "start": "2023-09",
+        "end": "",
+        "location": "Bangalore, Karnataka",
+        "employmentType": "",
+        "summary": "",
+        "responsibilities": [
+          "Developed and maintained scalable ERP modules for real estate management systems using React.js, Node.js, Express.js, and MongoDB.",
+          "Collaborated with frontend and backend teams to integrate REST APIs, optimize business workflows, and improve application performance.",
+          "Developed responsive user interfaces and implemented authentication, CRUD operations, API integrations, debugging, and complex business workflows.",
+          "Contributed to the development of real estate ERP solutions by improving operational efficiency and enhancing user experience.",
+          "Took ownership of complex frontend development tasks, resolved critical application and API-related issues, optimized API calls, and developed dashboards and reports to support business requirements."
+        ],
+        "technologies": ["React.js", "Node.js", "Express.js", "MongoDB", "REST APIs"],
+        "achievements": [],
+        "certificateUrl": ""
+      },
+      {
+        "company": "The DeveLearn Institute",
+        "role": "Front-end Developer",
+        "start": "2022-10",
+        "end": "2023-07",
+        "location": "Maharashtra, India",
+        "employmentType": "",
+        "summary": "",
+        "responsibilities": [
+          "Implemented responsive user interfaces using Tailwind CSS and Material UI, ensuring a consistent user experience across devices.",
+          "Developed responsive web pages, debugged application code, and optimized frontend performance.",
+          "Ensured cross-browser compatibility and resolved UI issues across different browsers and screen sizes.",
+          "Collaborated with team members to implement frontend features and deliver maintainable web interfaces."
+        ],
+        "technologies": ["Tailwind CSS", "Material UI"],
+        "achievements": [],
+        "certificateUrl": "https://drive.google.com/file/d/1BVZ0mmlvyniuoqZuSpdFRG6jVtHaa817/view"
+      },
+      {
+        "company": "Shivila Technologies",
+        "role": "React Developer",
+        "start": "2021-12",
+        "end": "2022-04",
+        "location": "West Bengal, India",
+        "employmentType": "",
+        "summary": "",
+        "responsibilities": [
+          "Developed reusable React.js components for multiple web applications, focusing on responsive and user-friendly interfaces.",
+          "Implemented React Router to improve web page navigation, routing, and application interactivity.",
+          "Collaborated with design, product, and engineering teams to translate requirements into functional and user-friendly web interfaces."
+        ],
+        "technologies": ["React.js", "React Router"],
+        "achievements": [],
+        "certificateUrl": "https://drive.google.com/file/d/12huNvYPvbEGl3ss3BXyyGwVQOyyQVuyp/view"
+      }
+    ]
   },
   "education": {
     "eyebrow": "Education",
     "heading": "Education & certifications.",
     "description": "",
-    "items": [],
-    "certifications": []
+    "items": [
+      {
+        "degree": "Master of Computer Applications (MCA)",
+        "institution": "Central University of Karnataka",
+        "start": "2021",
+        "end": "2023",
+        "location": "",
+        "grade": "CGPA 7.66"
+      },
+      {
+        "degree": "Bachelor of Computer Applications (BCA)",
+        "institution": "Sharnbasva University of Karnataka",
+        "start": "2018",
+        "end": "2021",
+        "location": "",
+        "grade": "CGPA 8.59"
+      }
+    ],
+    "certifications": [
+      {
+        "name": "The Complete 2023 Web Development Bootcamp",
+        "provider": "Udemy",
+        "year": "",
+        "url": "https://drive.google.com/file/d/1sth5kpYDNNg22_i8BeW8ayPCMZomC4vY/view?usp=sharing"
+      },
+      {
+        "name": "Getting Started with Deep Learning",
+        "provider": "NVIDIA Deep Learning Institute",
+        "year": "2022",
+        "url": ""
+      }
+    ]
   },
   "projects": {
     "eyebrow": "Selected work",
     "heading": "Projects.",
     "description": "",
-    "items": []
+    "items": [
+      {
+        "slug": "kns-connect",
+        "title": "KNS Connect",
+        "category": "Real estate ERP",
+        "year": "",
+        "featured": true,
+        "description": "Scalable React.js modules for a real estate ERP platform: complex workflows, dashboards, reports and project scheduling.",
+        "longDescription": "Developed and maintained scalable React.js modules for a real estate ERP platform, supporting complex business workflows and data-driven operations.",
+        "role": "Frontend development",
+        "technologies": [
+          "React.js",
+          "Material UI",
+          "SCSS",
+          "Redux",
+          "Chart.js",
+          "Syncfusion Gantt Chart"
+        ],
+        "features": [
+          "Converted complex Figma designs into responsive, pixel-perfect interfaces using Material UI and SCSS.",
+          "Developed complex dashboards and interactive data visualizations using Chart.js for business metrics, analytics, and reports.",
+          "Implemented Syncfusion Gantt Chart to visualize project schedules, task dependencies, timelines, and progress.",
+          "Integrated REST APIs and developed data validation workflows for accurate and reliable data across ERP modules.",
+          "Built dynamic reports with filtering, validation, and interactive components to support business operations and decision-making.",
+          "Implemented Redux for centralized state management.",
+          "Resolved critical frontend and API-related issues and collaborated with backend and QA teams using Git and Agile methodologies."
+        ],
+        "challenges": [],
+        "solutions": [],
+        "results": ["Improved page load speed by 30% using lazy loading and code splitting."],
+        "media": {
+          "cover": "",
+          "coverAlt": "",
+          "preview": "",
+          "previewType": "none",
+          "screenshots": []
+        },
+        "links": {
+          "live": "https://knsconnect.in/",
+          "github": ""
+        }
+      },
+      {
+        "slug": "kns-website",
+        "title": "KNS Website",
+        "category": "Real estate website",
+        "year": "",
+        "featured": false,
+        "description": "A responsive, SEO-optimized real estate website built with React.js and Bootstrap.",
+        "longDescription": "Developed a responsive and SEO-optimized real estate website using React.js and Bootstrap with cross-device compatibility.",
+        "role": "Frontend development",
+        "technologies": ["React.js", "Bootstrap", "Swiper.js", "SEO"],
+        "features": [
+          "Integrated Swiper.js to implement touch-friendly carousels and sliders for an enhanced user experience.",
+          "Implemented SEO best practices, including structured meta tags, Google Analytics (GTag), and keyword optimization.",
+          "Focused on performance, accessibility, and maintainable development practices aligned with corporate branding and business requirements."
+        ],
+        "challenges": [],
+        "solutions": [],
+        "results": [],
+        "media": {
+          "cover": "",
+          "coverAlt": "",
+          "preview": "",
+          "previewType": "none",
+          "screenshots": []
+        },
+        "links": {
+          "live": "https://knsgroup.in/",
+          "github": ""
+        }
+      },
+      {
+        "slug": "vilcart",
+        "title": "Vilcart",
+        "category": "Web application",
+        "year": "",
+        "featured": false,
+        "description": "A feature-rich, responsive web application with reusable components and Framer Motion animations.",
+        "longDescription": "Developed a feature-rich and responsive web application using React.js and Tailwind CSS with modular SCSS styling.",
+        "role": "Frontend development",
+        "technologies": ["React.js", "Tailwind CSS", "SCSS", "Redux", "Framer Motion", "Swiper.js"],
+        "features": [
+          "Built reusable UI components and interactive animations using Framer Motion to enhance user engagement.",
+          "Implemented Redux for global state management, including product category functionality and dynamic product rendering.",
+          "Optimized application performance using code splitting, lazy loading, and efficient API integration with robust error handling.",
+          "Collaborated in Agile sprints and used Git for version control and team-based development."
+        ],
+        "challenges": [],
+        "solutions": [],
+        "results": [],
+        "media": {
+          "cover": "",
+          "coverAlt": "",
+          "preview": "",
+          "previewType": "none",
+          "screenshots": []
+        },
+        "links": {
+          "live": "https://www.vilcart.in/",
+          "github": ""
+        }
+      }
+    ]
   },
   "playground": {
     "eyebrow": "Frontend Playground",
@@ -864,19 +1113,19 @@
   },
   "resume": {
     "label": "Download Resume",
-    "file": "",
+    "file": "/resume/Sadanand_Gadwal_Front_End_Developer.pdf",
     "updated": ""
   },
   "socials": [
     {
       "platform": "github",
       "label": "GitHub",
-      "url": ""
+      "url": "https://github.com/Sadanandgadwal"
     },
     {
       "platform": "linkedin",
       "label": "LinkedIn",
-      "url": ""
+      "url": "https://www.linkedin.com/in/sadanandgadwal/"
     },
     {
       "platform": "email",

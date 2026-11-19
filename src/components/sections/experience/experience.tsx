@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "lucide-react";
 import { Section, SectionHeader } from "@/components/layout/section";
 import { Badge } from "@/components/ui/badge";
 import type { Portfolio } from "@/lib/content";
@@ -34,6 +35,17 @@ export function Experience({ experience }: ExperienceProps) {
                   {duration && <p>{duration}</p>}
                   {item.location && <p>{item.location}</p>}
                   {item.employmentType && <p>{item.employmentType}</p>}
+                  {item.certificateUrl && (
+                    <a
+                      href={item.certificateUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-1 inline-flex w-fit items-center gap-1 text-foreground underline-offset-4 hover:underline"
+                    >
+                      Certificate <ArrowUpRight aria-hidden className="size-3" />
+                      <span className="sr-only">{`for ${item.role} at ${item.company} (opens in a new tab)`}</span>
+                    </a>
+                  )}
                 </div>
 
                 <div className="grid gap-5">

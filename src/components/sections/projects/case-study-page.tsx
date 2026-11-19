@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { portfolio, visibleNavItems, type Project } from "@/lib/content";
 import { findProject } from "@/lib/content/projects";
@@ -27,7 +28,7 @@ export function caseStudyMetadata(projects: Project[], slug: string): Metadata {
 export function CaseStudyPage({ slug, projects, basePath, backHref }: Options & { slug: string }) {
   const found = findProject(projects, slug);
   if (!found) notFound();
-  const { personal, navigation, skills } = portfolio;
+  const { personal, navigation, skills, footer, socials } = portfolio;
 
   // On sub-pages, nav targets are home-page anchors.
   const navItems = visibleNavItems(navigation.items, ["home", "about", "skills"]).map((i) => ({
@@ -52,6 +53,7 @@ export function CaseStudyPage({ slug, projects, basePath, backHref }: Options & 
           next={found.next && { title: found.next.title, href: `${basePath}/${found.next.slug}` }}
         />
       </main>
+      <SiteFooter personal={personal} footer={footer} socials={socials} />
     </>
   );
 }

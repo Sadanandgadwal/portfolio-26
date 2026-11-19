@@ -3,10 +3,18 @@ import { expect, test } from "@playwright/test";
 const project = () => test.info().project.name;
 const PREVIEW = "/design-system/sections";
 
-test("home hides empty Projects; placeholder case-study route 404s", async ({ page }) => {
+test("home lists real projects; case studies resolve and unknown slugs 404", async ({ page }) => {
   await page.goto("/");
-  await expect(page.locator("#projects")).toHaveCount(0);
-  const res = await page.goto("/projects/__placeholder__");
+  const projects = page.locator("#projects");
+  await expect(projects.locator("article")).toHaveCount(3);
+  await projects.getByRole("link", { name: "KNS Connect", exact: true }).click();
+  await expect(page).toHaveURL(/\/projects\/kns-connect$/);
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("KNS Connect");
+  await expect(page.getByRole("link", { name: /Live demo/ })).toHaveAttribute(
+    "href",
+    "https://knsconnect.in/",
+  );
+  const res = await page.goto("/projects/does-not-exist");
   expect(res?.status()).toBe(404);
 });
 

@@ -21,7 +21,7 @@ npm run dev                       # http://localhost:3000
 
 ## Editing content
 
-All content lives in **`src/data/portfolio.json`**. It is validated against `src/lib/content/schema.ts` and the build fails with readable errors if the file is invalid. Empty strings or empty arrays mean "not provided" and are hidden in the UI. Put assets in `public/` and reference them by absolute path (`/images/projects/x.webp`). Project previews: set `media.preview` to a `.webm`/`.mp4` (`previewType: "video"`) or `.gif` (`"gif"`). Prefer 16:9 WebP covers about 1600px wide. `public/fixtures/` holds preview-only fixture media (screens of this site) and can be deleted together with `src/app/design-system/`.
+All content lives in **`src/data/portfolio.json`**. It is validated against `src/lib/content/schema.ts` and the build fails with readable errors if the file is invalid. Empty strings or empty arrays mean "not provided" and are hidden in the UI. Put assets in `public/` and reference them by absolute path (`/images/projects/x.webp`). Project previews: set `media.preview` to a `.webm`/`.mp4` (`previewType: "video"`) or `.gif` (`"gif"`). Prefer 16:9 WebP covers about 1600px wide. Content was imported verbatim from `public/resume/`: phone, YouTube, Medium and Instagram are intentionally left empty (hidden). Resume: put the PDF in `public/resume/` and set `resume.file` (for example `/resume/sadanand-gadwal.pdf`). `personal.email` drives the contact CTA, copy button and footer email link. `public/fixtures/` holds preview-only fixture media (screens of this site) and can be deleted together with `src/app/design-system/`.
 
 ## Scripts
 
@@ -50,7 +50,8 @@ src/
   components/sections/ page sections (props-only, no hardcoded content)
   components/theme/    theme toggle
   hooks/               client hooks (useTheme, useMediaQuery, useScrolled, useActiveSection)
-  data/portfolio.json  single content source
+  data/portfolio.json  single content source (imported from the resume; see below)
+  proxy.ts             hard 404 for unknown /projects/<slug>
   lib/content/         Zod schema, types and validated loader
   lib/data-table.ts    pure search/filter/sort/paginate
   lib/calendar.ts      UTC date-grid helpers for the date picker

@@ -1,6 +1,11 @@
 import { describe, expect, it } from "vitest";
 import { fixtureProjects } from "@/app/design-system/sections/fixtures";
-import { PLACEHOLDER_SLUG, findProject, projectStaticParams } from "./projects";
+import {
+  PLACEHOLDER_SLUG,
+  findProject,
+  isUnknownProjectPath,
+  projectStaticParams,
+} from "./projects";
 
 const items = fixtureProjects.items;
 
@@ -24,5 +29,17 @@ describe("findProject", () => {
   it("returns null for unknown slugs (incl. the placeholder)", () => {
     expect(findProject(items, "nope")).toBeNull();
     expect(findProject([], PLACEHOLDER_SLUG)).toBeNull();
+  });
+});
+
+describe("isUnknownProjectPath", () => {
+  const slugs = new Set(["kns-connect"]);
+  it("flags unknown slugs only on /projects/<slug>", () => {
+    expect(isUnknownProjectPath("/projects/kns-connect", slugs)).toBe(false);
+    expect(isUnknownProjectPath("/projects/kns-connect/", slugs)).toBe(false);
+    expect(isUnknownProjectPath("/projects/nope", slugs)).toBe(true);
+    expect(isUnknownProjectPath("/projects/__placeholder__", slugs)).toBe(true);
+    expect(isUnknownProjectPath("/projects", slugs)).toBe(false);
+    expect(isUnknownProjectPath("/about", slugs)).toBe(false);
   });
 });

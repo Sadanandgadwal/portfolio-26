@@ -9,14 +9,16 @@ const progressScale = (page: Page) =>
     return t === "none" ? 1 : new DOMMatrix(t).d;
   });
 
-test("home hides empty Experience/Education and drops their nav links", async ({ page }) => {
+test("home renders experience and education from the resume; nav links them", async ({ page }) => {
   await page.goto("/");
-  await expect(page.locator("#experience")).toHaveCount(0);
-  await expect(page.locator("#education")).toHaveCount(0);
+  await expect(page.locator("#experience ol > li")).toHaveCount(3);
+  await expect(page.locator("#experience")).toContainText("Digital Think Technologies LLP");
+  await expect(page.locator("#experience")).toContainText("Sep 2023 — Present");
+  await expect(page.locator("#education")).toContainText("Master of Computer Applications (MCA)");
   if (project() !== "mobile") {
     const nav = page.getByRole("navigation", { name: "Primary" });
-    await expect(nav.getByRole("link", { name: "Experience" })).toHaveCount(0);
-    await expect(nav.getByRole("link", { name: "Skills" })).toBeVisible();
+    await expect(nav.getByRole("link", { name: "Experience" })).toBeVisible();
+    await expect(nav.getByRole("link", { name: "Projects" })).toBeVisible();
   }
 });
 

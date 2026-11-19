@@ -1,6 +1,12 @@
 import { describe, expect, it } from "vitest";
 import raw from "@/data/portfolio.json";
-import { getVisibleSocials, parsePortfolio, portfolio, visibleNavItems } from "./index";
+import {
+  getVisibleSocials,
+  parsePortfolio,
+  portfolio,
+  resolveSocials,
+  visibleNavItems,
+} from "./index";
 import type { PortfolioInput } from "./schema";
 
 /** Mutable copy typed as schema *input* (optional fields may be omitted). */
@@ -34,11 +40,15 @@ describe("parsePortfolio", () => {
   it("applies defaults for omitted optional fields", () => {
     const data = clone();
     delete data.personal.location;
-    data.projects.items = [{ slug: "demo", title: "Demo", description: "d" }];
+    data.projects.items = [
+      ...(data.projects.items ?? []),
+      { slug: "demo", title: "Demo", description: "d" },
+    ];
     const parsed = parsePortfolio(data);
+    const demo = parsed.projects.items.at(-1)!;
     expect(parsed.personal.location).toBe("");
-    expect(parsed.projects.items[0].media.previewType).toBe("none");
-    expect(parsed.projects.items[0].links).toEqual({ live: "", github: "" });
+    expect(demo.media.previewType).toBe("none");
+    expect(demo.links).toEqual({ live: "", github: "" });
   });
 
   it("rejects duplicate project slugs", () => {
@@ -79,5 +89,22 @@ describe("visibleNavItems", () => {
       { label: "Blog", href: "https://example.com" },
     ];
     expect(visibleNavItems(items, ["home"]).map((i) => i.label)).toEqual(["Home", "Blog"]);
+  });
+});
+
+describe("resolveSocials", () => {
+  const socials = [
+    { platform: "email" as const, label: "Email", url: "" },
+    { platform: "github" as const, label: "GitHub", url: "" },
+    { platform: "medium" as const, label: "Medium", url: "https://example.com/medium" },
+  ];
+  it("derives the email link from personal.email and hides empty ones", () => {
+    expect(resolveSocials(socials, "me@example.com").map((s) => s.url)).toEqual([
+      "mailto:me@example.com",
+      "https://example.com/medium",
+    ]);
+  });
+  it("keeps the email social hidden when there is no email", () => {
+    expect(resolveSocials(socials, "").map((s) => s.platform)).toEqual(["medium"]);
   });
 });
