@@ -5,7 +5,6 @@ import { Magnetic } from "@/components/motion/magnetic";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { Hero as HeroData, Personal } from "@/lib/content";
-import { HeroMockup } from "./hero-mockup";
 
 type HeroProps = { hero: HeroData; personal: Personal };
 
@@ -13,7 +12,7 @@ const delay = (ms: number) => ({ animationDelay: `${ms}ms` });
 
 /**
  * Entrance sequence uses CSS keyframes so it runs before hydration (no blank LCP):
- * background → eyebrow → name → roles → statement → CTAs → mockup.
+ * background → eyebrow → name → roles → statement → CTAs.
  */
 export function Hero({ hero, personal }: HeroProps) {
   const words = hero.heading.split(" ");
@@ -22,7 +21,7 @@ export function Hero({ hero, personal }: HeroProps) {
     <section
       id="home"
       aria-labelledby="home-heading"
-      className="relative isolate overflow-hidden pt-28 pb-24 md:pt-36 lg:pt-40 lg:pb-32"
+      className="relative isolate overflow-hidden pt-28 pb-12 md:pt-36 md:pb-16 lg:pt-40"
     >
       <div
         aria-hidden
@@ -51,36 +50,30 @@ export function Hero({ hero, personal }: HeroProps) {
           ))}
         </h1>
 
-        <div className="mt-10 grid items-start gap-14 md:mt-14 lg:grid-cols-12 lg:gap-10">
-          <div className="grid gap-6 lg:col-span-5 lg:pt-6 xl:col-span-4">
-            <p className="animate-fade-up text-title font-medium" style={delay(400)}>
-              {personal.roles.join(" / ")}
-            </p>
-            <p
-              className="max-w-md animate-fade-up text-lg leading-relaxed text-muted-foreground"
-              style={delay(480)}
-            >
-              {hero.statement}
-            </p>
-            <div className="flex animate-fade-up flex-wrap gap-3" style={delay(560)}>
-              <Magnetic>
-                <Button asChild size="lg">
-                  <a href={hero.primaryCta.href}>
-                    {hero.primaryCta.label}
-                    <ArrowDownRight aria-hidden data-icon="inline-end" />
-                  </a>
-                </Button>
-              </Magnetic>
-              <Magnetic>
-                <Button asChild size="lg" variant="outline">
-                  <a href={hero.secondaryCta.href}>{hero.secondaryCta.label}</a>
-                </Button>
-              </Magnetic>
-            </div>
-          </div>
-
-          <div className="animate-rise lg:col-span-7 xl:col-span-8" style={delay(650)}>
-            <HeroMockup data={hero.mockup} />
+        <div className="mt-10 grid max-w-xl gap-6 md:mt-14">
+          <p className="animate-fade-up text-title font-medium" style={delay(400)}>
+            {personal.roles.join(" / ")}
+          </p>
+          <p
+            className="max-w-md animate-fade-up text-lg leading-relaxed text-muted-foreground"
+            style={delay(480)}
+          >
+            {hero.statement}
+          </p>
+          <div className="flex animate-fade-up flex-wrap gap-3" style={delay(560)}>
+            <Magnetic>
+              <Button asChild size="lg">
+                <a href={hero.primaryCta.href}>
+                  {hero.primaryCta.label}
+                  <ArrowDownRight aria-hidden data-icon="inline-end" />
+                </a>
+              </Button>
+            </Magnetic>
+            <Magnetic>
+              <Button asChild size="lg" variant="outline">
+                <a href={hero.secondaryCta.href}>{hero.secondaryCta.label}</a>
+              </Button>
+            </Magnetic>
           </div>
         </div>
       </Container>

@@ -6,7 +6,6 @@ import { Contact } from "@/components/sections/contact/contact";
 import { Education } from "@/components/sections/education/education";
 import { Experience } from "@/components/sections/experience/experience";
 import { Hero } from "@/components/sections/hero/hero";
-import { Playground } from "@/components/sections/playground/playground";
 import { Projects } from "@/components/sections/projects/projects";
 import { Showcase } from "@/components/sections/showcase/showcase";
 import { Skills } from "@/components/sections/skills/skills";
@@ -22,7 +21,6 @@ export default function Home() {
     experience,
     education,
     projects,
-    playground,
     showcase,
     contact,
     resume,
@@ -40,7 +38,6 @@ export default function Home() {
     experience.items.length > 0 && "experience",
     (education.items.length > 0 || education.certifications.length > 0) && "education",
     projects.items.length > 0 && "projects",
-    "playground",
     "contact",
   ].filter((id): id is string => Boolean(id));
 
@@ -64,16 +61,13 @@ export default function Home() {
         </Suspense>
         <Education education={education} />
         <Suspense>
-          <Playground playground={playground} />
-        </Suspense>
-        <Suspense>
           <Showcase showcase={showcase} />
         </Suspense>
         <Suspense>
           <Contact contact={contact} personal={personal} resume={resume} socials={socials} />
         </Suspense>
       </main>
-      <SiteFooter personal={personal} footer={footer} socials={socials} />
+      <SiteFooter personal={personal} footer={footer} />
     </>
   );
 }

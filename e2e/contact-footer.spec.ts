@@ -29,10 +29,9 @@ test("home: contact is reachable, empty controls stay hidden, footer shows the c
   await expect(footer).toContainText(`© ${new Date().getFullYear()} Sadanand Gadwal`);
 });
 
-test("back to top returns to the top and the signature draws when visible", async ({ page }) => {
+test("back to top returns to the top", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("contentinfo").scrollIntoViewIfNeeded();
-  await expect(page.getByTestId("signature")).toHaveClass(/is-drawn/);
   await page.getByRole("button", { name: "Back to top" }).click();
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBeLessThan(5);
 });

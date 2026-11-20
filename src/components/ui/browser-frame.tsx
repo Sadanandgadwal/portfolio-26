@@ -7,7 +7,7 @@ type BrowserFrameProps = {
   className?: string;
 };
 
-/** Browser-window chrome used by the hero, project and showcase mockups. */
+/** Browser-window chrome used by the project and showcase mockups. */
 export function BrowserFrame({ url, children, className }: BrowserFrameProps) {
   return (
     <div className={cn("overflow-hidden rounded-xl border bg-surface shadow-lg", className)}>

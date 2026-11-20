@@ -4,14 +4,12 @@ const project = () => test.info().project.name;
 
 test("section heading words reveal on scroll and end fully visible", async ({ page }) => {
   await page.goto("/");
-  const word = page.locator("#about h2 .word > span").first();
-  await expect(page.locator("#about h2")).toHaveText(
-    "I build interfaces that feel as good as they work.",
-  );
+  const word = page.locator("#experience h2 .word > span").first();
+  await expect(page.locator("#experience h2")).toHaveText("Where I've worked.");
   // Before it enters the viewport the word is masked (translated down).
   const before = await word.evaluate((el) => new DOMMatrix(getComputedStyle(el).transform).m42);
   expect(before).toBeGreaterThan(0);
-  await page.locator("#about").scrollIntoViewIfNeeded();
+  await page.locator("#experience").scrollIntoViewIfNeeded();
   await page.mouse.wheel(0, 300);
   await expect
     .poll(() => word.evaluate((el) => new DOMMatrix(getComputedStyle(el).transform).m42))
@@ -86,15 +84,10 @@ test("project card → case study runs a view transition (shared-element morph)"
 test("reduced motion: JS (Motion) animations jump to their end state", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");
-  // Hero chart bars normally grow in after ~0.9s; with reduced motion they are full height at once.
-  const bar = page
-    .getByRole("button", { name: /^Mon: / })
-    .locator("span")
-    .nth(0);
+  // About stats normally count up from 0 when in view; with reduced motion they show the final value.
+  const stat = page.locator("#about .tabular-nums").first();
+  const finalValue = await stat.textContent();
+  await stat.scrollIntoViewIfNeeded();
   await page.waitForTimeout(150);
-  const scale = await bar.evaluate((el) => {
-    const t = getComputedStyle(el).transform;
-    return t === "none" ? 1 : new DOMMatrix(t).d;
-  });
-  expect(scale).toBe(1);
+  await expect(stat).toHaveText(finalValue ?? "");
 });

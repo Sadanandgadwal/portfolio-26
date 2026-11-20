@@ -8,7 +8,7 @@ A premium, interactive portfolio for Sadanand Gadwal that demonstrates frontend 
 
 - **R1 Content:** All content comes from `src/data/portfolio.json`, validated by Zod (`src/lib/content/schema.ts`) at build time.
 - **R2 Truthfulness:** No invented facts. Unknown fields stay empty and are hidden in the UI.
-- **R3 Sections:** Nav, Hero, About, Skills, Experience, Education, Projects (with case studies), Playground, Enterprise UI showcase, Contact, Footer.
+- **R3 Sections:** Nav, Hero, About, Skills, Experience, Education, Projects (with case studies), Enterprise UI showcase, Contact, Footer.
 - **R4 Theme:** Light and dark themes, persisted, with no flash and `prefers-color-scheme` respected.
 - **R5 A11y:** WCAG 2.2 AA, keyboard support, reduced-motion support.
 - **R6 Perf/SEO:** Static prerender, optimized media, metadata, sitemap, robots, JSON-LD.
@@ -24,7 +24,7 @@ A premium, interactive portfolio for Sadanand Gadwal that demonstrates frontend 
 | 4   | About & skills           | ✅     |
 | 5   | Experience & education   | ✅     |
 | 6   | Projects showcase        | ✅     |
-| 7   | Playground & UI showcase | ✅     |
+| 7   | UI showcase              | ✅     |
 | 8   | Contact & footer         | ✅     |
 | 9   | Motion polish            | ✅     |
 | 10  | Responsive & performance | ✅     |

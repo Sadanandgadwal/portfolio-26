@@ -56,41 +56,16 @@ describe("Contact", () => {
 });
 
 describe("SiteFooter", () => {
-  it("renders name, tagline, year, back-to-top, and resolved social links", () => {
-    render(
-      <SiteFooter
-        personal={fixtureContact.personal}
-        footer={footer}
-        socials={fixtureContact.socials}
-      />,
-    );
-    const contentinfo = screen.getByRole("contentinfo");
-    expect(contentinfo).toHaveTextContent(`© 2026 ${personal.name}`);
-    expect(contentinfo).toHaveTextContent(footer.tagline);
-    const nav = within(screen.getByRole("navigation", { name: "Footer social links" }));
-    expect(nav.getByRole("link", { name: "Email" })).toHaveAttribute(
-      "href",
-      "mailto:hello@example.com",
-    );
-    expect(nav.getByRole("link", { name: "Email" })).not.toHaveAttribute("target");
+  it("renders the copyright line and back-to-top", () => {
+    render(<SiteFooter personal={personal} footer={footer} />);
+    expect(screen.getByRole("contentinfo")).toHaveTextContent(`© 2026 ${personal.name}`);
     expect(screen.getByRole("button", { name: "Back to top" })).toBeInTheDocument();
-  });
-
-  it("hides the social nav when no links are configured", () => {
-    render(
-      <SiteFooter
-        personal={{ ...personal, email: "" }}
-        footer={footer}
-        socials={socials.map((s) => ({ ...s, url: "" }))}
-      />,
-    );
-    expect(screen.queryByRole("navigation")).not.toBeInTheDocument();
   });
 
   it("back-to-top scrolls to the top", async () => {
     const scrollTo = vi.fn();
     window.scrollTo = scrollTo;
-    render(<SiteFooter personal={personal} footer={footer} socials={[]} />);
+    render(<SiteFooter personal={personal} footer={footer} />);
     await userEvent.click(screen.getByRole("button", { name: "Back to top" }));
     expect(scrollTo).toHaveBeenCalledWith({ top: 0, behavior: "smooth" });
   });

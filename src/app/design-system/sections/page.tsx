@@ -43,11 +43,7 @@ export default function SectionPreviewsPage() {
         <Education education={fixtureEducation} />
         <Contact contact={portfolio.contact} {...fixtureContact} />
       </main>
-      <SiteFooter
-        personal={fixtureContact.personal}
-        footer={portfolio.footer}
-        socials={fixtureContact.socials}
-      />
+      <SiteFooter personal={fixtureContact.personal} footer={portfolio.footer} />
     </>
   );
 }

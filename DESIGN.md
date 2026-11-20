@@ -4,15 +4,15 @@ Single source of truth for visual and interaction decisions. Tokens live in `src
 
 ## 1. Philosophy
 
-- **Prove, don't claim.** Every skill is shown as working UI (playground, live mockups), not a bullet list.
+- **Prove, don't claim.** Every skill is shown as working UI (live mockups, UI showcase), not a bullet list.
 - **Typography + space + motion + interaction + detail.** No decoration that doesn't carry information.
 - **Monochrome first.** Ink on paper. One signal color, used sparingly.
-- **Real facts only.** Content comes from `src/data/portfolio.json`. Sample data appears only in the clearly labelled Playground and Enterprise UI sections.
+- **Real facts only.** Content comes from `src/data/portfolio.json`. Sample data appears only in the clearly labelled Enterprise UI section.
 - **Fast by default.** Motion never blocks content. Everything is readable before JS hydrates.
 
 ## 2. Visual direction
 
-Editorial, product-grade, quiet. References: a premium personal brand, a modern SaaS product surface, an interactive playground and case-study layouts.
+Editorial, product-grade, quiet. References: a premium personal brand, a modern SaaS product surface and case-study layouts.
 
 Avoid: gradient blobs, neon, glassmorphism stacks, repeated three-column icon cards, emoji icons, stock illustrations, and centered-everything hero layouts.
 
@@ -46,7 +46,7 @@ Charts use `chart-1…4` (gray ramp) plus `chart-5` (signal).
 | Title        | Geist 500      | `text-title` (fluid 22 → 30px)                                | Card and project titles (h3) |
 | Body         | Geist 400      | `text-base` / `text-lg`, lh 1.6                               | Max 65ch                     |
 | Label / meta | Geist Mono 400 | `text-xs`, uppercase, tracking 0.2em                          | Eyebrows, dates, tags        |
-| Code         | Geist Mono     | `font-mono`                                                   | Playground snippets          |
+| Code         | Geist Mono     | `font-mono`                                                   | Code snippets                |
 
 Fonts are loaded through `next/font/google` (self-hosted, `display: swap`). Headings use `text-balance` and paragraphs use `text-pretty`. One `h1` per page, with no skipped heading levels.
 
@@ -78,8 +78,7 @@ Built on shadcn/ui (radix-nova, `src/components/ui`) and restyled through tokens
 - **Theme toggle** (`theme/theme-toggle.tsx`): a sun→moon SVG morph driven by the `.dark` class in CSS, so it renders correctly before hydration. Its label changes to "Switch to light/dark theme".
 - **Site header** (`layout/site-header.tsx`): full-width and transparent at the top. After 24px of scroll it becomes a floating `max-w-3xl` pill with `bg-background/75`, `backdrop-blur-xl`, a border and `shadow-md` (500ms ease-out-expo). The active section is tracked with an IntersectionObserver and marked by a shared-layout pill (`layoutId`).
 - **Mobile menu** (`layout/mobile-menu.tsx`): a full-screen Radix Dialog (focus trap, Esc, scroll lock via `Dialog.Overlay`) with a clip-path wipe, a staggered masked link reveal and a hamburger→X morph. It closes before scrolling to the target.
-- **Hero** (`sections/hero`): the entrance uses CSS keyframes (`animate-reveal`, `fade-up`, `rise`), so it runs before hydration. The order is grid background → eyebrow → name (per-word mask) → roles → statement → CTAs → mockup, finishing in about 1.5s.
-- **Hero mockup**: `BrowserFrame` showing a sample ERP view. It has pointer parallax and a 3D tilt (±7°), plus depth layers for the badge and modal. Everything in it works: sidebar nav, search that filters the table, chart tooltips and the modal with a confirmation toast. All of its data comes from `hero.mockup` in the JSON and is labelled "Sample data".
+- **Hero** (`sections/hero`): the entrance uses CSS keyframes (`animate-reveal`, `fade-up`, `rise`), so it runs before hydration. The order is grid background → eyebrow → name (per-word mask) → roles → statement → CTAs, finishing in about 1.5s.
 - **Magnetic** (`motion/magnetic.tsx`): spring-pulls its child by 30% of the cursor offset.
 - **Custom cursor** (`motion/custom-cursor.tsx`): a 10px dot, a 44px ring over interactive elements, and an 84px labelled disc for `data-cursor="view|interact|explore"`. It hides over text inputs (native caret). Fine pointers only, and disabled under reduced motion.
 - **About** (`sections/about`): a sticky 5/7 split, with the lead paragraph in `foreground` and the rest in `muted-foreground`. Focus areas are a numbered editorial list with hover tint and number nudge. Stats render only when real values exist, using `AnimatedNumber`: it counts up once in view, the server HTML holds the final value, the value is screen-reader safe, and it stays static under reduced motion.
@@ -93,17 +92,16 @@ Built on shadcn/ui (radix-nova, `src/components/ui`) and restyled through tokens
 - **Project preview media:** the static cover shows by default. The video/GIF preview is mounted only on first hover (`preload="none"`, no up-front network), plays while hovered and pauses on leave. Without a preview, a tall screenshot pans top→bottom (6s). Without a cover, a typographic frame is used instead of filler art. Hover previews are off on touch devices and under reduced motion.
 - **Case study** (`/projects/[slug]`): statically generated from the JSON. It has a back link, meta, title, Live/Source buttons, the hero frame (video with poster and controls, or the cover), a facts strip (role/year/category/stack) and editorial blocks (overview, features, paired challenges↔solutions, results, screens). Screens open in a Radix lightbox. A "Next project" link wraps around. Empty blocks are omitted. With no projects, a documented placeholder param satisfies Cache Components. Unknown slugs get a **hard 404** from `src/proxy.ts`, which rewrites to an unmatched path before rendering. A late `notFound()` inside the streamed shell would otherwise return a soft 404 (status 200).
 - **Reduced motion is hydration-safe:** use `usePrefersReducedMotion()` (`hooks/use-media-query.ts`), never motion's `useReducedMotion`, wherever the preference changes markup. The first client render must match the server.
-- **Frontend Playground** (`sections/playground`): a bento lab (12-col on `lg`, 2-col on `md`) of `Specimen` tiles (numbered header + live stage, `data-cursor="interact"`). Controls inside a labelled region get the precise cursor ring, not the label disc. The specimens are buttons (idle→loading→done with `aria-busy` and an announced status), a Zod-validated form (blur-then-live errors linked by `aria-describedby`, focus moves to the first invalid field), a data table (search, Radix select filter, `aria-sort` headers cycling none→asc→desc, pagination clamped by `lib/data-table.ts`), a dependency-free SVG chart (`lib/chart.ts`; series/range radiogroups, pointer and arrow-key crosshair, draw-in via clip reveal rather than `pathLength`, which breaks with non-scaling strokes), cards (basic/interactive/pointer spotlight), Radix tabs with a shared-layout indicator, a modal (focus trap, Esc, focus return) with tooltips on hover and focus, and a theme radiogroup driving the real site theme. All data is sample data from `playground` in the JSON.
 - **Enterprise UI showcase** (`sections/showcase`): a sample ERP app inside a `BrowserFrame` with a device radiogroup (Desktop/Tablet/Mobile → 100%/768px/390px, animated `max-width`). Its layout uses **container queries** (`@container/app`), so it adapts to its own width: the sidebar (collapsible to icons) appears at `@3xl`, below that a top nav where inactive items go icon-only under `@md`. KPI grid 2→4 columns at `@2xl`, and table columns hide progressively. Its views:
   - **Dashboard:** region radiogroup; KPIs and the revenue-by-region chart are computed from the same orders (`lib/showcase/orders.ts`), so the totals always agree.
   - **Orders:** search, status filter, sort and pagination through `queryRows`; a detail dialog with guarded status transitions that update shared state.
   - **New customer:** a WAI-ARIA `Combobox` (only listed values commit), a `DatePicker` (Radix Popover plus a roving-focus date grid, with keyboard arrows, PageUp/Down and Enter; the trigger is labelled by label + value), inline errors, and a focused error summary linking to each field.
 - **Contact** (`sections/contact`): an oversized editorial heading (clamp 44→108px) with a reveal, a magnetic mailto CTA, a resume download (`download` attribute), and a copy-email pill (Clipboard API, a `role="status"` message, and the address stays `select-all` on failure). Socials are an editorial list with host labels and an arrow nudge. Every control renders only when its JSON value exists. The email has a single source: `personal.email` fills the "email" social (`resolveSocials`).
-- **Footer** (`layout/site-footer.tsx`): the name as an outline-then-fill SVG signature drawn once in view (static under reduced motion), tagline, socials, `© year` and back-to-top (smooth scroll and focus return). The year is an async `'use cache'` + `cacheLife('days')` component, so the page stays statically prerendered (revalidates daily) under Cache Components.
+- **Footer** (`layout/site-footer.tsx`): `© year` and back-to-top (smooth scroll and focus return). The year is an async `'use cache'` + `cacheLife('days')` component, so the page stays statically prerendered (revalidates daily) under Cache Components.
 - **Form controls:** `Input` and `Select` triggers are 44px tall with `border-strong`, matching §7.
 - **Living style guide:** `/design-system` (noindex) renders every token and primitive in both themes. `/design-system/sections` previews data-dependent sections with clearly labelled fictional fixtures.
 - **Inputs:** 44px height, `border-strong`, focus ring = `ring` at 2px. Errors use `destructive` text plus `aria-invalid`.
-- **Browser mockup:** `surface` frame with a 32px chrome bar (three 8px neutral dots plus a URL pill). Reused by the Hero, Projects and Showcase.
+- **Browser mockup:** `surface` frame with a 32px chrome bar (three 8px neutral dots plus a URL pill). Reused by Projects and Showcase.
 
 ## 8. Radius
 
@@ -192,4 +190,4 @@ What's in place:
 - Lazy video previews.
 - AVIF/WebP images.
 
-Known limit: mobile TBT is dominated by hydrating the demo-heavy Playground and Showcase. Deferring them further would mean `ssr: false` plus mounting on scroll, which trades away server-rendered HTML and adds anchor/CLS risk.
+Known limit: mobile TBT is dominated by hydrating the demo-heavy Showcase. Deferring them further would mean `ssr: false` plus mounting on scroll, which trades away server-rendered HTML and adds anchor/CLS risk.

@@ -64,7 +64,6 @@
   --animate-reveal: reveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
   --animate-fade-up: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
   --animate-fade-in: fade-in 1.2s ease-out both;
-  --animate-rise: rise 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
   --animate-blink: blink 1.1s steps(1) infinite;
 
   @keyframes reveal {
@@ -81,12 +80,6 @@
   @keyframes fade-in {
     from {
       opacity: 0;
-    }
-  }
-  @keyframes rise {
-    from {
-      opacity: 0;
-      transform: translateY(48px) scale(0.96);
     }
   }
   @keyframes blink {
@@ -301,34 +294,6 @@ html.has-custom-cursor :is(input, textarea, select, [contenteditable="true"]) {
 @keyframes via-blur {
   30% {
     filter: blur(3px);
-  }
-}
-
-/* Footer signature: outline draws, then fills (reduced motion: final state). */
-.signature text {
-  fill: transparent;
-  stroke: currentColor;
-  stroke-width: 1.2;
-  stroke-dasharray: 1400;
-  stroke-dashoffset: 1400;
-}
-.signature.is-drawn text {
-  animation: signature-draw 2.6s cubic-bezier(0.65, 0, 0.35, 1) forwards;
-}
-@keyframes signature-draw {
-  70% {
-    stroke-dashoffset: 0;
-    fill: transparent;
-  }
-  100% {
-    stroke-dashoffset: 0;
-    fill: currentColor;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .signature text {
-    fill: currentColor;
-    stroke-dashoffset: 0;
   }
 }
 

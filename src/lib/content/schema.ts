@@ -7,7 +7,7 @@ import {
   optionalUrl,
   sectionHeader,
 } from "./fields";
-import { heroMockupSchema, playgroundSchema, showcaseSchema } from "./sample-schemas";
+import { showcaseSchema } from "./sample-schemas";
 
 export const socialPlatforms = [
   "github",
@@ -135,7 +135,6 @@ export const portfolioSchema = z
       statement: z.string().min(1),
       primaryCta: linkSchema,
       secondaryCta: linkSchema,
-      mockup: heroMockupSchema,
     }),
     about: z.object({
       ...sectionHeader,
@@ -153,7 +152,6 @@ export const portfolioSchema = z
       certifications: z.array(certificationSchema).default([]),
     }),
     projects: z.object({ ...sectionHeader, items: z.array(projectSchema).default([]) }),
-    playground: playgroundSchema,
     showcase: showcaseSchema,
     contact: z.object({
       ...sectionHeader,
@@ -162,7 +160,7 @@ export const portfolioSchema = z
     }),
     resume: z.object({ label: z.string().min(1), file: assetPath, updated: optionalText }),
     socials: z.array(socialSchema).default([]),
-    footer: z.object({ tagline: optionalText, note: optionalText }),
+    footer: z.object({ note: optionalText }),
   })
   .superRefine((data, ctx) => {
     const slugs = new Set<string>();
@@ -198,9 +196,6 @@ export type Site = Portfolio["site"];
 export type Personal = Portfolio["personal"];
 export type NavLink = z.infer<typeof linkSchema>;
 export type Hero = Portfolio["hero"];
-export type HeroMockup = Hero["mockup"];
-export type Playground = Portfolio["playground"];
-export type PlaygroundRow = Playground["table"]["rows"][number];
 export type Showcase = Portfolio["showcase"];
 export type ShowcaseOrder = Showcase["orders"][number];
 export type About = Portfolio["about"];

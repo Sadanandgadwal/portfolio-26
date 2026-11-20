@@ -75,23 +75,8 @@ test.describe("hero", () => {
       "href",
       "#contact",
     );
-    await expect(page.getByRole("group", { name: /sample data/i })).toBeVisible();
     await page.waitForTimeout(1600); // let the entrance finish for the screenshot
     await page.screenshot({ path: `test-results/hero-${test.info().project.name}.png` });
-  });
-
-  test("mockup is interactive", async ({ page }) => {
-    await page.goto("/");
-    const mockup = page.getByRole("group", { name: /sample data/i });
-    const modal = mockup.getByRole("group", { name: "Create report" });
-    if (isMobile()) {
-      await expect(modal).toBeHidden(); // floating modal is desktop/tablet only
-      return;
-    }
-    await mockup.getByRole("button", { name: "Create" }).click();
-    await expect(mockup.getByRole("status")).toContainText("Weekly summary");
-    await mockup.getByRole("searchbox").fill("pinecrest");
-    await expect(mockup.getByRole("table").getByRole("row")).toHaveCount(2);
   });
 });
 
@@ -108,11 +93,12 @@ test.describe("cursor & magnetic", () => {
     await cta.hover();
     await expect(cursor).toHaveAttribute("data-mode", "link");
 
-    const mockup = page.getByRole("group", { name: /sample data/i });
-    await mockup.getByText("Revenue").hover(); // non-interactive area → label
+    const app = page.getByTestId("showcase-content");
+    await app.scrollIntoViewIfNeeded();
+    await app.getByRole("heading", { name: "Overview" }).hover(); // non-interactive area → label
     await expect(cursor).toHaveAttribute("data-mode", "label");
     await expect(cursor).toContainText(/interact/i);
-    await mockup.getByRole("button", { name: "New report" }).hover(); // nested control → ring
+    await page.getByRole("button", { name: "Collapse sidebar" }).hover(); // nested control → ring
     await expect(cursor).toHaveAttribute("data-mode", "link");
   });
 
