@@ -1,0 +1,1155 @@
+{
+  "site": {
+    "url": "https://sadanandgadwal.com",
+    "title": "Sadanand Gadwal — Frontend & Full Stack Developer",
+    "titleTemplate": "%s · Sadanand Gadwal",
+    "description": "Portfolio of Sadanand Gadwal, a frontend and full stack developer building fast, accessible, interactive interfaces with React, TypeScript and Node.js.",
+    "keywords": [
+      "Sadanand Gadwal",
+      "Frontend Developer",
+      "Full Stack Developer",
+      "React",
+      "TypeScript",
+      "Next.js",
+      "Node.js",
+      "Portfolio"
+    ],
+    "locale": "en_US",
+    "ogImage": "",
+    "twitterHandle": ""
+  },
+  "personal": {
+    "name": "Sadanand Gadwal",
+    "shortName": "SG",
+    "roles": ["Frontend Developer", "Full Stack Developer"],
+    "location": "Bangalore, Karnataka",
+    "email": "sadanandgadwal@gmail.com",
+    "phone": "",
+    "availability": "",
+    "avatar": ""
+  },
+  "navigation": {
+    "items": [
+      {
+        "label": "Home",
+        "href": "#home"
+      },
+      {
+        "label": "About",
+        "href": "#about"
+      },
+      {
+        "label": "Skills",
+        "href": "#skills"
+      },
+      {
+        "label": "Experience",
+        "href": "#experience"
+      },
+      {
+        "label": "Projects",
+        "href": "#projects"
+      },
+      {
+        "label": "Playground",
+        "href": "#playground"
+      },
+      {
+        "label": "Contact",
+        "href": "#contact"
+      }
+    ]
+  },
+  "hero": {
+    "eyebrow": "Portfolio",
+    "heading": "Sadanand Gadwal",
+    "statement": "I design and build fast, accessible and interactive web interfaces, from reusable component systems to data-heavy enterprise applications.",
+    "primaryCta": {
+      "label": "View Projects",
+      "href": "#projects"
+    },
+    "secondaryCta": {
+      "label": "Contact Me",
+      "href": "#contact"
+    },
+    "mockup": {
+      "sampleLabel": "Sample data",
+      "url": "app.example.com/overview",
+      "appName": "Orbit ERP",
+      "title": "Overview",
+      "navItems": ["Overview", "Orders", "Inventory", "Reports"],
+      "searchPlaceholder": "Search orders…",
+      "primaryAction": "New report",
+      "stats": [
+        {
+          "label": "Revenue",
+          "value": "$48.2k",
+          "delta": "+12.4%"
+        },
+        {
+          "label": "Orders",
+          "value": "1,284",
+          "delta": "+3.1%"
+        },
+        {
+          "label": "Avg. order",
+          "value": "$37.5",
+          "delta": "-0.8%"
+        }
+      ],
+      "chart": {
+        "title": "Weekly orders",
+        "points": [
+          {
+            "label": "Mon",
+            "value": 42
+          },
+          {
+            "label": "Tue",
+            "value": 58
+          },
+          {
+            "label": "Wed",
+            "value": 51
+          },
+          {
+            "label": "Thu",
+            "value": 74
+          },
+          {
+            "label": "Fri",
+            "value": 66
+          },
+          {
+            "label": "Sat",
+            "value": 38
+          },
+          {
+            "label": "Sun",
+            "value": 29
+          }
+        ]
+      },
+      "table": {
+        "columns": ["Order", "Status", "Amount"],
+        "rows": [
+          {
+            "name": "#1042 · Harbor Supply",
+            "status": "success",
+            "statusLabel": "Paid",
+            "amount": "$320.00"
+          },
+          {
+            "name": "#1041 · Lumen Labs",
+            "status": "pending",
+            "statusLabel": "Pending",
+            "amount": "$1,120.00"
+          },
+          {
+            "name": "#1040 · Pinecrest",
+            "status": "success",
+            "statusLabel": "Paid",
+            "amount": "$86.40"
+          },
+          {
+            "name": "#1039 · Atlas Foods",
+            "status": "neutral",
+            "statusLabel": "Draft",
+            "amount": "$412.75"
+          }
+        ]
+      },
+      "modal": {
+        "title": "Create report",
+        "description": "Export a summary of this week's orders.",
+        "fieldLabel": "Report name",
+        "fieldValue": "Weekly summary",
+        "confirm": "Create",
+        "cancel": "Cancel"
+      }
+    }
+  },
+  "about": {
+    "eyebrow": "About",
+    "heading": "I build interfaces that feel as good as they work.",
+    "description": "",
+    "paragraphs": [
+      "I'm a frontend developer with 4+ years of professional experience, specialising in React.js and modern frontend technologies, and currently working as a full stack developer.",
+      "I build scalable ERP applications, complex dashboards, interactive reports and data visualisations with Chart.js and Syncfusion Gantt Chart, turn Figma designs into responsive interfaces, and work closely with backend and QA teams in Agile environments."
+    ],
+    "focusAreas": [
+      {
+        "title": "Frontend engineering",
+        "description": "Component-driven React and TypeScript interfaces."
+      },
+      {
+        "title": "ERP applications",
+        "description": "Data-dense screens, tables, forms and workflows."
+      },
+      {
+        "title": "Reusable UI",
+        "description": "Consistent, composable components that scale across products."
+      },
+      {
+        "title": "API integration",
+        "description": "Connecting interfaces to REST services with reliable state handling."
+      },
+      {
+        "title": "Performance",
+        "description": "Lean bundles, efficient rendering and fast loading."
+      }
+    ],
+    "stats": [
+      {
+        "label": "Years of professional experience",
+        "value": 4,
+        "prefix": "",
+        "suffix": "+"
+      },
+      {
+        "label": "Featured production projects",
+        "value": 3,
+        "prefix": "",
+        "suffix": ""
+      },
+      {
+        "label": "Faster page loads on KNS Connect",
+        "value": 30,
+        "prefix": "",
+        "suffix": "%"
+      }
+    ]
+  },
+  "skills": {
+    "eyebrow": "Skills",
+    "heading": "A toolkit for building complete products.",
+    "description": "",
+    "categories": [
+      {
+        "id": "frontend",
+        "name": "Frontend",
+        "description": "",
+        "items": [
+          {
+            "name": "React.js",
+            "icon": "react",
+            "description": "Component-based UI library.",
+            "relatedProjects": ["kns-connect", "kns-website", "vilcart"]
+          },
+          {
+            "name": "Next.js",
+            "icon": "nextdotjs",
+            "description": "React framework for production web apps.",
+            "relatedProjects": []
+          },
+          {
+            "name": "JavaScript",
+            "icon": "javascript",
+            "description": "The language of the web.",
+            "relatedProjects": ["kns-connect", "kns-website", "vilcart"]
+          },
+          {
+            "name": "TypeScript",
+            "icon": "typescript",
+            "description": "Typed JavaScript for safer, scalable code.",
+            "relatedProjects": []
+          },
+          {
+            "name": "HTML5",
+            "icon": "html5",
+            "description": "Semantic, accessible markup.",
+            "relatedProjects": []
+          },
+          {
+            "name": "CSS3",
+            "icon": "css",
+            "description": "Layout, responsive design and animation.",
+            "relatedProjects": []
+          },
+          {
+            "name": "SCSS",
+            "icon": "sass",
+            "description": "CSS with variables, nesting and mixins.",
+            "relatedProjects": ["kns-connect", "vilcart"]
+          },
+          {
+            "name": "React Router",
+            "icon": "reactrouter",
+            "description": "Client-side routing for React apps.",
+            "relatedProjects": []
+          }
+        ]
+      },
+      {
+        "id": "ui-styling",
+        "name": "UI & Styling",
+        "description": "",
+        "items": [
+          {
+            "name": "Material UI",
+            "icon": "mui",
+            "description": "React component library based on Material Design.",
+            "relatedProjects": ["kns-connect"]
+          },
+          {
+            "name": "Tailwind CSS",
+            "icon": "tailwindcss",
+            "description": "Utility-first styling.",
+            "relatedProjects": ["vilcart"]
+          },
+          {
+            "name": "Bootstrap",
+            "icon": "bootstrap",
+            "description": "Responsive CSS framework.",
+            "relatedProjects": ["kns-website"]
+          },
+          {
+            "name": "Figma",
+            "icon": "figma",
+            "description": "Design handoff to pixel-accurate UI.",
+            "relatedProjects": ["kns-connect"]
+          }
+        ]
+      },
+      {
+        "id": "state-forms",
+        "name": "State Management & Forms",
+        "description": "",
+        "items": [
+          {
+            "name": "Redux",
+            "icon": "redux",
+            "description": "Predictable global state container.",
+            "relatedProjects": ["kns-connect", "vilcart"]
+          },
+          {
+            "name": "Redux Toolkit",
+            "icon": "redux",
+            "description": "Official, opinionated Redux tooling.",
+            "relatedProjects": []
+          },
+          {
+            "name": "Formik",
+            "icon": "formik",
+            "description": "Form state management for React.",
+            "relatedProjects": []
+          },
+          {
+            "name": "Yup",
+            "icon": "yup",
+            "description": "Schema-based form validation.",
+            "relatedProjects": []
+          }
+        ]
+      },
+      {
+        "id": "backend",
+        "name": "Backend & APIs",
+        "description": "",
+        "items": [
+          {
+            "name": "Node.js",
+            "icon": "nodedotjs",
+            "description": "JavaScript runtime for servers and tooling.",
+            "relatedProjects": []
+          },
+          {
+            "name": "Express.js",
+            "icon": "express",
+            "description": "Minimal Node.js web framework.",
+            "relatedProjects": []
+          },
+          {
+            "name": "MongoDB",
+            "icon": "mongodb",
+            "description": "Document database.",
+            "relatedProjects": []
+          },
+          {
+            "name": "REST APIs",
+            "icon": "api",
+            "description": "Integrating and consuming HTTP APIs.",
+            "relatedProjects": ["kns-connect"]
+          },
+          {
+            "name": "Postman",
+            "icon": "postman",
+            "description": "API testing and exploration.",
+            "relatedProjects": []
+          }
+        ]
+      },
+      {
+        "id": "visualization",
+        "name": "Charts & Visualization",
+        "description": "",
+        "items": [
+          {
+            "name": "Chart.js",
+            "icon": "chartdotjs",
+            "description": "Dashboards and interactive data visualisations.",
+            "relatedProjects": ["kns-connect"]
+          },
+          {
+            "name": "Syncfusion Gantt Chart",
+            "icon": "gantt",
+            "description": "Project schedules, dependencies and timelines.",
+            "relatedProjects": ["kns-connect"]
+          }
+        ]
+      },
+      {
+        "id": "tools",
+        "name": "Tools & Hosting",
+        "description": "",
+        "items": [
+          {
+            "name": "Git",
+            "icon": "git",
+            "description": "Version control.",
+            "relatedProjects": ["kns-connect", "kns-website", "vilcart"]
+          },
+          {
+            "name": "GitHub",
+            "icon": "github",
+            "description": "Code hosting and collaboration.",
+            "relatedProjects": []
+          },
+          {
+            "name": "VS Code",
+            "icon": "vscode",
+            "description": "Primary code editor.",
+            "relatedProjects": []
+          },
+          {
+            "name": "Vercel",
+            "icon": "vercel",
+            "description": "Frontend hosting and deployments.",
+            "relatedProjects": []
+          },
+          {
+            "name": "Netlify",
+            "icon": "netlify",
+            "description": "Static hosting and deployments.",
+            "relatedProjects": []
+          },
+          {
+            "name": "Linux",
+            "icon": "linux",
+            "description": "Development and server environment.",
+            "relatedProjects": []
+          }
+        ]
+      }
+    ]
+  },
+  "experience": {
+    "eyebrow": "Experience",
+    "heading": "Where I've worked.",
+    "description": "",
+    "items": [
+      {
+        "company": "Digital Think Technologies LLP",
+        "role": "Full Stack Developer",
+        "start": "2023-09",
+        "end": "",
+        "location": "Bangalore, Karnataka",
+        "employmentType": "",
+        "summary": "",
+        "responsibilities": [
+          "Developed and maintained scalable ERP modules for real estate management systems using React.js, Node.js, Express.js, and MongoDB.",
+          "Collaborated with frontend and backend teams to integrate REST APIs, optimize business workflows, and improve application performance.",
+          "Developed responsive user interfaces and implemented authentication, CRUD operations, API integrations, debugging, and complex business workflows.",
+          "Contributed to the development of real estate ERP solutions by improving operational efficiency and enhancing user experience.",
+          "Took ownership of complex frontend development tasks, resolved critical application and API-related issues, optimized API calls, and developed dashboards and reports to support business requirements."
+        ],
+        "technologies": ["React.js", "Node.js", "Express.js", "MongoDB", "REST APIs"],
+        "achievements": [],
+        "certificateUrl": ""
+      },
+      {
+        "company": "The DeveLearn Institute",
+        "role": "Front-end Developer",
+        "start": "2022-10",
+        "end": "2023-07",
+        "location": "Maharashtra, India",
+        "employmentType": "",
+        "summary": "",
+        "responsibilities": [
+          "Implemented responsive user interfaces using Tailwind CSS and Material UI, ensuring a consistent user experience across devices.",
+          "Developed responsive web pages, debugged application code, and optimized frontend performance.",
+          "Ensured cross-browser compatibility and resolved UI issues across different browsers and screen sizes.",
+          "Collaborated with team members to implement frontend features and deliver maintainable web interfaces."
+        ],
+        "technologies": ["Tailwind CSS", "Material UI"],
+        "achievements": [],
+        "certificateUrl": "https://drive.google.com/file/d/1BVZ0mmlvyniuoqZuSpdFRG6jVtHaa817/view"
+      },
+      {
+        "company": "Shivila Technologies",
+        "role": "React Developer",
+        "start": "2021-12",
+        "end": "2022-04",
+        "location": "West Bengal, India",
+        "employmentType": "",
+        "summary": "",
+        "responsibilities": [
+          "Developed reusable React.js components for multiple web applications, focusing on responsive and user-friendly interfaces.",
+          "Implemented React Router to improve web page navigation, routing, and application interactivity.",
+          "Collaborated with design, product, and engineering teams to translate requirements into functional and user-friendly web interfaces."
+        ],
+        "technologies": ["React.js", "React Router"],
+        "achievements": [],
+        "certificateUrl": "https://drive.google.com/file/d/12huNvYPvbEGl3ss3BXyyGwVQOyyQVuyp/view"
+      }
+    ]
+  },
+  "education": {
+    "eyebrow": "Education",
+    "heading": "Education & certifications.",
+    "description": "",
+    "items": [
+      {
+        "degree": "Master of Computer Applications (MCA)",
+        "institution": "Central University of Karnataka",
+        "start": "2021",
+        "end": "2023",
+        "location": "",
+        "grade": "CGPA 7.66"
+      },
+      {
+        "degree": "Bachelor of Computer Applications (BCA)",
+        "institution": "Sharnbasva University of Karnataka",
+        "start": "2018",
+        "end": "2021",
+        "location": "",
+        "grade": "CGPA 8.59"
+      }
+    ],
+    "certifications": [
+      {
+        "name": "The Complete 2023 Web Development Bootcamp",
+        "provider": "Udemy",
+        "year": "",
+        "url": "https://drive.google.com/file/d/1sth5kpYDNNg22_i8BeW8ayPCMZomC4vY/view?usp=sharing"
+      },
+      {
+        "name": "Getting Started with Deep Learning",
+        "provider": "NVIDIA Deep Learning Institute",
+        "year": "2022",
+        "url": ""
+      }
+    ]
+  },
+  "projects": {
+    "eyebrow": "Selected work",
+    "heading": "Projects.",
+    "description": "",
+    "items": [
+      {
+        "slug": "kns-connect",
+        "title": "KNS Connect",
+        "category": "Real estate ERP",
+        "year": "",
+        "featured": true,
+        "description": "Scalable React.js modules for a real estate ERP platform: complex workflows, dashboards, reports and project scheduling.",
+        "longDescription": "Developed and maintained scalable React.js modules for a real estate ERP platform, supporting complex business workflows and data-driven operations.",
+        "role": "Frontend development",
+        "technologies": [
+          "React.js",
+          "Material UI",
+          "SCSS",
+          "Redux",
+          "Chart.js",
+          "Syncfusion Gantt Chart"
+        ],
+        "features": [
+          "Converted complex Figma designs into responsive, pixel-perfect interfaces using Material UI and SCSS.",
+          "Developed complex dashboards and interactive data visualizations using Chart.js for business metrics, analytics, and reports.",
+          "Implemented Syncfusion Gantt Chart to visualize project schedules, task dependencies, timelines, and progress.",
+          "Integrated REST APIs and developed data validation workflows for accurate and reliable data across ERP modules.",
+          "Built dynamic reports with filtering, validation, and interactive components to support business operations and decision-making.",
+          "Implemented Redux for centralized state management.",
+          "Resolved critical frontend and API-related issues and collaborated with backend and QA teams using Git and Agile methodologies."
+        ],
+        "challenges": [],
+        "solutions": [],
+        "results": ["Improved page load speed by 30% using lazy loading and code splitting."],
+        "media": {
+          "cover": "",
+          "coverAlt": "",
+          "preview": "",
+          "previewType": "none",
+          "screenshots": []
+        },
+        "links": {
+          "live": "https://knsconnect.in/",
+          "github": ""
+        }
+      },
+      {
+        "slug": "kns-website",
+        "title": "KNS Website",
+        "category": "Real estate website",
+        "year": "",
+        "featured": false,
+        "description": "A responsive, SEO-optimized real estate website built with React.js and Bootstrap.",
+        "longDescription": "Developed a responsive and SEO-optimized real estate website using React.js and Bootstrap with cross-device compatibility.",
+        "role": "Frontend development",
+        "technologies": ["React.js", "Bootstrap", "Swiper.js", "SEO"],
+        "features": [
+          "Integrated Swiper.js to implement touch-friendly carousels and sliders for an enhanced user experience.",
+          "Implemented SEO best practices, including structured meta tags, Google Analytics (GTag), and keyword optimization.",
+          "Focused on performance, accessibility, and maintainable development practices aligned with corporate branding and business requirements."
+        ],
+        "challenges": [],
+        "solutions": [],
+        "results": [],
+        "media": {
+          "cover": "",
+          "coverAlt": "",
+          "preview": "",
+          "previewType": "none",
+          "screenshots": []
+        },
+        "links": {
+          "live": "https://knsgroup.in/",
+          "github": ""
+        }
+      },
+      {
+        "slug": "vilcart",
+        "title": "Vilcart",
+        "category": "Web application",
+        "year": "",
+        "featured": false,
+        "description": "A feature-rich, responsive web application with reusable components and Framer Motion animations.",
+        "longDescription": "Developed a feature-rich and responsive web application using React.js and Tailwind CSS with modular SCSS styling.",
+        "role": "Frontend development",
+        "technologies": ["React.js", "Tailwind CSS", "SCSS", "Redux", "Framer Motion", "Swiper.js"],
+        "features": [
+          "Built reusable UI components and interactive animations using Framer Motion to enhance user engagement.",
+          "Implemented Redux for global state management, including product category functionality and dynamic product rendering.",
+          "Optimized application performance using code splitting, lazy loading, and efficient API integration with robust error handling.",
+          "Collaborated in Agile sprints and used Git for version control and team-based development."
+        ],
+        "challenges": [],
+        "solutions": [],
+        "results": [],
+        "media": {
+          "cover": "",
+          "coverAlt": "",
+          "preview": "",
+          "previewType": "none",
+          "screenshots": []
+        },
+        "links": {
+          "live": "https://www.vilcart.in/",
+          "github": ""
+        }
+      }
+    ]
+  },
+  "playground": {
+    "eyebrow": "Frontend Playground",
+    "heading": "Don't take my word for it. Try it.",
+    "description": "Working UI components you can click, type into, sort and filter. All data in this section is sample data for demonstration.",
+    "sampleLabel": "Sample data",
+    "form": {
+      "roles": ["Frontend Developer", "Full Stack Developer", "Designer", "Product Manager"]
+    },
+    "table": {
+      "rows": [
+        {
+          "id": "u01",
+          "name": "Alex Rivera",
+          "email": "alex.rivera@example.com",
+          "team": "Design",
+          "status": "active",
+          "lastActive": "2026-11-01"
+        },
+        {
+          "id": "u02",
+          "name": "Priya Nair",
+          "email": "priya.nair@example.com",
+          "team": "Engineering",
+          "status": "active",
+          "lastActive": "2026-10-08"
+        },
+        {
+          "id": "u03",
+          "name": "Jordan Lee",
+          "email": "jordan.lee@example.com",
+          "team": "Product",
+          "status": "invited",
+          "lastActive": "2026-10-15"
+        },
+        {
+          "id": "u04",
+          "name": "Sam Okafor",
+          "email": "sam.okafor@example.com",
+          "team": "Engineering",
+          "status": "active",
+          "lastActive": "2026-11-22"
+        },
+        {
+          "id": "u05",
+          "name": "Mia Chen",
+          "email": "mia.chen@example.com",
+          "team": "Design",
+          "status": "suspended",
+          "lastActive": "2026-10-02"
+        },
+        {
+          "id": "u06",
+          "name": "Noah Patel",
+          "email": "noah.patel@example.com",
+          "team": "Sales",
+          "status": "active",
+          "lastActive": "2026-10-09"
+        },
+        {
+          "id": "u07",
+          "name": "Lena Fischer",
+          "email": "lena.fischer@example.com",
+          "team": "Engineering",
+          "status": "invited",
+          "lastActive": "2026-11-16"
+        },
+        {
+          "id": "u08",
+          "name": "Omar Haddad",
+          "email": "omar.haddad@example.com",
+          "team": "Support",
+          "status": "active",
+          "lastActive": "2026-10-23"
+        },
+        {
+          "id": "u09",
+          "name": "Grace Kim",
+          "email": "grace.kim@example.com",
+          "team": "Product",
+          "status": "active",
+          "lastActive": "2026-10-03"
+        },
+        {
+          "id": "u10",
+          "name": "Diego Santos",
+          "email": "diego.santos@example.com",
+          "team": "Sales",
+          "status": "suspended",
+          "lastActive": "2026-11-10"
+        },
+        {
+          "id": "u11",
+          "name": "Hana Sato",
+          "email": "hana.sato@example.com",
+          "team": "Engineering",
+          "status": "active",
+          "lastActive": "2026-10-17"
+        },
+        {
+          "id": "u12",
+          "name": "Ravi Kumar",
+          "email": "ravi.kumar@example.com",
+          "team": "Support",
+          "status": "invited",
+          "lastActive": "2026-10-24"
+        },
+        {
+          "id": "u13",
+          "name": "Ella Novak",
+          "email": "ella.novak@example.com",
+          "team": "Design",
+          "status": "active",
+          "lastActive": "2026-11-04"
+        },
+        {
+          "id": "u14",
+          "name": "Kofi Mensah",
+          "email": "kofi.mensah@example.com",
+          "team": "Engineering",
+          "status": "active",
+          "lastActive": "2026-10-11"
+        },
+        {
+          "id": "u15",
+          "name": "Zara Ahmed",
+          "email": "zara.ahmed@example.com",
+          "team": "Product",
+          "status": "invited",
+          "lastActive": "2026-10-18"
+        },
+        {
+          "id": "u16",
+          "name": "Luca Romano",
+          "email": "luca.romano@example.com",
+          "team": "Sales",
+          "status": "active",
+          "lastActive": "2026-11-25"
+        },
+        {
+          "id": "u17",
+          "name": "Ivy Park",
+          "email": "ivy.park@example.com",
+          "team": "Support",
+          "status": "suspended",
+          "lastActive": "2026-10-05"
+        },
+        {
+          "id": "u18",
+          "name": "Ben Carter",
+          "email": "ben.carter@example.com",
+          "team": "Engineering",
+          "status": "active",
+          "lastActive": "2026-10-12"
+        }
+      ]
+    },
+    "tabs": [
+      {
+        "id": "overview",
+        "label": "Overview",
+        "body": "Tabs built on Radix: arrow keys move between tabs, Home/End jump, and focus stays predictable."
+      },
+      {
+        "id": "activity",
+        "label": "Activity",
+        "body": "The active indicator is a shared-layout element, so it glides between tabs instead of jumping."
+      },
+      {
+        "id": "settings",
+        "label": "Settings",
+        "body": "Panels are linked to their tabs with aria-controls and aria-labelledby for screen readers."
+      }
+    ],
+    "chart": {
+      "labels": [
+        "Oct 1",
+        "Oct 2",
+        "Oct 3",
+        "Oct 4",
+        "Oct 5",
+        "Oct 6",
+        "Oct 7",
+        "Oct 8",
+        "Oct 9",
+        "Oct 10",
+        "Oct 11",
+        "Oct 12",
+        "Oct 13",
+        "Oct 14",
+        "Oct 15",
+        "Oct 16",
+        "Oct 17",
+        "Oct 18",
+        "Oct 19",
+        "Oct 20",
+        "Oct 21",
+        "Oct 22",
+        "Oct 23",
+        "Oct 24",
+        "Oct 25",
+        "Oct 26",
+        "Oct 27",
+        "Oct 28",
+        "Oct 29",
+        "Oct 30"
+      ],
+      "series": [
+        {
+          "id": "revenue",
+          "label": "Revenue",
+          "prefix": "$",
+          "values": [
+            4200, 4692, 5157, 5130, 5474, 5735, 5469, 5559, 5579, 5106, 5045, 4543, 4506, 4518,
+            4161, 4325, 4577, 4472, 4879, 5340, 5390, 5883, 5912, 6332, 6684, 6514, 6697, 6796,
+            6382, 6354
+          ]
+        },
+        {
+          "id": "orders",
+          "label": "Orders",
+          "prefix": "",
+          "values": [
+            131, 154, 153, 149, 142, 132, 122, 112, 124, 118, 115, 115, 119, 125, 133, 162, 169,
+            174, 176, 175, 170, 163, 174, 164, 154, 145, 139, 137, 137, 162
+          ]
+        }
+      ]
+    }
+  },
+  "showcase": {
+    "eyebrow": "Enterprise UI",
+    "heading": "Built for complex, data-heavy products.",
+    "description": "Dashboard, ERP and form patterns. All data shown is sample data for demonstration.",
+    "sampleLabel": "Sample data",
+    "appName": "Orbit ERP",
+    "orders": [
+      {
+        "id": "SO-2040",
+        "customer": "Harbor Supply",
+        "region": "North",
+        "date": "2026-11-01",
+        "total": 180.0,
+        "status": "paid"
+      },
+      {
+        "id": "SO-2039",
+        "customer": "Cobalt Studio",
+        "region": "West",
+        "date": "2026-11-28",
+        "total": 299.5,
+        "status": "pending"
+      },
+      {
+        "id": "SO-2038",
+        "customer": "Vantage Print",
+        "region": "East",
+        "date": "2026-11-27",
+        "total": 419.0,
+        "status": "shipped"
+      },
+      {
+        "id": "SO-2037",
+        "customer": "Atlas Foods",
+        "region": "South",
+        "date": "2026-11-26",
+        "total": 537.0,
+        "status": "paid"
+      },
+      {
+        "id": "SO-2036",
+        "customer": "Summit Tools",
+        "region": "North",
+        "date": "2026-11-25",
+        "total": 656.5,
+        "status": "cancelled"
+      },
+      {
+        "id": "SO-2035",
+        "customer": "Lumen Labs",
+        "region": "West",
+        "date": "2026-11-24",
+        "total": 776.0,
+        "status": "shipped"
+      },
+      {
+        "id": "SO-2034",
+        "customer": "Meridian Health",
+        "region": "East",
+        "date": "2026-11-23",
+        "total": 894.0,
+        "status": "paid"
+      },
+      {
+        "id": "SO-2033",
+        "customer": "Bluepeak Energy",
+        "region": "South",
+        "date": "2026-11-22",
+        "total": 1013.5,
+        "status": "pending"
+      },
+      {
+        "id": "SO-2032",
+        "customer": "Northline Freight",
+        "region": "North",
+        "date": "2026-11-21",
+        "total": 1133.0,
+        "status": "paid"
+      },
+      {
+        "id": "SO-2031",
+        "customer": "Oakridge Retail",
+        "region": "West",
+        "date": "2026-11-20",
+        "total": 1251.0,
+        "status": "pending"
+      },
+      {
+        "id": "SO-2030",
+        "customer": "Pinecrest",
+        "region": "East",
+        "date": "2026-10-19",
+        "total": 1370.5,
+        "status": "shipped"
+      },
+      {
+        "id": "SO-2029",
+        "customer": "Brightwave",
+        "region": "South",
+        "date": "2026-10-18",
+        "total": 1490.0,
+        "status": "paid"
+      },
+      {
+        "id": "SO-2028",
+        "customer": "Harbor Supply",
+        "region": "North",
+        "date": "2026-10-17",
+        "total": 1608.0,
+        "status": "cancelled"
+      },
+      {
+        "id": "SO-2027",
+        "customer": "Cobalt Studio",
+        "region": "West",
+        "date": "2026-10-16",
+        "total": 1727.5,
+        "status": "shipped"
+      },
+      {
+        "id": "SO-2026",
+        "customer": "Vantage Print",
+        "region": "East",
+        "date": "2026-10-15",
+        "total": 1847.0,
+        "status": "paid"
+      },
+      {
+        "id": "SO-2025",
+        "customer": "Atlas Foods",
+        "region": "South",
+        "date": "2026-10-14",
+        "total": 1965.0,
+        "status": "pending"
+      },
+      {
+        "id": "SO-2024",
+        "customer": "Summit Tools",
+        "region": "North",
+        "date": "2026-10-13",
+        "total": 2084.5,
+        "status": "paid"
+      },
+      {
+        "id": "SO-2023",
+        "customer": "Lumen Labs",
+        "region": "West",
+        "date": "2026-10-12",
+        "total": 2204.0,
+        "status": "pending"
+      },
+      {
+        "id": "SO-2022",
+        "customer": "Meridian Health",
+        "region": "East",
+        "date": "2026-10-11",
+        "total": 2322.0,
+        "status": "shipped"
+      },
+      {
+        "id": "SO-2021",
+        "customer": "Bluepeak Energy",
+        "region": "South",
+        "date": "2026-10-10",
+        "total": 2441.5,
+        "status": "paid"
+      },
+      {
+        "id": "SO-2020",
+        "customer": "Northline Freight",
+        "region": "North",
+        "date": "2026-10-09",
+        "total": 2561.0,
+        "status": "cancelled"
+      },
+      {
+        "id": "SO-2019",
+        "customer": "Oakridge Retail",
+        "region": "West",
+        "date": "2026-10-08",
+        "total": 2679.0,
+        "status": "shipped"
+      },
+      {
+        "id": "SO-2018",
+        "customer": "Pinecrest",
+        "region": "East",
+        "date": "2026-10-07",
+        "total": 198.5,
+        "status": "paid"
+      },
+      {
+        "id": "SO-2017",
+        "customer": "Brightwave",
+        "region": "South",
+        "date": "2026-10-06",
+        "total": 318.0,
+        "status": "pending"
+      }
+    ],
+    "countries": [
+      "Australia",
+      "Brazil",
+      "Canada",
+      "France",
+      "Germany",
+      "India",
+      "Indonesia",
+      "Ireland",
+      "Italy",
+      "Japan",
+      "Mexico",
+      "Netherlands",
+      "New Zealand",
+      "Singapore",
+      "South Africa",
+      "Spain",
+      "Sweden",
+      "United Arab Emirates",
+      "United Kingdom",
+      "United States"
+    ]
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "heading": "Let's build something great.",
+    "description": "Have a project, role or idea in mind? I'd like to hear about it.",
+    "cta": {
+      "label": "Start a Conversation"
+    },
+    "copyEmailLabel": "Copy email"
+  },
+  "resume": {
+    "label": "Download Resume",
+    "file": "/resume/Sadanand_Gadwal_Front_End_Developer.pdf",
+    "updated": ""
+  },
+  "socials": [
+    {
+      "platform": "github",
+      "label": "GitHub",
+      "url": "https://github.com/Sadanandgadwal"
+    },
+    {
+      "platform": "linkedin",
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/sadanandgadwal/"
+    },
+    {
+      "platform": "email",
+      "label": "Email",
+      "url": ""
+    },
+    {
+      "platform": "youtube",
+      "label": "YouTube",
+      "url": ""
+    },
+    {
+      "platform": "medium",
+      "label": "Medium",
+      "url": ""
+    },
+    {
+      "platform": "instagram",
+      "label": "Instagram",
+      "url": ""
+    }
+  ],
+  "footer": {
+    "tagline": "Frontend / Full Stack Developer",
+    "note": ""
+  }
+}

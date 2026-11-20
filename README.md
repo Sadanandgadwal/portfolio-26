@@ -1,1 +1,75 @@
 # portfolio-26
+
+Personal portfolio of **Sadanand Gadwal**, Frontend / Full Stack Developer. It is JSON-driven, interactive and statically prerendered.
+
+## Stack
+
+Next.js 16 (App Router, Cache Components) · React 19 · TypeScript 5 · Tailwind CSS 4 · shadcn/ui (Radix) · Motion · Lucide · Simple Icons · Zod 4 · Vitest + React Testing Library · Playwright · ESLint + Prettier
+
+## Requirements
+
+- Node.js **≥ 26** (see `.nvmrc`; verified on 26.13.0)
+- npm 11
+
+## Getting started
+
+```bash
+npm install
+npx playwright install chromium   # once, for e2e tests
+npm run dev                       # http://localhost:3000
+```
+
+## Editing content
+
+All content lives in **`src/data/portfolio.json`**. It is validated against `src/lib/content/schema.ts` and the build fails with readable errors if the file is invalid. Empty strings or empty arrays mean "not provided" and are hidden in the UI. Put assets in `public/` and reference them by absolute path (`/images/projects/x.webp`). Project previews: set `media.preview` to a `.webm`/`.mp4` (`previewType: "video"`) or `.gif` (`"gif"`). Prefer 16:9 WebP covers about 1600px wide. Content was imported verbatim from `public/resume/`: phone, YouTube, Medium and Instagram are intentionally left empty (hidden). Resume: put the PDF in `public/resume/` and set `resume.file` (for example `/resume/sadanand-gadwal.pdf`). `personal.email` drives the contact CTA, copy button and footer email link. `public/fixtures/` holds preview-only fixture media (screens of this site) and can be deleted together with `src/app/design-system/`.
+
+## Scripts
+
+| Command                           | Purpose                                                                                    |
+| --------------------------------- | ------------------------------------------------------------------------------------------ |
+| `npm run dev`                     | Dev server                                                                                 |
+| `npm run build` / `npm start`     | Production build / serve                                                                   |
+| `npm run typecheck`               | Generate route types and run `tsc`                                                         |
+| `npm run lint`                    | ESLint                                                                                     |
+| `npm run format` / `format:check` | Prettier                                                                                   |
+| `npm test`                        | Vitest unit and component tests                                                            |
+| `npm run test:e2e`                | Playwright against the production build (run `npm run build` first) at 390, 768 and 1440px |
+| `npm run audit:a11y`              | axe-core accessibility scans in a real browser (run `npm run build` first)                 |
+| `npm run audit:lighthouse`        | Lighthouse report for a server already running on :3000 (`npm start`)                      |
+| `npm run check`                   | Typecheck, lint, format check and unit tests                                               |
+
+## Structure
+
+```
+src/
+  app/                 routes, layout, global styles and tokens
+  components/ui/       shadcn/ui primitives (token-styled)
+  app/projects/[slug]/ case-study pages (static, from JSON)
+  app/design-system/   living style guide + /sections and /projects fixture previews (noindex)
+  components/layout/   SiteHeader, MobileMenu, Container, Section, SectionHeader
+  components/icons/    TechIcon registry (simple-icons + Lucide)
+  components/motion/   CustomCursor, Magnetic, AnimatedNumber
+  components/sections/ page sections (props-only, no hardcoded content)
+  components/theme/    theme toggle
+  hooks/               client hooks (useTheme, useMediaQuery, useScrolled, useActiveSection)
+  data/portfolio.json  single content source (imported from the resume; see below)
+  proxy.ts             hard 404 for unknown /projects/<slug>
+  lib/content/         Zod schema, types and validated loader
+  lib/data-table.ts    pure search/filter/sort/paginate
+  lib/calendar.ts      UTC date-grid helpers for the date picker
+  lib/showcase/        order KPIs, region totals, status transitions
+  lib/chart.ts         chart scales and paths
+  lib/format.ts        locale-independent date range/duration formatting
+  lib/theme.ts         theme resolution and no-flash init script
+e2e/                   Playwright specs
+specs/                 Spec Kit–style requirements and plan
+DESIGN.md              design system
+```
+
+## Environment variables
+
+None.
+
+## Deployment
+
+Any Node 26 host or Vercel: `npm run build && npm start`. All routes are statically prerendered.
